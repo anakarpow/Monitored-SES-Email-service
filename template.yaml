@@ -1,0 +1,106 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  SES
+
+  Sample SAM Template for SES
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 128
+
+
+Parameters:
+  BucketInput:
+    Type: String
+    Description: input bucket for lambda
+    NoEcho: true
+
+
+Resources:
+  TriggerFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      Role: arn:aws:iam::471685057907:role/CAST-SES-InvokingRole-CTINUZYY6G41
+      CodeUri: trigger/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Architectures:
+        - x86_64
+
+  SendingFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      Role: arn:aws:iam::471685057907:role/CAST-SES-SESRole-PCTQSGGC1F3O
+      CodeUri: app/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          BUCKET_INPUT: !Ref BucketInput
+
+  InvokingRole:
+    Type: AWS::IAM::Role
+    Properties:
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - ec2.amazonaws.com
+                - lambda.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Path: "/"
+
+  InvokingPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: CASTTriggerPolicy
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action:
+              - lambda:invokeFunction
+            Resource:
+              - "*"
+      Roles:
+        - Ref: InvokingRole
+
+
+  SESRole:
+    Type: AWS::IAM::Role
+    Properties:
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - ec2.amazonaws.com
+                - lambda.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Path: "/"
+
+  SESPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: CASTSendPolicy
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action:
+              - ses:SendEmail
+              - ses:SendRawEmail
+            Resource:
+              - "*"
+      Roles:
+        - Ref: SESRole

@@ -1,0 +1,1214 @@
+[
+    {
+        "email": "lars.kunz@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-0800-Wolfsburg.html",
+        "cost_limit": "",
+        "project_name": "0800-Wolfsburg"
+    },
+    {
+        "email": "timo.gleis@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-1200-Hannover-Comp.html",
+        "cost_limit": "",
+        "project_name": "1200-Hannover-Comp"
+    },
+    {
+        "email": "roland.klenner@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-1300-Braunschweig.html",
+        "cost_limit": "",
+        "project_name": "1300-Braunschweig"
+    },
+    {
+        "email": "roland.klenner@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-1300-Braunschweig-LZ1.html",
+        "cost_limit": "",
+        "project_name": "1300-Braunschweig-LZ1"
+    },
+    {
+        "email": "roland.klenner@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-1400-Kassel.html",
+        "cost_limit": "",
+        "project_name": "1400-Kassel"
+    },
+    {
+        "email": "roland.klenner@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-1400-Kassel-LZ1.html",
+        "cost_limit": "",
+        "project_name": "1400-Kassel-LZ1"
+    },
+    {
+        "email": "roland.klenner@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-1700-Salzgitter.html",
+        "cost_limit": "",
+        "project_name": "1700-Salzgitter"
+    },
+    {
+        "email": "roland.klenner@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-1700-Salzgitter-LZ1.html",
+        "cost_limit": "",
+        "project_name": "1700-Salzgitter-LZ1"
+    },
+    {
+        "email": "carsten.weber@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-2700-Chemnitz.html",
+        "cost_limit": "",
+        "project_name": "2700-Chemnitz"
+    },
+    {
+        "email": "roland.klenner@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-3400-Polkowice.html",
+        "cost_limit": "",
+        "project_name": "3400-Polkowice"
+    },
+    {
+        "email": "roland.klenner@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-3400-Polkowice-LZ1.html",
+        "cost_limit": "",
+        "project_name": "3400-Polkowice-LZ1"
+    },
+    {
+        "email": "stefan.krawinkel@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-ASSEMBLY.html",
+        "cost_limit": "",
+        "project_name": "ASSEMBLY"
+    },
+    {
+        "email": "christian3.wolf@audi.de",
+        "attachement": "../output/2023-07-DPP-AUDI AG-AUDI-2200-KVAD37a.html",
+        "cost_limit": "",
+        "project_name": "AUDI-2200-KVAD37a"
+    },
+    {
+        "email": "mathias.mayer@audi.de",
+        "attachement": "../output/2023-07-DPP-AUDI AG-AUDINECKARSULMDATALAKE.html",
+        "cost_limit": "",
+        "project_name": "AUDINECKARSULMDATALAKE"
+    },
+    {
+        "email": "mathias.mayer@audi.de",
+        "attachement": "../output/2023-07-DPP-AUDI AG-AUDINECKARSULMINGEST.html",
+        "cost_limit": "",
+        "project_name": "AUDINECKARSULMINGEST"
+    },
+    {
+        "email": "nicolas.schwerdtfeger@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-Achsvermessung V.1.html",
+        "cost_limit": "",
+        "project_name": "Achsvermessung V.1"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-VW Nutzfahrzeuge-Annomalieerkennung.html",
+        "cost_limit": "",
+        "project_name": "Annomalieerkennung"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-AUDI AG-Audi - Reporting & Analyticsplattform – P-Data Engine.html",
+        "cost_limit": "",
+        "project_name": "Audi - Reporting & Analyticsplattform – P-Data Engine"
+    },
+    {
+        "email": "gerd.langer@porsche.de",
+        "attachement": "../output/2023-07-DPP-Porsche AG (Wtbl.)-Auftragsmanagement.html",
+        "cost_limit": "",
+        "project_name": "Auftragsmanagement"
+    },
+    {
+        "email": "vojtech.cernansky@volkswagen.sk",
+        "attachement": "../output/2023-07-DPP-VW Slovakia-BCS VW Slovakia.html",
+        "cost_limit": "",
+        "project_name": "BCS VW Slovakia"
+    },
+    {
+        "email": "jorge.garcia@audi.mx",
+        "attachement": "../output/2023-07-DPP-AUDI AUTOMOTIVE S. A. de C. V.-BCS_AUDI MEXICO_AWS Region Virginia_LZ2_2021.html",
+        "cost_limit": "",
+        "project_name": "BCS_AUDI MEXICO_AWS Region Virginia_LZ2_2021"
+    },
+    {
+        "email": "jorge.garcia@audi.mx",
+        "attachement": "../output/2023-07-DPP-AUDI AUTOMOTIVE S. A. de C. V.-BCS_AUDI MEXICO_LZ2_2021.html",
+        "cost_limit": "",
+        "project_name": "BCS_AUDI MEXICO_LZ2_2021"
+    },
+    {
+        "email": "Michelle.Evans@bentley.co.uk",
+        "attachement": "../output/2023-07-DPP-Bentley-BCS_BENTLEY_CREWE_LZ2_2021.html",
+        "cost_limit": "",
+        "project_name": "BCS_BENTLEY_CREWE_LZ2_2021"
+    },
+    {
+        "email": "matthias2.mueller@audi.hu",
+        "attachement": null,
+        "cost_limit": "",
+        "project_name": "BCS_LIVE_AUDI_HUNGARY_GYOER_LZ2_2021"
+    },
+    {
+        "email": "marcelo.lander@volkswagen.com.br",
+        "attachement": "../output/2023-07-DPP-VW Brasil-BCS_VW Brasil Curitiba_LZ2_2022.html",
+        "cost_limit": "",
+        "project_name": "BCS_VW Brasil Curitiba_LZ2_2022"
+    },
+    {
+        "email": "facundo.perez@vw.com.ar",
+        "attachement": "../output/2023-07-DPP-VW Argentina-BCS_VW_ARGENTINA_Pacheco_LZ2_2022_AWSregion_USeast1.html",
+        "cost_limit": "",
+        "project_name": "BCS_VW_ARGENTINA_Pacheco_LZ2_2022_AWSregion_USeast1"
+    },
+    {
+        "email": "marcelo.lander@volkswagen.com.br",
+        "attachement": "../output/2023-07-DPP-VW Brasil-BCS_VW_BRASIL_Taubate_LZ2_2022.html",
+        "cost_limit": "",
+        "project_name": "BCS_VW_BRASIL_Taubate_LZ2_2022"
+    },
+    {
+        "email": "marcelo.lander@volkswagen.com.br",
+        "attachement": "../output/2023-07-DPP-VW Brasil-BCS_VW_Brasil_ANCHIETA_LZ2_2021.html",
+        "cost_limit": "",
+        "project_name": "BCS_VW_Brasil_ANCHIETA_LZ2_2021"
+    },
+    {
+        "email": "marcelo.lander@volkswagen.com.br",
+        "attachement": "../output/2023-07-DPP-VW Brasil-BCS_VW_Brasil_SaoCarlos_LZ2_2022.html",
+        "cost_limit": "",
+        "project_name": "BCS_VW_Brasil_SaoCarlos_LZ2_2022"
+    },
+    {
+        "email": "ana.amatriain@vw-navarra.es",
+        "attachement": "../output/2023-07-DPP-Volkswagen Navarra-BCS_VW_NAVARRA_DPP_BASIC_Connectivity.html",
+        "cost_limit": "",
+        "project_name": "BCS_VW_NAVARRA_DPP_BASIC_Connectivity"
+    },
+    {
+        "email": "rainer.schlie@volkswagen-os.de",
+        "attachement": "../output/2023-07-DPP-VW Osnabrück GmbH-BCS_VW_OSNABRÜCK_AWS-REGION_IRELAND_LZ2_2021.html",
+        "cost_limit": "",
+        "project_name": "BCS_VW_OSNABRÜCK_AWS-REGION_IRELAND_LZ2_2021"
+    },
+    {
+        "email": "nils.lamprecht@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---BCaaS.html",
+        "cost_limit": "",
+        "project_name": "BCaaS"
+    },
+    {
+        "email": "nils.lamprecht@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---BCaaS-Test.html",
+        "cost_limit": "",
+        "project_name": "BCaaS-Test"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---BILLING.html",
+        "cost_limit": "",
+        "project_name": "BILLING"
+    },
+    {
+        "email": "bkm.input.data.monitor.vwag.r.wob1@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---BKM Input Data Monitor (KPI Monitor).html",
+        "cost_limit": "",
+        "project_name": "BKM Input Data Monitor (KPI Monitor)"
+    },
+    {
+        "email": "ruba.kharrubi@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---BLUEPRINTDATALAKE.html",
+        "cost_limit": "",
+        "project_name": "BLUEPRINTDATALAKE"
+    },
+    {
+        "email": "erol.eren1@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-Behälterassistenzsystem.html",
+        "cost_limit": "",
+        "project_name": "Behälterassistenzsystem"
+    },
+    {
+        "email": "kerstin.scholz@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-Business Cockpit.html",
+        "cost_limit": "",
+        "project_name": "Business Cockpit"
+    },
+    {
+        "email": "marcus.mallon@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-COSMOS.html",
+        "cost_limit": "",
+        "project_name": "COSMOS"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---COSTREVIEW.html",
+        "cost_limit": "",
+        "project_name": "COSTREVIEW"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-VW Group of America (Chattanooga)-Chattanooga Analytics.html",
+        "cost_limit": "",
+        "project_name": "Chattanooga Analytics"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-VW Group of America (Chattanooga)-Chattanooga DevOps Pipeline.html",
+        "cost_limit": "",
+        "project_name": "Chattanooga DevOps Pipeline"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-AUDI AG-Crack Detection 1.html",
+        "cost_limit": "",
+        "project_name": "Crack Detection 1"
+    },
+    {
+        "email": "pia.sophie.lamprecht1@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-Crack Detection 2.html",
+        "cost_limit": "",
+        "project_name": "Crack Detection 2"
+    },
+    {
+        "email": "irina.wilkow@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Nutzfahrzeuge-Cycle Time Supervisior Service.html",
+        "cost_limit": "",
+        "project_name": "Cycle Time Supervisior Service"
+    },
+    {
+        "email": "dirk.voigt@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-DIGITUM.html",
+        "cost_limit": "",
+        "project_name": "DIGITUM"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---DNS_PP.html",
+        "cost_limit": "",
+        "project_name": "DNS_PP"
+    },
+    {
+        "email": "carolin.stuwe@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-DPL UC 157b - BKM NEON.html",
+        "cost_limit": "",
+        "project_name": "DPL UC 157b - BKM NEON"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-DPP ClearingOffice.html",
+        "cost_limit": "",
+        "project_name": "DPP ClearingOffice"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-C-Platform Services-DPP Cost Review Dashboard.html",
+        "cost_limit": "",
+        "project_name": "DPP Cost Review Dashboard"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-C-Platform Services-DPP DataHub.html",
+        "cost_limit": "",
+        "project_name": "DPP DataHub"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-VW-DPP Roadtest Predictor WOB.html",
+        "cost_limit": "",
+        "project_name": "DPP Roadtest Predictor WOB"
+    },
+    {
+        "email": "david.villalba@seat.es",
+        "attachement": "../output/2023-07-DPP-Seat S.A.-DPP WCTM SEAT Martorell.html",
+        "cost_limit": "",
+        "project_name": "DPP WCTM SEAT Martorell"
+    },
+    {
+        "email": "anurag.agrawal@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-DPP-Atlas.html",
+        "cost_limit": "",
+        "project_name": "DPP-Atlas"
+    },
+    {
+        "email": "marcus.pfitzner@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---DPP-DEVOPS.html",
+        "cost_limit": "",
+        "project_name": "DPP-DEVOPS"
+    },
+    {
+        "email": "anton.frank@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-DSFM.html",
+        "cost_limit": "",
+        "project_name": "DSFM"
+    },
+    {
+        "email": "lisa.zscherneck@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-DSFM+_Core_Ops.html",
+        "cost_limit": "",
+        "project_name": "DSFM+_Core_Ops"
+    },
+    {
+        "email": "frank.cersovsky@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-Demo181201.html",
+        "cost_limit": "",
+        "project_name": "Demo181201"
+    },
+    {
+        "email": "frank.cersovsky@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-Demo181202.html",
+        "cost_limit": "",
+        "project_name": "Demo181202"
+    },
+    {
+        "email": "frank.cersovsky@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---DemoUsEast1.html",
+        "cost_limit": "",
+        "project_name": "DemoUsEast1"
+    },
+    {
+        "email": "jan-paul.brueckmann@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-Digital Realities Hub.html",
+        "cost_limit": "",
+        "project_name": "Digital Realities Hub"
+    },
+    {
+        "email": "till.graue@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-Digitale Akte Werkzeugentstehungsprozess.html",
+        "cost_limit": "",
+        "project_name": "Digitale Akte Werkzeugentstehungsprozess"
+    },
+    {
+        "email": "tomas.rudas@volkswagen-groupservices.com",
+        "attachement": "../output/2023-07-DPP-VW-Digitaler Ausschussraum.html",
+        "cost_limit": "",
+        "project_name": "Digitaler Ausschussraum"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-VW-Dimensional Management Database.html",
+        "cost_limit": "",
+        "project_name": "Dimensional Management Database"
+    },
+    {
+        "email": "mario.raasch@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-EAGLE.html",
+        "cost_limit": "",
+        "project_name": "EAGLE"
+    },
+    {
+        "email": "christoph.groll@porsche.de",
+        "attachement": "../output/2023-07-DPP-Porsche AG (Wtbl.)-Energie- & Umweltmanagement.html",
+        "cost_limit": "",
+        "project_name": "Energie- & Umweltmanagement"
+    },
+    {
+        "email": "tina.rendelmann@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-FINJa GW.html",
+        "cost_limit": "",
+        "project_name": "FINJa GW"
+    },
+    {
+        "email": "frank.cersovsky@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---FIRESTARTER.html",
+        "cost_limit": "",
+        "project_name": "FIRESTARTER"
+    },
+    {
+        "email": "lars.franke@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Nutzfahrzeuge-FIS Report.html",
+        "cost_limit": "",
+        "project_name": "FIS Report"
+    },
+    {
+        "email": "karsten.hein@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-FISVIEW.html",
+        "cost_limit": "",
+        "project_name": "FISVIEW"
+    },
+    {
+        "email": "alexander.scholz2@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-FX.html",
+        "cost_limit": "",
+        "project_name": "FX"
+    },
+    {
+        "email": "alexander.scholz2@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-FX4Demand.html",
+        "cost_limit": "",
+        "project_name": "FX4Demand"
+    },
+    {
+        "email": "joerg.schoellhorn@porsche.de",
+        "attachement": "../output/2023-07-DPP-Porsche AG (Wtbl.)-Fahrzeug- & Fertigungssteuerung.html",
+        "cost_limit": "",
+        "project_name": "Fahrzeug- & Fertigungssteuerung"
+    },
+    {
+        "email": "andre.sewzyk@porsche.de",
+        "attachement": "../output/2023-07-DPP-Porsche AG (Wtbl.)-Fertigung.html",
+        "cost_limit": "",
+        "project_name": "Fertigung"
+    },
+    {
+        "email": "tim.wittwer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-GUIDEDVEHICLECOMPLETION.html",
+        "cost_limit": "",
+        "project_name": "GUIDEDVEHICLECOMPLETION"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---Group System Integration.html",
+        "cost_limit": "",
+        "project_name": "Group System Integration"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-HDI - CDC.html",
+        "cost_limit": "",
+        "project_name": "HDI - CDC"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-HDI - DB Gateway.html",
+        "cost_limit": "",
+        "project_name": "HDI - DB Gateway"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-HDI - FIS.html",
+        "cost_limit": "",
+        "project_name": "HDI - FIS"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-HDI - MQ.html",
+        "cost_limit": "",
+        "project_name": "HDI - MQ"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-HDI - RVS.html",
+        "cost_limit": "",
+        "project_name": "HDI - RVS"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-HDI – FRA Test.html",
+        "cost_limit": "",
+        "project_name": "HDI – FRA Test"
+    },
+    {
+        "email": "matthias.ilgen@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---HIFIS.html",
+        "cost_limit": "",
+        "project_name": "HIFIS"
+    },
+    {
+        "email": "matthias.ilgen@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---HIRVS.html",
+        "cost_limit": "",
+        "project_name": "HIRVS"
+    },
+    {
+        "email": "matthias.ilgen@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---HORIZONTALINTEGRATION.html",
+        "cost_limit": "",
+        "project_name": "HORIZONTALINTEGRATION"
+    },
+    {
+        "email": "susan.duebner@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-HWP.html",
+        "cost_limit": "",
+        "project_name": "HWP"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-VW Autoeuropa Lda.-ICV @ Autoeuropa.html",
+        "cost_limit": "",
+        "project_name": "ICV @ Autoeuropa"
+    },
+    {
+        "email": "adrian.boek@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-IPOLOG.html",
+        "cost_limit": "",
+        "project_name": "IPOLOG"
+    },
+    {
+        "email": "roland.klenner@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-ITComponents.html",
+        "cost_limit": "",
+        "project_name": "ITComponents"
+    },
+    {
+        "email": "meixin.yang@porsche.de",
+        "attachement": "../output/2023-07-DPP-Porsche AG (Wtbl.)-Instandhaltung.html",
+        "cost_limit": "",
+        "project_name": "Instandhaltung"
+    },
+    {
+        "email": "andreas.hartgen@audi.de",
+        "attachement": "../output/2023-07-DPP-AUDI-Intelligente Auslastungsplanung im Werkzeugbau .html",
+        "cost_limit": "",
+        "project_name": "Intelligente Auslastungsplanung im Werkzeugbau "
+    },
+    {
+        "email": "christina.mueller@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-KTI.html",
+        "cost_limit": "",
+        "project_name": "KTI"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---LZAutomation.html",
+        "cost_limit": "",
+        "project_name": "LZAutomation"
+    },
+    {
+        "email": "roland.harms@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-Logistics Data Lake.html",
+        "cost_limit": "",
+        "project_name": "Logistics Data Lake"
+    },
+    {
+        "email": "heiko.krueger1@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-Logistics.Fleet.Control.html",
+        "cost_limit": "",
+        "project_name": "Logistics.Fleet.Control"
+    },
+    {
+        "email": "eric.keeton@vw.com",
+        "attachement": "../output/2023-07-DPP-VW Group of America (Chattanooga)-Logistics.Fleet.Control Chattanooga.html",
+        "cost_limit": "",
+        "project_name": "Logistics.Fleet.Control Chattanooga"
+    },
+    {
+        "email": "DPP_Billing@porsche.de",
+        "attachement": "../output/2023-07-DPP-Porsche AG (Wtbl.)-Logistik.html",
+        "cost_limit": "",
+        "project_name": "Logistik"
+    },
+    {
+        "email": "frank.cersovsky@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---MANAGEMENT.html",
+        "cost_limit": "",
+        "project_name": "MANAGEMENT"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-VW-Massnahmen@Web Evo.html",
+        "cost_limit": "",
+        "project_name": "Massnahmen@Web Evo"
+    },
+    {
+        "email": "sebastian.kuntze@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-Matthew.html",
+        "cost_limit": "",
+        "project_name": "Matthew"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-Mendix.html",
+        "cost_limit": "",
+        "project_name": "Mendix"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-VW-Migration KGH-Tool.html",
+        "cost_limit": "",
+        "project_name": "Migration KGH-Tool"
+    },
+    {
+        "email": "michael.schlichte@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-NAVVIS.html",
+        "cost_limit": "",
+        "project_name": "NAVVIS"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-C-Platform Services-NFW Frankfurt.html",
+        "cost_limit": "",
+        "project_name": "NFW Frankfurt"
+    },
+    {
+        "email": "frank.cersovsky@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-NFW-Proxy.html",
+        "cost_limit": "",
+        "project_name": "NFW-Proxy"
+    },
+    {
+        "email": "simon.taraz@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-Next Generation Planning.html",
+        "cost_limit": "",
+        "project_name": "Next Generation Planning"
+    },
+    {
+        "email": "hendrik.fensch@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-ONE Log.html",
+        "cost_limit": "",
+        "project_name": "ONE Log"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-VW-OUTPOST.html",
+        "cost_limit": "",
+        "project_name": "OUTPOST"
+    },
+    {
+        "email": "christian.wiswe@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-OneLog Kassel.html",
+        "cost_limit": "",
+        "project_name": "OneLog Kassel"
+    },
+    {
+        "email": "pia-alicia.johannes@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-Online Component Tracker.html",
+        "cost_limit": "",
+        "project_name": "Online Component Tracker"
+    },
+    {
+        "email": "luis.del_grosso@porsche.de",
+        "attachement": "../output/2023-07-DPP-Porsche AG (Wtbl.)-Operative Exzellenz.html",
+        "cost_limit": "",
+        "project_name": "Operative Exzellenz"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---PLANTENABLEMENT.html",
+        "cost_limit": "",
+        "project_name": "PLANTENABLEMENT"
+    },
+    {
+        "email": "christoph.groll@porsche.de",
+        "attachement": "../output/2023-07-DPP-Porsche AG (Wtbl.)-PORSCHE.html",
+        "cost_limit": "",
+        "project_name": "PORSCHE"
+    },
+    {
+        "email": "jan.drtil@skoda-auto.cz",
+        "attachement": "../output/2023-07-DPP-Skoda Auto A.S.-PPS Toolshop (Ireland).html",
+        "cost_limit": "",
+        "project_name": "PPS Toolshop (Ireland)"
+    },
+    {
+        "email": "christoph.becker2@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-Packaging Evolution.html",
+        "cost_limit": "",
+        "project_name": "Packaging Evolution"
+    },
+    {
+        "email": "laura.tolksdorf@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-Paint Shop Monitor System.html",
+        "cost_limit": "",
+        "project_name": "Paint Shop Monitor System"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---Plant Cloud.html",
+        "cost_limit": "",
+        "project_name": "Plant Cloud"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---Plant Connectivity Services.html",
+        "cost_limit": "",
+        "project_name": "Plant Connectivity Services"
+    },
+    {
+        "email": "gregor.thiele@porsche.de",
+        "attachement": "../output/2023-07-DPP-Porsche AG (Wtbl.)-Planung.html",
+        "cost_limit": "",
+        "project_name": "Planung"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-Skoda-PoC Latency check from factories to Ireland AWS DPP Instance.html",
+        "cost_limit": "",
+        "project_name": "PoC Latency check from factories to Ireland AWS DPP Instance"
+    },
+    {
+        "email": "christoph.groll@porsche.de",
+        "attachement": "../output/2023-07-DPP-Porsche AG (Wtbl.)-Porsche Shared Services.html",
+        "cost_limit": "",
+        "project_name": "Porsche Shared Services"
+    },
+    {
+        "email": "pascal.lenz@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-PreCo (Predictive Control).html",
+        "cost_limit": "",
+        "project_name": "PreCo (Predictive Control)"
+    },
+    {
+        "email": "mathias.reichelt@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-PressFramework2.0 Cloud Connectivity PoC.html",
+        "cost_limit": "",
+        "project_name": "PressFramework2.0 Cloud Connectivity PoC"
+    },
+    {
+        "email": "roland.harms@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-Prozessanalysen Logistik.html",
+        "cost_limit": "",
+        "project_name": "Prozessanalysen Logistik"
+    },
+    {
+        "email": "christian.seifert@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VWS Fahrzeugfertigung Zwickau-QS Audit.html",
+        "cost_limit": "",
+        "project_name": "QS Audit"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---QSK.html",
+        "cost_limit": "",
+        "project_name": "QSK"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---QSK2019.html",
+        "cost_limit": "",
+        "project_name": "QSK2019"
+    },
+    {
+        "email": "niklas.krause@porsche.de",
+        "attachement": "../output/2023-07-DPP-Porsche AG (Wtbl.)-Qualität.html",
+        "cost_limit": "",
+        "project_name": "Qualität"
+    },
+    {
+        "email": "pia.sophie.lamprecht@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Autoeuropa Lda.-RoadTestPrediction LZ2.html",
+        "cost_limit": "",
+        "project_name": "RoadTestPrediction LZ2"
+    },
+    {
+        "email": "stephan.teuber@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---SECURITY.html",
+        "cost_limit": "",
+        "project_name": "SECURITY"
+    },
+    {
+        "email": "frank.cersovsky@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---SHS.html",
+        "cost_limit": "",
+        "project_name": "SHS"
+    },
+    {
+        "email": "mario.raasch@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-SIRIUS.html",
+        "cost_limit": "",
+        "project_name": "SIRIUS"
+    },
+    {
+        "email": "dominique.fabian.matz@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-SPL2019.html",
+        "cost_limit": "",
+        "project_name": "SPL2019"
+    },
+    {
+        "email": "oliver.bauer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---SRE.html",
+        "cost_limit": "",
+        "project_name": "SRE"
+    },
+    {
+        "email": "patrick.herzog@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-Shortage Management Tool (ShoMa).html",
+        "cost_limit": "",
+        "project_name": "Shortage Management Tool (ShoMa)"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-VW-Smart Production Lab.html",
+        "cost_limit": "",
+        "project_name": "Smart Production Lab"
+    },
+    {
+        "email": "mayank.soni@volkswagen.co.in",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-Smoke Test Ireland2.html",
+        "cost_limit": "",
+        "project_name": "Smoke Test Ireland2"
+    },
+    {
+        "email": "frank.cersovsky@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-SmokeTestFra.html",
+        "cost_limit": "",
+        "project_name": "SmokeTestFra"
+    },
+    {
+        "email": "ralf.ley@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-Supply Chain Master Planning.html",
+        "cost_limit": "",
+        "project_name": "Supply Chain Master Planning"
+    },
+    {
+        "email": "thomas.hegmann@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VWS Fahrzeugfertigung Zwickau-TRACKANDTRACE.html",
+        "cost_limit": "",
+        "project_name": "TRACKANDTRACE"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-C-Platform Services-Talend PoC.html",
+        "cost_limit": "",
+        "project_name": "Talend PoC"
+    },
+    {
+        "email": "johannes.scherf-clavel@audi.de",
+        "attachement": "../output/2023-07-DPP-AUDI AG-UC #615 Tech Hub - Data Science Sandbox_Audi_Neckarsulm_LZ2_2021.html",
+        "cost_limit": "",
+        "project_name": "UC #615 Tech Hub - Data Science Sandbox_Audi_Neckarsulm_LZ2_2021"
+    },
+    {
+        "email": "martin.goede@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-UC#123_ Gewerkeübergreifende Regelkreise_ VW Wolfsburg_LZ2_2021.html",
+        "cost_limit": "",
+        "project_name": "UC#123_ Gewerkeübergreifende Regelkreise_ VW Wolfsburg_LZ2_2021"
+    },
+    {
+        "email": "ludek.pavlik2@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-UC#157_LOG_SD_Repository_LZ2.html",
+        "cost_limit": "",
+        "project_name": "UC#157_LOG_SD_Repository_LZ2"
+    },
+    {
+        "email": "Michelle.Evans@bentley.co.uk",
+        "attachement": "../output/2023-07-DPP-Bentley-UC#175_ConMon_Conveyor_Belt_Drives_Bentley_Crewe_LZ2_2021.html",
+        "cost_limit": "",
+        "project_name": "UC#175_ConMon_Conveyor_Belt_Drives_Bentley_Crewe_LZ2_2021"
+    },
+    {
+        "email": "juan2.ramos@vw.com.mx",
+        "attachement": "../output/2023-07-DPP-VW de Mexico-UC#175_POC_VW_PUE_2021_LZ2_Condition Monitoring Conveyor_Belt_Drives.html",
+        "cost_limit": "",
+        "project_name": "UC#175_POC_VW_PUE_2021_LZ2_Condition Monitoring Conveyor_Belt_Drives"
+    },
+    {
+        "email": "Enrique.RodriguezOrdonez@vw.com",
+        "attachement": "../output/2023-07-DPP-VW Group of America (Chattanooga)-UC#175_VW_GoA_LZ2_2021_Condition_Monitoring_Conveyor_Belt_Drives.html",
+        "cost_limit": "",
+        "project_name": "UC#175_VW_GoA_LZ2_2021_Condition_Monitoring_Conveyor_Belt_Drives"
+    },
+    {
+        "email": "ana.amatriain@vw-navarra.es",
+        "attachement": "../output/2023-07-DPP-Volkswagen Navarra-UC#176_SMART HEATING_VW_ NAVARRA_2021_LZ2.html",
+        "cost_limit": "",
+        "project_name": "UC#176_SMART HEATING_VW_ NAVARRA_2021_LZ2"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-AUDI BRUSSELS S.A-UC#29_SPOC_AUDI_BRUESSEL_LZ2_2023_AWS_region_Ireland.html",
+        "cost_limit": "",
+        "project_name": "UC#29_SPOC_AUDI_BRUESSEL_LZ2_2023_AWS_region_Ireland"
+    },
+    {
+        "email": "raul.gabas@seat.es",
+        "attachement": "../output/2023-07-DPP-Seat S.A.-UC#31_SEAT PM ELECTRIC WELDING CLAMPS_LZ2_2021.html",
+        "cost_limit": "",
+        "project_name": "UC#31_SEAT PM ELECTRIC WELDING CLAMPS_LZ2_2021"
+    },
+    {
+        "email": "marcelo.lander@volkswagen.com.br",
+        "attachement": "../output/2023-07-DPP-VW Brasil-UC#38_SRS_EPIK_VW_BRASIL_ANCHIETA_LZ2_2021.html",
+        "cost_limit": "",
+        "project_name": "UC#38_SRS_EPIK_VW_BRASIL_ANCHIETA_LZ2_2021"
+    },
+    {
+        "email": "johan.venter@vwsa.co.za",
+        "attachement": "../output/2023-07-DPP-VW South Africa-UC#38_SRS_EPIK_VW_SOUTH_AFRICA_2021_LZ_Cape Town.html",
+        "cost_limit": "",
+        "project_name": "UC#38_SRS_EPIK_VW_SOUTH_AFRICA_2021_LZ_Cape Town"
+    },
+    {
+        "email": "andreas.jahn@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-UC#51_Fraesmaschinen Cockpit.html",
+        "cost_limit": "",
+        "project_name": "UC#51_Fraesmaschinen Cockpit"
+    },
+    {
+        "email": "ina.maria.hilke.schlueter@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-UC#609_Nova AVA_VW_GROUP_LZ2_2022.html",
+        "cost_limit": "",
+        "project_name": "UC#609_Nova AVA_VW_GROUP_LZ2_2022"
+    },
+    {
+        "email": "carsten.weber@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Konzern Komponente-UC#677_digital TPM_Chemnitz.html",
+        "cost_limit": "",
+        "project_name": "UC#677_digital TPM_Chemnitz"
+    },
+    {
+        "email": "ana.amatriain@vw-navarra.es",
+        "attachement": "../output/2023-07-DPP-Volkswagen Navarra-UC#760_Torques Monitoring_VW Navarrra_LZ2_2022.html",
+        "cost_limit": "",
+        "project_name": "UC#760_Torques Monitoring_VW Navarrra_LZ2_2022"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-Audi Hungaria Györ - Fahrzeug-UC125_GBDE_AUDI_GYOER_LZ2_2023.html",
+        "cost_limit": "",
+        "project_name": "UC125_GBDE_AUDI_GYOER_LZ2_2023"
+    },
+    {
+        "email": "shahrooz.sadeghi.borujeni1@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-UC174_AI-based productivity enhancement in additive manufacturing binder jetting.html",
+        "cost_limit": "",
+        "project_name": "UC174_AI-based productivity enhancement in additive manufacturing binder jetting"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-Audi Hungaria Györ - Fahrzeug-UC29_SPOC_AUDI_GYOER_LZ2_2023.html",
+        "cost_limit": "",
+        "project_name": "UC29_SPOC_AUDI_GYOER_LZ2_2023"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-AUDI AUTOMOTIVE S. A. de C. V.-UC29_SPOC_AUDI_SJC_LZ2_2023.html",
+        "cost_limit": "",
+        "project_name": "UC29_SPOC_AUDI_SJC_LZ2_2023"
+    },
+    {
+        "email": "christian.brugger@audi.de",
+        "attachement": "../output/2023-07-DPP-AUDI AG-UC29_SPOC_before NAFS AUDI.html",
+        "cost_limit": "",
+        "project_name": "UC29_SPOC_before NAFS AUDI"
+    },
+    {
+        "email": "alexander.rein@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-UC36_Wheel_Alignment_Predictor.html",
+        "cost_limit": "",
+        "project_name": "UC36_Wheel_Alignment_Predictor"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-Audi Hungaria Györ - Fahrzeug-UC809_TLD_AUDI_GYOER_LZ2_2023.html",
+        "cost_limit": "",
+        "project_name": "UC809_TLD_AUDI_GYOER_LZ2_2023"
+    },
+    {
+        "email": "alexander.rein@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-UC83 Cloud based energy data reporting and analytics.html",
+        "cost_limit": "",
+        "project_name": "UC83 Cloud based energy data reporting and analytics"
+    },
+    {
+        "email": "stephanie.schmerschneider@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-UC_25_DÜRR Fillingservice.html",
+        "cost_limit": "",
+        "project_name": "UC_25_DÜRR Fillingservice"
+    },
+    {
+        "email": "marcelo.lander@volkswagen.com.br",
+        "attachement": "../output/2023-07-DPP-VW Brasil-UC_38_DPP EPIK_ VW Brasil_Curitiba LZ2_2022.html",
+        "cost_limit": "",
+        "project_name": "UC_38_DPP EPIK_ VW Brasil_Curitiba LZ2_2022"
+    },
+    {
+        "email": "marcelo.lander@volkswagen.com.br",
+        "attachement": "../output/2023-07-DPP-VW Brasil-UC_38_DPP EPIK_ VW Brasil_Taubaté LZ2_2022.html",
+        "cost_limit": "",
+        "project_name": "UC_38_DPP EPIK_ VW Brasil_Taubaté LZ2_2022"
+    },
+    {
+        "email": "marcelo.lander@volkswagen.com.br",
+        "attachement": "../output/2023-07-DPP-VW Brasil-UC_38_EPIK_VW_Brasil_Sao Carlos_LZ2_2022.html",
+        "cost_limit": "",
+        "project_name": "UC_38_EPIK_VW_Brasil_Sao Carlos_LZ2_2022"
+    },
+    {
+        "email": "matthias.schicke@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-UC_663_Bauteilerepository_BASIS_LZ2_2022.html",
+        "cost_limit": "",
+        "project_name": "UC_663_Bauteilerepository_BASIS_LZ2_2022"
+    },
+    {
+        "email": "boris.kretschmann@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-UC_RUN_ Konzern_BDE_Betriebsdatenerfassung.html",
+        "cost_limit": "",
+        "project_name": "UC_RUN_ Konzern_BDE_Betriebsdatenerfassung"
+    },
+    {
+        "email": "jessica.bokemeyer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-UC_xxx_VW_EMD_DFSM+_DataHub_LZ2_2022_AWSregionIreland.html",
+        "cost_limit": "",
+        "project_name": "UC_xxx_VW_EMD_DFSM+_DataHub_LZ2_2022_AWSregionIreland"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-VW-UNREAL CLOUD DPP.html",
+        "cost_limit": "",
+        "project_name": "UNREAL CLOUD DPP"
+    },
+    {
+        "email": "antonio.delgado.gonzalez@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-UPS RPCS.html",
+        "cost_limit": "",
+        "project_name": "UPS RPCS"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-UPS RPCS DSA.html",
+        "cost_limit": "",
+        "project_name": "UPS RPCS DSA"
+    },
+    {
+        "email": "frank.cersovsky@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C---USERJOURNEY.html",
+        "cost_limit": "",
+        "project_name": "USERJOURNEY"
+    },
+    {
+        "email": "dennis.abmeier@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-VRCONTROLLER.html",
+        "cost_limit": "",
+        "project_name": "VRCONTROLLER"
+    },
+    {
+        "email": "eric.keeton@vw.com",
+        "attachement": "../output/2023-07-DPP-VW Group of America (Chattanooga)-VW Chattanooga BCS NV.html",
+        "cost_limit": "",
+        "project_name": "VW Chattanooga BCS NV"
+    },
+    {
+        "email": "eric.keeton@vw.com",
+        "attachement": "../output/2023-07-DPP-VW Group of America (Chattanooga)-VW Chattanooga ICV.html",
+        "cost_limit": "",
+        "project_name": "VW Chattanooga ICV"
+    },
+    {
+        "email": "Enrique.RodriguezOrdonez@vw.com",
+        "attachement": "../output/2023-07-DPP-VW Group of America (Chattanooga)-VWCHATTANOOGACONNECTIVITY.html",
+        "cost_limit": "",
+        "project_name": "VWCHATTANOOGACONNECTIVITY"
+    },
+    {
+        "email": "mathias.boomgaarden@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-VWEMDENWPS.html",
+        "cost_limit": "",
+        "project_name": "VWEMDENWPS"
+    },
+    {
+        "email": "karsten.hein@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-VWLOCATIONSERVICE.html",
+        "cost_limit": "",
+        "project_name": "VWLOCATIONSERVICE"
+    },
+    {
+        "email": "gernot.jordan@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Nutzfahrzeuge-VWN Datalake.html",
+        "cost_limit": "",
+        "project_name": "VWN Datalake"
+    },
+    {
+        "email": "irina.wilkow@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW Nutzfahrzeuge-VWN Hannover Edge Gateway 001.html",
+        "cost_limit": "",
+        "project_name": "VWN Hannover Edge Gateway 001"
+    },
+    {
+        "email": "wojciech.wisniewski@vw-poznan.pl",
+        "attachement": "../output/2023-07-DPP-VW Nutzfahrzeuge-VWN Wrzesnia Edge Gateway 001.html",
+        "cost_limit": "",
+        "project_name": "VWN Wrzesnia Edge Gateway 001"
+    },
+    {
+        "email": "wojciech.wisniewski@vw-poznan.pl",
+        "attachement": "../output/2023-07-DPP-VW Nutzfahrzeuge-VWN Wrzesnia Tightening Control System.html",
+        "cost_limit": "",
+        "project_name": "VWN Wrzesnia Tightening Control System"
+    },
+    {
+        "email": "roberto.ramos@vw.com.mx",
+        "attachement": "../output/2023-07-DPP-VW de Mexico-VWPUEBLABCS.html",
+        "cost_limit": "",
+        "project_name": "VWPUEBLABCS"
+    },
+    {
+        "email": "anurag.agrawal@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-C-Platform Services-VWS.html",
+        "cost_limit": "",
+        "project_name": "VWS"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-VWS Fahrzeugfertigung Zwickau-VWZWICKAUDATAHUB.html",
+        "cost_limit": "",
+        "project_name": "VWZWICKAUDATAHUB"
+    },
+    {
+        "email": "markus.liedtke@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-VW_EMD_BCS_KAROBAU.html",
+        "cost_limit": "",
+        "project_name": "VW_EMD_BCS_KAROBAU"
+    },
+    {
+        "email": "johan.venter@vwsa.co.za",
+        "attachement": "../output/2023-07-DPP-VW South Africa-VW_SOUTH_AFRICA_BCS_2021.html",
+        "cost_limit": "",
+        "project_name": "VW_SOUTH_AFRICA_BCS_2021"
+    },
+    {
+        "email": "andy.groth@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-Produktion&Logistik-VW_WOB_Kunststofftechnik_Digitalisierung Prozesssteuerungstafel und Ticketsystem für Werkzeuge PWK.html",
+        "cost_limit": "",
+        "project_name": "VW_WOB_Kunststofftechnik_Digitalisierung Prozesssteuerungstafel und Ticketsystem für Werkzeuge PWK"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-VW-VW² Anomaly Detection.html",
+        "cost_limit": "",
+        "project_name": "VW² Anomaly Detection"
+    },
+    {
+        "email": "steve.liebschwager@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-VW² Assembly control.html",
+        "cost_limit": "",
+        "project_name": "VW² Assembly control"
+    },
+    {
+        "email": "tim.wittwer@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-VW² IRIS.html",
+        "cost_limit": "",
+        "project_name": "VW² IRIS"
+    },
+    {
+        "email": "martin.woop@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-AUDI BRUSSELS S.A-WPS Predictive Quality Brussels.html",
+        "cost_limit": "",
+        "project_name": "WPS Predictive Quality Brussels"
+    },
+    {
+        "email": "Mathias.Mayer@audi.de",
+        "attachement": "../output/2023-07-DPP-AUDI AG-WPS Predictive Quality Ingolstadt.html",
+        "cost_limit": "",
+        "project_name": "WPS Predictive Quality Ingolstadt"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-C-Platform Services-dpphub.html",
+        "cost_limit": "",
+        "project_name": "dpphub"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-C-Platform Services-hub_params_test_dpp.html",
+        "cost_limit": "",
+        "project_name": "hub_params_test_dpp"
+    },
+    {
+        "email": "stefan.horatschek@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-i.Maintenance.html",
+        "cost_limit": "",
+        "project_name": "i.Maintenance"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-C-Platform Services-ireland-PP smoke test for cidr reservation service tgw v3.html",
+        "cost_limit": "",
+        "project_name": "ireland-PP smoke test for cidr reservation service tgw v3"
+    },
+    {
+        "email": 0,
+        "attachement": "../output/2023-07-DPP-C-Platform Services-northV-PP smoke test for cidr reservation service tgw v3.html",
+        "cost_limit": "",
+        "project_name": "northV-PP smoke test for cidr reservation service tgw v3"
+    },
+    {
+        "email": "bjoern.endler@volkswagen.de",
+        "attachement": "../output/2023-07-DPP-VW-smartDIP.html",
+        "cost_limit": "",
+        "project_name": "smartDIP"
+    }
+]
