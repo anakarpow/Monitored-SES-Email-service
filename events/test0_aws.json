@@ -3,22 +3,22 @@
 "adresses":[
     
 {"email":"cast.ses.2@efs.at",
-"cost_limit": "",
+"cost_limit": 10000,
 "project_name": "0800-Wolfsburg",
 "timestamp":"",
-"forecast":"",
+"forecast":9377,
 "delta_forecast_limit":""},
 
 {"email":"cast.ses.1@efs.at",
-"cost_limit": "",
+"cost_limit": 5000,
 "project_name": "1300-Braunschweig",
 "timestamp":"",
-"forecast":"",
+"forecast":64491,
 "delta_forecast_limit":""},
 
 {"email":"bounce@simulator.amazonses.com",
-"cost_limit": "",
+"cost_limit": 5000,
 "project_name": "1400-Kassel-LZ1",
 "timestamp":"",
-"forecast":"",
+"forecast":67133,
 "delta_forecast_limit":""}]}

@@ -7,12 +7,12 @@
 "cost_limit": "",
 "project_name": "0800-Wolfsburg",
 "timestamp":"",
-"forecast":"",
+"forecast":9377,
 "delta_forecast_limit":""},
 
 {"email":"cast.ses.1@efs.at",
 "attachment":"data/sample_CR.html",
-"cost_limit": "",
+"cost_limit": 64491,
 "project_name": "1300-Braunschweig",
 "timestamp":"",
 "forecast":"",
@@ -23,5 +23,5 @@
 "cost_limit": "",
 "project_name": "1400-Kassel-LZ1",
 "timestamp":"",
-"forecast":"",
+"forecast":67133,
 "delta_forecast_limit":""}]}

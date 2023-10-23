@@ -1,5 +1,8 @@
 
 def default_text(variables):
+    variables['delta_forecast_limit'] = variables['cost_limit'] - \
+        variables['forecast']
+
     default = f"""
         <html>
         <head></head>

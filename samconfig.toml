@@ -48,4 +48,5 @@ parameter_overrides=[
     'VPCId=vpc-0517670858bad1b7b',
     'Subnet1=subnet-0c0de0a7916e385ec',
     'Subnet2=subnet-092ee8f5c41040211',
+    'BucketInputOverview=vw-lambda-reporting-manual-input',
     'BucketInput=vw-lambda-reporting-output']

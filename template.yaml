@@ -17,6 +17,12 @@ Parameters:
     Type: String
     Description: input bucket for lambda
     NoEcho: true
+  
+  BucketInputOverview:
+    Type: String
+    Description: input bucket for overview file
+    NoEcho: true
+
 
 
 Resources:
@@ -42,6 +48,7 @@ Resources:
       Environment:
         Variables:
           BUCKET_INPUT: !Ref BucketInput
+          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
 
   InvokingRole:
     Type: AWS::IAM::Role

@@ -5,14 +5,35 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 import boto3
+import pandas as pd
 from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 from text import default_text, monitoring_text
 
 is_local = os.environ.get("local")
+input_bucket = os.environ.get("BUCKET_INPUT")
+input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 
 ses_client = boto3.client("ses", region_name="eu-west-1")
 s3_client = boto3.client('s3')
 bucket = 'vw-lambda-reporting-output'
+
+
+def get_overview_file():
+    """
+    retrives subset of overview file with forecast valeu for projects costs
+    TODO >
+      automate retrieval with date
+      merge with data to output mailing list
+
+
+    """
+    cols = ['Projekt Name', 'Trend EOY 2023', 'Cost Limit']
+    filename = 'OverviewCostReports'+'-09-2023'+'.xlsx'
+    file = s3_client.get_object(
+        Key=filename, Bucket=input_bucket_overview)
+    data = pd.read_excel((file['Body'].read()), header=41)
+    subset = data[cols]
+    return subset
 
 
 def match_file(file_list, item):
@@ -59,7 +80,6 @@ def send_email_with_attachment(item):
     # in the future import text from S3
     # Set message body, adding variables.
     email_text = default_text(variables=item)
-
     body = MIMEText(email_text, "html")
     msg.attach(body)
 

@@ -13,6 +13,9 @@ from utils import (
 # receives trigger from CR function with : month of interest to retrieve CR from S3, list of adresses
 is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
+input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
+
+
 
 if is_local:
     event = 'events/test0_aws.json'
