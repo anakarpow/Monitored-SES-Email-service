@@ -11,12 +11,11 @@ from utils import (
 )
 
 # receives trigger from CR function with : month of interest to retrieve CR from S3, list of adresses
-
 is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
 
 if is_local:
-    event = 'events/test0_aws.json'  # '../events/test0.json'
+    event = 'events/test0_aws.json'
     with open(event, 'r') as file:
         event = json.load(file)
 
@@ -61,6 +60,7 @@ def lambda_handler(event, context):
         failed = []
 
     return {'status': status, 'failed': failed}
+
 
 if __name__ == "__main__":
     lambda_handler(event, None)

@@ -19,6 +19,7 @@ def match_file(file_list, item):
     """
     matches project_name with file_list
     returns file connection inclusive binary data
+    attachment key in event no longer needed
     """
     file_name = [x for x in file_list if item['project_name'] in x][0]
     if len(file_name) == 0:
