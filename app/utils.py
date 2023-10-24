@@ -67,7 +67,7 @@ def send_email_with_attachment(item):
     supports attachments but no fine tuning in multiple recipients
     accoridng to testing : all adresses are set as Bcc
     """
-
+    item['timestamp'] = item['timestamp'].strftime('%B %Y')
     # sendig coordinates
     SENDER = sender
     RECIPIENT = item['email']
@@ -84,13 +84,10 @@ def send_email_with_attachment(item):
     msg.attach(body)
 
     try:
-        # In same directory as script
-        # with open(item['attachment'], "rb") as attachment_data:
-        # with item['attachment']['Body'].read() as attachment_data:
         part = MIMEApplication(item['attachment']['Body'].read())
         part.add_header("Content-Disposition",
                         "attachment",
-                        filename=item['project_name'])
+                        filename=f"{item['project_name']}.html")
         msg.attach(part)
 
         # Convert message to string and send

@@ -3,13 +3,14 @@ def default_text(variables):
     variables['delta_forecast_limit'] = variables['cost_limit'] - \
         variables['forecast']
 
+
     default = f"""
         <html>
         <head></head>
         <body>
         <h1>AWS SES Test {variables['project_name']} </h1>
         <p>Dear Ladies and Gentlemen,</p>
-        <p> please find attached the DPP Cost Report for {variables['timestamp']} 2022 for the project {variables['project_name']}, including Cloud-Trail costs. </p>
+        <p> please find attached the DPP Cost Report for {variables['timestamp']} for the project {variables['project_name']}, including Cloud-Trail costs. </p>
 
         <p> If the projects AWS consumption follows the trend of the past months, the AWS consumption will be in total ~€ {variables['forecast']} by the end of the year.
         The provided cost limit is € {variables['cost_limit']} - (if no limit was provided “-“ is shown).

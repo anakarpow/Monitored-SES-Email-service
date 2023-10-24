@@ -1,6 +1,7 @@
 
 import json
 import os
+from datetime import datetime
 
 import boto3
 from utils import (
@@ -14,7 +15,6 @@ from utils import (
 is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
 input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
-
 
 
 if is_local:
@@ -36,9 +36,13 @@ def lambda_handler(event, context):
 
     # retrieve sending data from event
     sending_list = event['adresses']
+    timestamp = event['month'].split('/')[:2]
+    timestamp = f'{timestamp[1]}/{timestamp[0]}'
+    timestamp = datetime.strptime(timestamp, '%m/%Y').date()
 
     # iterate sending list and send emails
     for item in sending_list:
+        item['timestamp'] = timestamp
         # get respective CR
         item['attachment'] = match_file(file_list, item)
         # send email
