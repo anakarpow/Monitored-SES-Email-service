@@ -1,5 +1,6 @@
 import json
 import os
+from datetime import datetime
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -16,6 +17,67 @@ input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 ses_client = boto3.client("ses", region_name="eu-west-1")
 s3_client = boto3.client('s3')
 bucket = 'vw-lambda-reporting-output'
+
+
+def monitor_sending(sending_list, success_list, failed_list):
+    """
+    crosschecks nr of emails succefully sent to SES API against sending_list
+    sends reporting email if not equal
+    returns status and failed emails 
+    """
+    if len(success_list) < len(sending_list):
+        print(f'Not all {len(sending_list)} email have been sent !')
+        print(failed_list)
+        send_monitoring_email(failed_list)
+        status = 0
+    else:
+        status = 1
+        failed_list = []
+
+    return {'status': status, 'failed_list': failed_list}
+
+
+def sending_loop(sending_list, file_list):
+    """
+    iterates sending_list, matching CR by project name
+    sends email
+    adds metadata on sending process 
+    calls monitoring function
+    """
+    # start reporting lists
+    success_list = []
+    failed_list = []
+    for item in sending_list:
+        # get respective CR
+        item['attachment'] = match_file(file_list, item)
+        # send email
+        resp = send_email_with_attachment(
+            item)
+        # attaching meta info to resp
+        resp['delivery'] = {"project_name": item['project_name'],
+                            "email_adress": item['email']}
+        if 'MessageId' in resp:
+            success_list.append(resp)
+        else:
+            failed_list.append(resp)
+    # checking nr of sent emails against adress list
+    sending_report = monitor_sending(sending_list, success_list, failed_list)
+    return sending_report
+
+
+def process_sending_list(event):
+    """
+    retrieves email list and adds timestamp
+    future potential data to b added here
+    """
+    # retrieve sending data from event and add timestamp
+    sending_list = event['adresses']
+    timestamp = event['month'].split('/')[:2]
+    timestamp = f'{timestamp[1]}/{timestamp[0]}'
+    timestamp = datetime.strptime(timestamp, '%m/%Y').date()
+    for item in sending_list:
+        item['timestamp'] = timestamp
+    return sending_list
 
 
 def get_overview_file():
@@ -105,7 +167,11 @@ def send_email_with_attachment(item):
         return {}
 
 
-def send_monitoring_email(failed_list):
+def send_monitoring_email(failed_list_list):
+    """
+    sends reporting email on sending status 
+    attaches list of failed emails
+    """
 
     # sendig coordinates
     SENDER = sender_monitoring_email
@@ -116,7 +182,7 @@ def send_monitoring_email(failed_list):
     msg["From"] = SENDER
     msg["To"] = RECIPIENT
 
-    email_text = monitoring_text(failed_list)
+    email_text = monitoring_text(failed_list_list)
     body = MIMEText(email_text, "html")
     msg.attach(body)
 
