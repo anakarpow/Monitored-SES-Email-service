@@ -1,8 +1,10 @@
 
+import json
+
+
 def default_text(variables):
     variables['delta_forecast_limit'] = variables['cost_limit'] - \
         variables['forecast']
-
 
     default = f"""
         <html>
@@ -31,6 +33,6 @@ def default_text(variables):
 
 
 def monitoring_text(failed_list):
-    monitoring_email = f"Hi, something went wrong trying to send following emails for CAST {failed_list}"
+    monitoring_email = f"Hi, something went wrong trying to send following emails for CAST {json.dumps(failed_list, indent=4)}"
 
     return monitoring_email

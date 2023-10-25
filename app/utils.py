@@ -6,7 +6,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 import boto3
-import pandas as pd
 from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 from text import default_text, monitoring_text
 
@@ -27,8 +26,8 @@ def monitor_sending(sending_list, success_list, failed_list):
     """
     if len(success_list) < len(sending_list):
         print(f'Not all {len(sending_list)} email have been sent !')
-        print(failed_list)
         send_monitoring_email(failed_list)
+        print(failed_list)
         status = 0
     else:
         status = 1
@@ -80,34 +79,21 @@ def process_sending_list(event):
     return sending_list
 
 
-def get_overview_file():
-    """
-    retrives subset of overview file with forecast valeu for projects costs
-    TODO >
-      automate retrieval with date
-      merge with data to output mailing list
-
-
-    """
-    cols = ['Projekt Name', 'Trend EOY 2023', 'Cost Limit']
-    filename = 'OverviewCostReports'+'-09-2023'+'.xlsx'
-    file = s3_client.get_object(
-        Key=filename, Bucket=input_bucket_overview)
-    data = pd.read_excel((file['Body'].read()), header=41)
-    subset = data[cols]
-    return subset
-
-
 def match_file(file_list, item):
     """
     matches project_name with file_list
     returns file connection inclusive binary data
     attachment key in event no longer needed
     """
-    file_name = [x for x in file_list if item['project_name'] in x][0]
+
+    file_name = [
+        report for report in file_list if item['project_name'] in report][0]
+    file_name = []
+    # if no file returned attach info to reporting object
     if len(file_name) == 0:
-        print('file not found ERROR')
-        exit()
+        print(f"Cost report not found for {item['project_name']}")
+        return 'FILENOTFOUND'
+
     file = s3_client.get_object(Key=file_name, Bucket=bucket)
     return file
 
@@ -129,6 +115,9 @@ def send_email_with_attachment(item):
     supports attachments but no fine tuning in multiple recipients
     accoridng to testing : all adresses are set as Bcc
     """
+    if item['attachment'] == 'FILENOTFOUND':
+        return item
+
     item['timestamp'] = item['timestamp'].strftime('%B %Y')
     # sendig coordinates
     SENDER = sender
@@ -167,12 +156,18 @@ def send_email_with_attachment(item):
         return {}
 
 
-def send_monitoring_email(failed_list_list):
+def send_monitoring_email(failed_list):
     """
     sends reporting email on sending status 
     attaches list of failed emails
     """
-
+    remove_keys = ['project', 'forecast', 'cost_limit',
+                   'timestamp', 'project_name', 'email']
+    # remove info, return report dict
+    for failed_email in failed_list:
+        for key in remove_keys:
+            failed_email.pop(key)
+            
     # sendig coordinates
     SENDER = sender_monitoring_email
     RECIPIENT = receiver_monitoring_email
@@ -182,7 +177,7 @@ def send_monitoring_email(failed_list_list):
     msg["From"] = SENDER
     msg["To"] = RECIPIENT
 
-    email_text = monitoring_text(failed_list_list)
+    email_text = monitoring_text(failed_list)
     body = MIMEText(email_text, "html")
     msg.attach(body)
 

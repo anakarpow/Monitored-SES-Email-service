@@ -11,7 +11,7 @@ input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 
 # receives trigger from CR function with : month of interest to retrieve CR from S3, list of adresses
 if is_local:
-    event = 'events/test0_aws.json'
+    event = 'events/event_fail.json'
     with open(event, 'r') as file:
         event = json.load(file)
 
@@ -24,10 +24,10 @@ def lambda_handler(event, context):
     file_list = list_bucket_files_with_date(
         s3_client, bucket=input_bucket, event=event)
 
-    # work on sending list
+    # work on sending list, adding metadata
     sending_list = process_sending_list(event)
 
-    # iterate sending list and send emails
+    # iterate sending list and send emails, activates monitoring process
     sending_report = sending_loop(sending_list, file_list)
 
     return sending_report
