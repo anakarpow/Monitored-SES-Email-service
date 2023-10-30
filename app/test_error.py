@@ -7,13 +7,17 @@
 import json
 from datetime import datetime
 
-from adresses import bounce_adress, complaint_adress, wrong_adress_list
 from pytest import mark
 from utils import send_email_with_attachment, sending_loop
 
-from app import lambda_handler
-
 attachement = '../data/sample_CR.html'
+
+
+with open('events/test_errors.json', 'r') as file:
+    data = json.load(file)
+    print(data)
+for item in data['adresses']:
+    item['attachment'] = attachement
 
 
 @mark.error
@@ -44,10 +48,10 @@ def test_email_wrong_adress():
     error not caught by SES API
     sender receives warning email 
     """
-    for adress in wrong_adress_list:
-        resp = send_email_with_attachment(
-            target=adress, attachment=attachement)
-        print(resp)
+
+    item = data['adresses'][0]
+    resp = send_email_with_attachment(item)
+    print(resp)
 
 
 @mark.error
@@ -57,9 +61,9 @@ def test_bounce():
     error not caught by SES API
     sender receives warning email 
     """
-    adress = bounce_adress
-    resp = send_email_with_attachment(
-        target=adress, attachment=attachement)
+    item = data['adresses'][1]
+    print(item)
+    resp = send_email_with_attachment(item)
     print(resp)
 
 
@@ -70,14 +74,6 @@ def test_complaint():
     error not caught by SES API
     sender receives warning email 
     """
-    adress = complaint_adress
-    resp = send_email_with_attachment(
-        target=adress, attachment=attachement)
-    print(resp)
-
-
-def test_lambda():
-    with open('../events/event_fail.json', 'r') as file:
-        event = json.load(file)
-    failed = lambda_handler(event, None)
-    assert len(failed) > 0
+    item = data['adresses'][2]
+    resp = send_email_with_attachment(item)
+    

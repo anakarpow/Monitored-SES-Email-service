@@ -1,0 +1,26 @@
+{
+    "month": "2023/07/Cost reports",
+    "adresses": [
+        {
+            "email": "cast.ses.2@efs.at",
+            "cost_limit": 10000,
+            "project_name": "0800-Wolfsburg",
+            "timestamp": "07 2023",
+            "forecast": 9377
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "project_name": "1300-Braunschweig",
+            "timestamp": "07 2023",
+            "forecast": 64491
+        },
+        {
+            "email": "bounce@simulator.amazonses.com",
+            "cost_limit": 5000,
+            "project_name": "1400-Kassel-LZ1",
+            "timestamp": "07 2023",
+            "forecast": 67133
+        }
+    ]
+}

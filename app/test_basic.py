@@ -1,16 +1,18 @@
 import json
+from datetime import datetime
 
-from adresses import adress_list
 from pytest import mark
 from utils import send_email_with_attachment
 
-from app import lambda_handler
-
-# with open('../events/test0.json', 'r') as file:
-#     event = json.load(file)
-#     context = {}
-
 attachement = '../data/sample_CR.html'
+
+
+with open('events/test_event.json', 'r') as file:
+    data = json.load(file)
+
+for item in data['adresses']:
+    item['attachment'] = attachement
+    item['timestamp'] = datetime.strptime(item['timestamp'], '%M %Y')
 
 
 @mark.basic
@@ -20,9 +22,8 @@ def test_email():
     asserts SES API received data correctly
     no info on real delivery
     """
-    adress = adress_list[0]
-    resp = send_email_with_attachment(
-        target=adress, attachment=attachement)
+    item = data['adresses'][0]k
+    resp = send_email_with_attachment(item)
 
     assert 'MessageId' in resp
 
@@ -35,22 +36,8 @@ def test_email_list():
     asserts SES API received data correctly
     no info on real delivery
     """
-    for adress in adress_list:
-        resp = send_email_with_attachment(
-            target=adress, attachment=attachement)
+    adress_list = data['adresses']
+    for item in adress_list:
+        resp = send_email_with_attachment(item)
 
     assert 'MessageId' in resp
-
-
-@mark.skip('find a way to direct to test event from base dir without changing app.py')
-@mark.feature
-def test_app():
-    """
-    triggers whole app
-
-    """
-    event = '../events/test0_aws.json'
-    with open(event, 'r') as file:
-        event = json.load(file)
-    failed_list = lambda_handler(event, context)
-    print(failed_list)

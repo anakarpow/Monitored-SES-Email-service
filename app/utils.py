@@ -127,6 +127,7 @@ def send_email_with_attachment(item):
     msg["From"] = SENDER
     msg["To"] = RECIPIENT
 
+    print(RECIPIENT)
     # text variables
     # in the future import text from S3
     # Set message body, adding variables.
