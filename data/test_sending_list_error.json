@@ -1,0 +1,23 @@
+[
+    {
+        "email": "cast.ses.2@efs.at",
+        "project_name": "Operative Exzellenz",
+        "forecast": 64491,
+        "cost_limit": 5000,
+        "timestamp": "07 2023"
+    },
+    {
+        "email": "cast.ses.1@efs.at",
+        "project_name": "Crack Detetion 1",
+        "forecast": 64491,
+        "cost_limit": 5000,
+        "timestamp": "07 2023"
+    },
+    {
+        "email": "bounce@siulator.amazonses.com",
+        "project_name": "0800-Wolfsbrg",
+        "forecast": 64491,
+        "cost_limit": 5000,
+        "timestamp": "07 2023"
+    }
+]

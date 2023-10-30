@@ -6,9 +6,9 @@ from utils import send_email_with_attachment
 
 from app import lambda_handler
 
-with open('../events/test0.json', 'r') as file:
-    event = json.load(file)
-    context = {}
+# with open('../events/test0.json', 'r') as file:
+#     event = json.load(file)
+#     context = {}
 
 attachement = '../data/sample_CR.html'
 

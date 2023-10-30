@@ -11,7 +11,7 @@ input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 
 # receives trigger from CR function with : month of interest to retrieve CR from S3, list of adresses
 if is_local:
-    event = 'events/event_fail.json'
+    event = 'events/test0_aws.json'
     with open(event, 'r') as file:
         event = json.load(file)
 
@@ -20,7 +20,7 @@ s3_client = boto3.client('s3')
 
 def lambda_handler(event, context):
 
-    # get all CR for selected month
+    # get all CR for selected month > returns existing CR in S3
     file_list = list_bucket_files_with_date(
         s3_client, bucket=input_bucket, event=event)
 

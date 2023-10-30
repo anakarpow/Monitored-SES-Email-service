@@ -7,6 +7,7 @@ from email.mime.text import MIMEText
 
 import boto3
 from adresses import receiver_monitoring_email, sender, sender_monitoring_email
+from botocore.exceptions import ClientError
 from text import default_text, monitoring_text
 
 is_local = os.environ.get("local")
@@ -85,17 +86,16 @@ def match_file(file_list, item):
     returns file connection inclusive binary data
     attachment key in event no longer needed
     """
-
-    file_name = [
-        report for report in file_list if item['project_name'] in report][0]
-    file_name = []
-    # if no file returned attach info to reporting object
-    if len(file_name) == 0:
-        print(f"Cost report not found for {item['project_name']}")
+    try:
+        file_name = [
+            report for report in file_list if item['project_name'] in report][0]
+        try:
+            file = s3_client.get_object(Key=file_name, Bucket=bucket)
+            return file
+        except ClientError:
+            return 'FILENOTFOUND'
+    except IndexError:
         return 'FILENOTFOUND'
-
-    file = s3_client.get_object(Key=file_name, Bucket=bucket)
-    return file
 
 
 def list_bucket_files_with_date(s3, bucket, event):
@@ -166,8 +166,11 @@ def send_monitoring_email(failed_list):
     # remove info, return report dict
     for failed_email in failed_list:
         for key in remove_keys:
-            failed_email.pop(key)
-            
+            try:
+                failed_email.pop(key)
+            except KeyError:
+                pass
+
     # sendig coordinates
     SENDER = sender_monitoring_email
     RECIPIENT = receiver_monitoring_email
