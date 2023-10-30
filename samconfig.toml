@@ -50,3 +50,20 @@ parameter_overrides=[
     'Subnet2=subnet-092ee8f5c41040211',
     'BucketInputOverview=vw-lambda-reporting-manual-input',
     'BucketInput=vw-lambda-reporting-output']
+
+
+
+# DEV advanced account
+[prod.deploy.parameters]
+stack_name = 'CAST-SES'
+s3_bucket = 'cast-deployment'
+region = 'eu-west-1'
+capabilities = 'CAPABILITY_IAM'
+tags=" GITC- GITC-Risk Class=\"3\" GITC- Data Classification=\"internal\" GITC- Data Classification=\"true\" GITC-ApplicationID=\"82299\" backup=\"true\" "
+parameter_overrides=[
+# INFRA VARIABLES
+    'Env=prod',
+    'CreateNewSecret=False',
+    'GeneralName=CAST-SES',
+    'BucketInputOverview=cast-input',
+    'BucketInput=cast-output']

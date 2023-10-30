@@ -16,7 +16,6 @@ input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 
 ses_client = boto3.client("ses", region_name="eu-west-1")
 s3_client = boto3.client('s3')
-bucket = 'vw-lambda-reporting-output'
 
 
 def monitor_sending(sending_list, success_list, failed_list):
@@ -90,9 +89,10 @@ def match_file(file_list, item):
         file_name = [
             report for report in file_list if item['project_name'] in report][0]
         try:
-            file = s3_client.get_object(Key=file_name, Bucket=bucket)
+            file = s3_client.get_object(Key=file_name, Bucket=input_bucket)
             return file
-        except ClientError:
+        except ClientError as e:
+            print(e)
             return 'FILENOTFOUND'
     except IndexError:
         return 'FILENOTFOUND'

@@ -11,25 +11,22 @@ Globals:
     Timeout: 30
     MemorySize: 128
 
-
 Parameters:
   BucketInput:
     Type: String
     Description: input bucket for lambda
     NoEcho: true
-  
+
   BucketInputOverview:
     Type: String
     Description: input bucket for overview file
     NoEcho: true
 
-
-
 Resources:
   TriggerFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      Role: arn:aws:iam::471685057907:role/CAST-SES-InvokingRole-CTINUZYY6G41
+      Role: !GetAtt InvokingRole.Arn
       CodeUri: trigger/
       Handler: app.lambda_handler
       Runtime: python3.9
@@ -39,7 +36,7 @@ Resources:
   SendingFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      Role: arn:aws:iam::471685057907:role/CAST-SES-SESRole-PCTQSGGC1F3O
+      Role: !GetAtt SESRole.Arn
       CodeUri: app/
       Handler: app.lambda_handler
       Runtime: python3.9
@@ -80,7 +77,6 @@ Resources:
       Roles:
         - Ref: InvokingRole
 
-
   SESRole:
     Type: AWS::IAM::Role
     Properties:
@@ -107,6 +103,24 @@ Resources:
             Action:
               - ses:SendEmail
               - ses:SendRawEmail
+            Resource:
+              - "*"
+      Roles:
+        - Ref: SESRole
+
+  S3Policy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: SesS3
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action:
+              - s3:ListBucket
+              - s3:PutObject
+              - s3:GetObject
+              - s3:PutObjectTagging
+              - s3:GetBucketLocation
             Resource:
               - "*"
       Roles:
