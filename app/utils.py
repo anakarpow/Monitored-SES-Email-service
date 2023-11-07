@@ -1,4 +1,3 @@
-import json
 import os
 from datetime import datetime
 from email.mime.application import MIMEApplication
@@ -8,7 +7,9 @@ from email.mime.text import MIMEText
 import boto3
 from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 from botocore.exceptions import ClientError
+from monitoring_email_html import format_monitoring_email
 from text import default_text, monitoring_text
+from validate_email import validate_email_or_fail
 
 is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
@@ -26,12 +27,13 @@ def monitor_sending(sending_list, success_list, failed_list):
     """
     if len(success_list) < len(sending_list):
         print(f'Not all {len(sending_list)} email have been sent !')
-        send_monitoring_email(failed_list)
         print(failed_list)
         status = 0
     else:
         status = 1
         failed_list = []
+
+    send_monitoring_email(success_list, failed_list)
 
     return {'status': status, 'failed_list': failed_list}
 
@@ -47,6 +49,9 @@ def sending_loop(sending_list, file_list):
     success_list = []
     failed_list = []
     for item in sending_list:
+        # lib not workig properly> prob remove
+        # validate_dpp_email(item)
+
         # get respective CR
         item['attachment'] = match_file(file_list, item)
         # send email
@@ -59,6 +64,7 @@ def sending_loop(sending_list, file_list):
             success_list.append(resp)
         else:
             failed_list.append(resp)
+
     # checking nr of sent emails against adress list
     sending_report = monitor_sending(sending_list, success_list, failed_list)
     return sending_report
@@ -127,7 +133,6 @@ def send_email_with_attachment(item):
     msg["From"] = SENDER
     msg["To"] = RECIPIENT
 
-    print(RECIPIENT)
     # text variables
     # in the future import text from S3
     # Set message body, adding variables.
@@ -157,7 +162,7 @@ def send_email_with_attachment(item):
         return {}
 
 
-def send_monitoring_email(failed_list):
+def send_monitoring_email(success_list, failed_list):
     """
     sends reporting email on sending status 
     attaches list of failed emails
@@ -165,10 +170,11 @@ def send_monitoring_email(failed_list):
     remove_keys = ['project', 'forecast', 'cost_limit',
                    'timestamp', 'project_name', 'email']
     # remove info, return report dict
-    for failed_email in failed_list:
+    for failed_email, success_email in zip(failed_list, success_list):
         for key in remove_keys:
             try:
                 failed_email.pop(key)
+                success_email.pop(key)
             except KeyError:
                 pass
 
@@ -182,6 +188,18 @@ def send_monitoring_email(failed_list):
     msg["To"] = RECIPIENT
 
     email_text = monitoring_text(failed_list)
+
+    filename = format_monitoring_email(success_list, failed_list)
+    with open(filename, 'r') as content_file:
+        attachment = content_file.read()
+
+    # attachment
+    part = MIMEApplication(attachment)
+    part.add_header("Content-Disposition",
+                    "attachment",
+                    filename="sending_report.html")
+    msg.attach(part)
+
     body = MIMEText(email_text, "html")
     msg.attach(body)
 
@@ -190,12 +208,19 @@ def send_monitoring_email(failed_list):
         Destinations=[msg['To']],
         RawMessage={"Data": msg.as_string()}
     )
+    print('monitoring email sent')
+    return
 
 
 if __name__ == "__main__":
-    filename = '../output/2023-06-DPP-AUDI AG-AUDINECKARSULMDATALAKE.html'
-    with open('../test_data/main_dict_5_2022.json', 'r') as file:
-        data = json.load(file)
-        for project, values in data.items():
-            send_email_with_attachment(data[project], filename)
-            exit()
+    # filename = '../output/2023-06-DPP-AUDI AG-AUDINECKARSULMDATALAKE.html'
+    # with open('../test_data/main_dict_5_2022.json', 'r') as file:
+    #     data = json.load(file)
+    #     for project, values in data.items():
+    #         send_email_with_attachment(data[project], filename)
+    import sys
+    sys.path.append('../')
+    from data.failed_list import failed_list
+    from data.success_list import success_list
+    send_monitoring_email(success_list, failed_list)
+    exit()
