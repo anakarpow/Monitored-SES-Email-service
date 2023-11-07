@@ -1,10 +1,14 @@
+from datetime import datetime
+
 import dominate
 from dominate.tags import *
+import os
+is_local = os.environ.get("local")
 
 
 def format_monitoring_email(success_list, failed_list):
-
-    doc = dominate.document(title="Cost Report")
+    timestamp = datetime.today().strftime('%d.%m.%Y')
+    doc = dominate.document(title="CAST email sending Report")
 
     css = open("style.css").read()
     with doc.head:
@@ -27,7 +31,12 @@ def format_monitoring_email(success_list, failed_list):
                                ['project_name'], align="center")
                             td(f"{project['attachment']}")
 
-    filename = 'filename.html'
+    filename = f'sending_report_{timestamp}.html'
+    if is_local:
+        filename = '../data/'+filename
+    else:
+        filename = '/tmp/'+filename
+
     f = open(filename, "w")
     f.write(doc.render())
     f.close()

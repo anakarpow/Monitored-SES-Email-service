@@ -22,7 +22,7 @@ def test_email():
     asserts SES API received data correctly
     no info on real delivery
     """
-    item = data['adresses'][0]k
+    item = data['adresses'][0]
     resp = send_email_with_attachment(item)
 
     assert 'MessageId' in resp

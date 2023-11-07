@@ -1,5 +1,5 @@
 
-import json
+from datetime import datetime
 
 
 def default_text(variables):
@@ -33,6 +33,9 @@ def default_text(variables):
 
 
 def monitoring_text(failed_list):
-    monitoring_email = f"Hi, something went wrong trying to send following emails for CAST {json.dumps(failed_list, indent=4)}"
+    timestamp = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
+    monitoring_email = f"""Hi, attached find the sending report for CAST launched at {timestamp}.\n
+    {len(failed_list)} project/s triggered an error.\n
+    See the report for more details."""
 
     return monitoring_email

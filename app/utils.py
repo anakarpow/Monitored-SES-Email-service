@@ -9,7 +9,6 @@ from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 from botocore.exceptions import ClientError
 from monitoring_email_html import format_monitoring_email
 from text import default_text, monitoring_text
-from validate_email import validate_email_or_fail
 
 is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
@@ -167,6 +166,7 @@ def send_monitoring_email(success_list, failed_list):
     sends reporting email on sending status 
     attaches list of failed emails
     """
+
     remove_keys = ['project', 'forecast', 'cost_limit',
                    'timestamp', 'project_name', 'email']
     # remove info, return report dict
@@ -181,14 +181,14 @@ def send_monitoring_email(success_list, failed_list):
     # sendig coordinates
     SENDER = sender_monitoring_email
     RECIPIENT = receiver_monitoring_email
-
     msg = MIMEMultipart()
     msg["Subject"] = "This is CAST monitoring service: news about SES "
     msg["From"] = SENDER
     msg["To"] = RECIPIENT
 
+    # gather email text
     email_text = monitoring_text(failed_list)
-
+    # and attacemnt 
     filename = format_monitoring_email(success_list, failed_list)
     with open(filename, 'r') as content_file:
         attachment = content_file.read()
@@ -197,10 +197,10 @@ def send_monitoring_email(success_list, failed_list):
     part = MIMEApplication(attachment)
     part.add_header("Content-Disposition",
                     "attachment",
-                    filename="sending_report.html")
+                    filename=filename)
     msg.attach(part)
 
-    body = MIMEText(email_text, "html")
+    body = MIMEText(email_text)
     msg.attach(body)
 
     ses_client.send_raw_email(
