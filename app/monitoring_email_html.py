@@ -1,8 +1,9 @@
+import os
 from datetime import datetime
 
 import dominate
 from dominate.tags import *
-import os
+
 is_local = os.environ.get("local")
 
 
@@ -17,20 +18,20 @@ def format_monitoring_email(success_list, failed_list):
         with table():
             with thead():
                 tr(align="center", bgcolor="#0070FF", style="color:white")
-                th("Project Name",align="center")
-                th("Status",align="center")
+                th("Project Name", align="center")
+                th("Status", align="center")
             with tbody():
                 for project in success_list:
                     with tr(_class='success'):
                         td(project['delivery']['project_name'], align="center")
-                        td('SENT')
+                        td('SENT', align="center")
 
                 if len(failed_list) > 0:
                     for project in failed_list:
                         with tr(_class='failed'):
                             td(project['delivery']
                                ['project_name'], align="center")
-                            td(f"{project['attachment']}")
+                            td(f"{project['attachment']}", align="center")
 
     filename = f'sending_report_{timestamp}.html'
     if is_local:

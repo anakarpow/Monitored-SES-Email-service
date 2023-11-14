@@ -8,15 +8,21 @@
             "forecast": 67133
         },
         {
-            "email": "cast.ses.1@efs.at",
+            "email": "lars.webel@volkswagen.de",
             "cost_limit": 10000,
-            "project_name": "0800-Wolfsburg",
+            "project_name": "1200-Hannover-Comp",
             "forecast": 9377
         },
         {
-            "email": "test@si.amazonses.com",
+            "email": "anne.thrams@volkswagen.de",
             "cost_limit": 5000,
             "project_name": "1300-Braunschweig",
+            "forecast": 64491
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "project_name": "FantasyProject",
             "forecast": 64491
         }
     ]

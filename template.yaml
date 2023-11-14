@@ -22,6 +22,21 @@ Parameters:
     Description: input bucket for overview file
     NoEcho: true
 
+  VPCId:
+    Type: String
+    Description: Subnet id
+    NoEcho: true
+
+  Subnet1:
+    Type: String
+    Description: Subnet id
+    NoEcho: true
+
+  Subnet2:
+    Type: String
+    Description: Subnet id
+    NoEcho: true
+
 Resources:
   TriggerFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -32,6 +47,12 @@ Resources:
       Runtime: python3.9
       Architectures:
         - x86_64
+      # VpcConfig:
+      #   SecurityGroupIds:
+      #     - !GetAtt CASTLambdasSG.GroupId
+      #   SubnetIds:
+      #     - !Ref Subnet1
+      #     - !Ref Subnet2
 
   SendingFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -46,6 +67,17 @@ Resources:
         Variables:
           BUCKET_INPUT: !Ref BucketInput
           BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
+
+  CASTLambdasSG:
+    Type: AWS::EC2::SecurityGroup
+    DeletionPolicy: Delete
+    Properties:
+      VpcId: !Ref VPCId
+      GroupDescription: DPP-CAST security group for Lambda actions
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          CidrIp: 0.0.0.0/0
+          Description: allows Lambda connections to other services
 
   InvokingRole:
     Type: AWS::IAM::Role
@@ -72,6 +104,7 @@ Resources:
           - Effect: Allow
             Action:
               - lambda:invokeFunction
+              - lambda:listFunctions
             Resource:
               - "*"
       Roles:

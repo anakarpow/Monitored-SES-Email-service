@@ -26,7 +26,9 @@ def monitor_sending(sending_list, success_list, failed_list):
     """
     if len(success_list) < len(sending_list):
         print(f'Not all {len(sending_list)} email have been sent !')
-        print(failed_list)
+        print("Failed email for following projects")
+        for item in failed_list:
+            print(f" {item['project_name']}")
         status = 0
     else:
         status = 1
@@ -197,7 +199,7 @@ def send_monitoring_email(success_list, failed_list):
     part = MIMEApplication(attachment)
     part.add_header("Content-Disposition",
                     "attachment",
-                    filename=filename)
+                    filename=filename.split('/')[2])
     msg.attach(part)
 
     body = MIMEText(email_text)
@@ -208,7 +210,7 @@ def send_monitoring_email(success_list, failed_list):
         Destinations=[msg['To']],
         RawMessage={"Data": msg.as_string()}
     )
-    print('monitoring email sent')
+    print('Monitoring email sent')
     return
 
 
