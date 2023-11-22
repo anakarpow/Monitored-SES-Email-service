@@ -102,6 +102,7 @@ def match_file(file_list, item):
             print(e)
             return 'FILENOTFOUND'
     except IndexError:
+        print(f"Could not find CR for {item['project_name']}.")
         return 'FILENOTFOUND'
 
 
@@ -190,7 +191,7 @@ def send_monitoring_email(success_list, failed_list):
 
     # gather email text
     email_text = monitoring_text(failed_list)
-    # and attacemnt 
+    # and attacemnt
     filename = format_monitoring_email(success_list, failed_list)
     with open(filename, 'r') as content_file:
         attachment = content_file.read()
@@ -214,15 +215,15 @@ def send_monitoring_email(success_list, failed_list):
     return
 
 
-if __name__ == "__main__":
-    # filename = '../output/2023-06-DPP-AUDI AG-AUDINECKARSULMDATALAKE.html'
-    # with open('../test_data/main_dict_5_2022.json', 'r') as file:
-    #     data = json.load(file)
-    #     for project, values in data.items():
-    #         send_email_with_attachment(data[project], filename)
-    import sys
-    sys.path.append('../')
-    from data.failed_list import failed_list
-    from data.success_list import success_list
-    send_monitoring_email(success_list, failed_list)
-    exit()
+# if __name__ == "__main__":
+#     # filename = '../output/2023-06-DPP-AUDI AG-AUDINECKARSULMDATALAKE.html'
+#     # with open('../test_data/main_dict_5_2022.json', 'r') as file:
+#     #     data = json.load(file)
+#     #     for project, values in data.items():
+#     #         send_email_with_attachment(data[project], filename)
+#     import sys
+#     sys.path.append('../')
+#     from data.failed_list import failed_list
+#     from data.success_list import success_list
+#     send_monitoring_email(success_list, failed_list)
+#     exit()

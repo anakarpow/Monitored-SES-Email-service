@@ -3,7 +3,8 @@ import json
 import os
 
 import boto3
-from utils import list_bucket_files_with_date, process_sending_list, sending_loop
+from utils import (list_bucket_files_with_date, process_sending_list,
+                   sending_loop)
 
 is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
@@ -11,6 +12,7 @@ input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 
 # receives trigger from CR function with : month of interest to retrieve CR from S3, list of adresses
 if is_local:
+    print('local version ')
     event = '../events/base_event.json'
     with open(event, 'r') as file:
         event = json.load(file)
@@ -30,6 +32,7 @@ def lambda_handler(event, context):
     # iterate sending list and send emails, activates monitoring process
     sending_report = sending_loop(sending_list, file_list)
 
+    print('Finished')
     return sending_report
 
 

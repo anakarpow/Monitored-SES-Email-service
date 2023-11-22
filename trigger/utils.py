@@ -68,11 +68,11 @@ def send_email_with_attachment(target, attachment):
         print(e.response['Error']['Message'])
 
 
-if __name__ == "__main__":
-    filename = '../output/2023-06-DPP-AUDI AG-AUDINECKARSULMDATALAKE.html'
+# if __name__ == "__main__":
+#     filename = '../output/2023-06-DPP-AUDI AG-AUDINECKARSULMDATALAKE.html'
 
-    with open('../test_data/main_dict_5_2022.json', 'r') as file:
-        data = json.load(file)
-        for project, values in data.items():
-            send_email_with_attachment(data[project], filename)
-            exit()
+#     with open('../test_data/main_dict_5_2022.json', 'r') as file:
+#         data = json.load(file)
+#         for project, values in data.items():
+#             send_email_with_attachment(data[project], filename)
+#             exit()

@@ -35,9 +35,9 @@ def format_monitoring_email(success_list, failed_list):
 
     filename = f'sending_report_{timestamp}.html'
     if is_local:
-        filename = '../data/'+filename
+        filename = '../data/' + filename
     else:
-        filename = '/tmp/'+filename
+        filename = '/tmp/' + filename
 
     f = open(filename, "w")
     f.write(doc.render())

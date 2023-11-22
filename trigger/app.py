@@ -1,9 +1,17 @@
+
 import json
+import os
 
 import boto3
-from adress import sending_list
+
+is_local = os.environ.get("local")
 
 client = boto3.client('lambda')
+if is_local:
+    print('local version ')
+    event = '../events/base_event.json'
+    with open(event, 'r') as file:
+        event = json.load(file)
 
 
 def lambda_handler(event, context):
@@ -20,7 +28,7 @@ def lambda_handler(event, context):
         FunctionName=sending_func,
         InvocationType='RequestResponse',
         LogType='Tail',
-        Payload=json.dumps(sending_list)
+        Payload=json.dumps(event)
     )
     print(resp['Payload'].read())
 
