@@ -92,7 +92,6 @@ def match_file(file_list, item):
     returns file connection inclusive binary data
     attachment key in event no longer needed
     """
-    print(item)
     try:
         file_name = [
             report for report in file_list if item['project_name'] in report][0]
@@ -125,6 +124,7 @@ def send_email_with_attachment(item):
     accoridng to testing : all adresses are set as Bcc
     """
     if item['attachment'] == 'FILENOTFOUND':
+        item.pop('timestamp')
         return item
 
     item['timestamp'] = item['timestamp'].strftime('%B %Y')
@@ -157,6 +157,7 @@ def send_email_with_attachment(item):
             RawMessage={"Data": msg.as_string()}
         )
         print("Email sent!")
+        item.pop('timestamp')
         return response
 
     # Display an error if something goes wrong.

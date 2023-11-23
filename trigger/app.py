@@ -31,11 +31,12 @@ def lambda_handler(event, context):
     )
 
     outcome = resp['Payload'].read()
-    if 'Runtime.MarshalError' in str(outcome):
-        result = 'Something went wrong! please check the CR avaiability in the bucket and control the sending report in your email client'
-    else:
-        result = outcome
-    print(result)
+    print(outcome)
+    # if 'Runtime.MarshalError' in str(outcome):
+    #     result = 'Something went wrong! please check the CR avaiability in the bucket and control the sending report in your email client'
+    # else:
+    #     result = outcome
+    # print(result)
 
     # try:
     #     print(resp['Payload'].read())
