@@ -8,7 +8,7 @@ import boto3
 from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 from botocore.exceptions import ClientError
 from monitoring_email_html import format_monitoring_email
-from text import default_text, monitoring_text
+from text import monitoring_text, rollout_text
 
 is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
@@ -139,16 +139,20 @@ def send_email_with_attachment(item):
     # text variables
     # in the future import text from S3
     # Set message body, adding variables.
-    email_text = default_text(variables=item)
+
+    ####################
+    # CUSTOM TEXT for ROLLOUT
+    # email_text = default_text(variables=item)
+    email_text = rollout_text()
     body = MIMEText(email_text, "html")
     msg.attach(body)
 
     try:
-        part = MIMEApplication(item['attachment']['Body'].read())
-        part.add_header("Content-Disposition",
-                        "attachment",
-                        filename=f"{item['project_name']}.html")
-        msg.attach(part)
+        # part = MIMEApplication(item['attachment']['Body'].read())
+        # part.add_header("Content-Disposition",
+        #                 "attachment",
+        #                 filename=f"{item['project_name']}.html")
+        # msg.attach(part)
 
         # Convert message to string and send
         response = ses_client.send_raw_email(

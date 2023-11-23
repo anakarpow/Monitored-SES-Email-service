@@ -12,7 +12,7 @@ input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 
 # receives trigger from CR function with : month of interest to retrieve CR from S3, list of adresses
 if is_local:
-    print('local version ')
+    print('local event version ')
     event = '../events/base_event.json'
     with open(event, 'r') as file:
         event = json.load(file)

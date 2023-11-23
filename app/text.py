@@ -39,3 +39,20 @@ def monitoring_text(failed_list):
     See the report for more details."""
 
     return monitoring_email
+
+
+def rollout_text():
+    text = """
+        <html>
+        <head></head>
+        <body>
+        <h1>AWS SES Test ROLLOUT </h1>
+        <p>Dear Ladies and Gentlemen,</p>
+        <p>KEINE PANIK AUF DER TITANIC </p>
+        
+        <p> Best regards, <p>
+        <a>  DPP Clearing Office<a>
+        </p>
+        </body>
+        </html>"""
+    return text
