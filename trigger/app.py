@@ -15,7 +15,6 @@ if is_local:
 
 
 def lambda_handler(event, context):
-
     # paginator handles repsnses longer than 50 obj
     func_paginator = client.get_paginator('list_functions')
     for func_page in func_paginator.paginate():
@@ -27,11 +26,22 @@ def lambda_handler(event, context):
     resp = client.invoke(
         FunctionName=sending_func,
         InvocationType='RequestResponse',
-        LogType='Tail',
+        LogType='None',
         Payload=json.dumps(event)
     )
-    print(resp['Payload'].read())
+
+    outcome = resp['Payload'].read()
+    if 'Runtime.MarshalError' in str(outcome):
+        result = 'Something went wrong! please check the CR avaiability in the bucket and control the sending report in your email client'
+    else:
+        result = outcome
+    print(result)
+
+    # try:
+    #     print(resp['Payload'].read())
+    # except Exception as e:
+    #     print(e)
 
 
 if __name__ == "__main__":
-    lambda_handler(None, None)
+    lambda_handler(event, None)

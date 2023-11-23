@@ -33,6 +33,8 @@ def lambda_handler(event, context):
     sending_report = sending_loop(sending_list, file_list)
 
     print('Finished')
+    for item in sending_report['failed_list']:
+        item.pop('timestamp')
     return sending_report
 
 

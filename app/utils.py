@@ -92,17 +92,18 @@ def match_file(file_list, item):
     returns file connection inclusive binary data
     attachment key in event no longer needed
     """
+    print(item)
     try:
         file_name = [
             report for report in file_list if item['project_name'] in report][0]
-        try:
-            file = s3_client.get_object(Key=file_name, Bucket=input_bucket)
-            return file
-        except ClientError as e:
-            print(e)
-            return 'FILENOTFOUND'
     except IndexError:
         print(f"Could not find CR for {item['project_name']}.")
+        return 'FILENOTFOUND'
+    try:
+        file = s3_client.get_object(Key=file_name, Bucket=input_bucket)
+        return file
+    except ClientError as e:
+        print(e)
         return 'FILENOTFOUND'
 
 
