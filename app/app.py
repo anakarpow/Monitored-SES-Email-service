@@ -25,7 +25,6 @@ s3_client = boto3.client('s3')
 
 def lambda_handler(event, context):
 
-    print('ROLLOUT VERSION : no attachments and custom text')
     # get all CR for selected month > returns existing CR in S3
 
     file_list = list_bucket_files_with_date(
@@ -38,7 +37,6 @@ def lambda_handler(event, context):
     sending_report = sending_loop(sending_list, file_list)
 
     print('Finished')
-    print(sending_report)
     return sending_report
 
 
