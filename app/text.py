@@ -41,18 +41,36 @@ def monitoring_text(failed_list):
     return monitoring_email
 
 
-def rollout_text():
-    text = """
-        <html>
-        <head></head>
-        <body>
-        <h1>AWS SES Test ROLLOUT </h1>
-        <p>Dear Ladies and Gentlemen,</p>
-        <p>KEINE PANIK AUF DER TITANIC </p>
-        
-        <p> Best regards, <p>
-        <a>  DPP Clearing Office<a>
-        </p>
-        </body>
-        </html>"""
+def rollout_text(project_name):
+    text = f"""
+<html>
+<body>
+    <p>
+        Dear Ladies and Gentlemen, <br>
+        We are excited to announce an improvement to our CAST-Service. <br>
+    </p>
+    <p>
+        Starting from today, we will send the Cost Reports using the  <b>AWS-native SES Service</b>.
+    </p>
+    <p>
+        Please confirm that this E-Mail has reached you. <u> A simple empty email is enough.</u> <br>
+        In case the email landed in your <u> junk folder</u>, please add ‘junk’ to your answer.
+    </p>
+
+    <p>
+        <b>Your answer helps us improve our service and therefore your future satisfaction</b>.
+    </p>
+    <p>
+        Also, if this email finds you and you are not the appropriate contact person for the project <u> {project_name}</u>, please update the contact data
+        within <a href="https://firestarter.bp.vwgroup.cloud/"> Firestarter </a> under “Billing contact“.
+    </p>
+    <p>
+        Thanks for your cooperation.
+    </p>
+    <p>
+        Best regards,<br>
+        DPP Clearing Office
+    </p>
+</body>
+</html>"""
     return text

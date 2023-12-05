@@ -1,0 +1,1001 @@
+{
+    "month": "2023/10/Cost reports",
+    "adresses": [
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 13736,
+            "project_name": "0800-Wolfsburg"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 38246,
+            "project_name": "1200-Hannover-Comp"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 66195,
+            "project_name": "1300-Braunschweig"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 51092,
+            "project_name": "1300-Braunschweig-LZ1"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 66824,
+            "project_name": "1400-Kassel"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 11969,
+            "project_name": "1400-Kassel-LZ1"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 324216,
+            "project_name": "1700-Salzgitter"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 54252,
+            "project_name": "2700-Chemnitz"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 113885,
+            "project_name": "3400-Polkowice"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 4061,
+            "project_name": "3400-Polkowice-LZ1"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 9918,
+            "project_name": "ASSEMBLY"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 4685,
+            "project_name": "AUDI-2200-KVAD37a"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 13618,
+            "project_name": "AUDINECKARSULMDATALAKE"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 14180,
+            "project_name": "AUDINECKARSULMINGEST"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 25000,
+            "forecast": 5634,
+            "project_name": "Achsvermessung V.1"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 1736,
+            "project_name": "Annomalieerkennung"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 60000,
+            "forecast": 17808,
+            "project_name": "Audi - Reporting & Analyticsplattform – P-Data Engine"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 169770,
+            "project_name": "Auftragsmanagement"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 2691,
+            "project_name": "BCS VW Slovakia"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 3000,
+            "forecast": 2333,
+            "project_name": "BCS_AUDI MEXICO_AWS Region Virginia_LZ2_2021"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 3000,
+            "forecast": 1885,
+            "project_name": "BCS_AUDI MEXICO_LZ2_2021"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 3000,
+            "forecast": 3198,
+            "project_name": "BCS_BENTLEY_CREWE_LZ2_2021"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 2694,
+            "project_name": "BCS_VW Brasil Curitiba_LZ2_2022"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 2322,
+            "project_name": "BCS_VW_ARGENTINA_Pacheco_LZ2_2022_AWSregion_USeast1"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 3000,
+            "forecast": 2657,
+            "project_name": "BCS_VW_BRASIL_Taubate_LZ2_2022"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 3000,
+            "forecast": 2941,
+            "project_name": "BCS_VW_Brasil_ANCHIETA_LZ2_2021"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 2584,
+            "project_name": "BCS_VW_Brasil_SaoCarlos_LZ2_2022"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 3000,
+            "forecast": 3615,
+            "project_name": "BCS_VW_NAVARRA_DPP_BASIC_Connectivity"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 750,
+            "forecast": 3314,
+            "project_name": "BCS_VW_OSNABRÜCK_AWS-REGION_IRELAND_LZ2_2021"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 50000,
+            "forecast": 33913,
+            "project_name": "BKM Input Data Monitor (KPI Monitor)"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 50000,
+            "forecast": 26269,
+            "project_name": "Behälterassistenzsystem"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 120000,
+            "forecast": 96861,
+            "project_name": "Business Cockpit"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 14250,
+            "forecast": 14474,
+            "project_name": "COSMOS"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 5721,
+            "project_name": "Chattanooga Analytics"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 4234,
+            "project_name": "Chattanooga DevOps Pipeline"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 180000,
+            "forecast": 4627,
+            "project_name": "Copito = Conformity of Production IT-Tool"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 18000,
+            "forecast": 23490,
+            "project_name": "Crack Detection 1"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 7000,
+            "forecast": 6181,
+            "project_name": "Crack Detection 2"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 8789,
+            "project_name": "Cycle Time Supervisior Service"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 0,
+            "project_name": "DIGITUM"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 50000,
+            "forecast": 25892,
+            "project_name": "DPL UC 157b - BKM NEON"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 13000,
+            "forecast": 23788,
+            "project_name": "DPP Roadtest Predictor WOB"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 53088,
+            "project_name": "DPP WCTM SEAT Martorell"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 404206,
+            "project_name": "DSFM"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 50554,
+            "project_name": "DSFM+_Core_Ops"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 256,
+            "project_name": "Data Solution @ Autoeuropa"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 80000,
+            "forecast": 56761,
+            "project_name": "Digital Realities Hub"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 4438,
+            "project_name": "Digitale Akte Werkzeugentstehungsprozess"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 90000,
+            "forecast": 13761,
+            "project_name": "Digitaler Ausschussraum"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 400000,
+            "forecast": 1693,
+            "project_name": "Dimensional Management Database"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 165,
+            "project_name": "Enamel @ Autoeuropa "
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 20446,
+            "project_name": "Energie- & Umweltmanagement"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 4200,
+            "forecast": 1743,
+            "project_name": "Excess Stock"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 15000,
+            "forecast": 4563,
+            "project_name": "FINJa GW"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 3539,
+            "project_name": "FIS Report"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 36927,
+            "project_name": "FISVIEW"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 306398,
+            "project_name": "FX"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 360000,
+            "forecast": 0,
+            "project_name": "FX4Demand"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 89077,
+            "project_name": "Fahrzeug- & Fertigungssteuerung"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 77949,
+            "project_name": "Fertigung"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 59864,
+            "project_name": "GUIDEDVEHICLECOMPLETION"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 111733,
+            "project_name": "HWP"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 30000,
+            "forecast": 18784,
+            "project_name": "ICV @ Autoeuropa"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 14345,
+            "project_name": "ITComponents"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 16000,
+            "forecast": 1526,
+            "project_name": "Identification of Missing Part"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20001,
+            "forecast": 9286,
+            "project_name": "Instandhaltung"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 6000,
+            "forecast": 3881,
+            "project_name": "Intelligente Auslastungsplanung im Werkzeugbau "
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 705234,
+            "project_name": "Logistics Data Lake"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 40000,
+            "forecast": 144964,
+            "project_name": "Logistics.Fleet.Control"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 41377,
+            "project_name": "Logistics.Fleet.Control Chattanooga"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 290121,
+            "project_name": "Logistik"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 250000,
+            "forecast": 7404,
+            "project_name": "Massnahmen@Web Evo"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1500,
+            "forecast": 2449,
+            "project_name": "Matthew"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 30000,
+            "forecast": 8477,
+            "project_name": "Migration KGH-Tool"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 80000,
+            "forecast": 132050,
+            "project_name": "NAVVIS"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 72917,
+            "project_name": "Next Generation Planning"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 24000,
+            "forecast": 17513,
+            "project_name": "ONE Log"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 15000,
+            "forecast": 16680,
+            "project_name": "OneLog Kassel"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 25000,
+            "forecast": 8087,
+            "project_name": "Online Component Tracker"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 66934,
+            "project_name": "Operative Exzellenz"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 0,
+            "forecast": 2224,
+            "project_name": "Optimizing the Electricity Consumption of Compressors "
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 0,
+            "project_name": "PORSCHE"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 9100,
+            "forecast": 25244,
+            "project_name": "PPS Toolshop (Ireland)"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 6198,
+            "project_name": "PZN Data Ingest"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 3272,
+            "project_name": "PZN DataManagment"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 1260,
+            "project_name": "PZN Shared"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 100000,
+            "forecast": 18568,
+            "project_name": "Packaging Evolution"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 19534,
+            "project_name": "Paint Shop Monitor System"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 37891,
+            "project_name": "Planung"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 2252,
+            "project_name": "PoC Latency check from factories to Ireland AWS DPP Instance"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 25000,
+            "forecast": 207518,
+            "project_name": "Porsche Shared Services"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 14100,
+            "forecast": 14628,
+            "project_name": "PreCo (Predictive Control)"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1000,
+            "forecast": 1328,
+            "project_name": "PressFramework2.0 Cloud Connectivity PoC"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 250000,
+            "forecast": 34373,
+            "project_name": "Prozessanalysen Logistik"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 8300,
+            "project_name": "QS Audit"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 11181,
+            "project_name": "Qualität"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 18000,
+            "forecast": 1208,
+            "project_name": "Resistance Welding Spot"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 53554,
+            "project_name": "RoadTestPrediction LZ2"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 3154,
+            "project_name": "SPL2019"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 50000,
+            "forecast": 60705,
+            "project_name": "Shortage Management Tool (ShoMa)"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 60000,
+            "forecast": 17364,
+            "project_name": "Smart Production Lab"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 35000,
+            "forecast": 8807,
+            "project_name": "Smart Productive Maintenance "
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 25000,
+            "forecast": 6931,
+            "project_name": "Supply Chain Master Planning"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 6668,
+            "project_name": "TRACKANDTRACE"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 7642,
+            "project_name": "UC #615 Tech Hub - Data Science Sandbox_Audi_Neckarsulm_LZ2_2021"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 483,
+            "project_name": "UC 994 AFIF (Automatisiertes Fahren in der Fabrik)"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 10364,
+            "project_name": "UC#123_ Gewerkeübergreifende Regelkreise_ VW Wolfsburg_LZ2_2021"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 30000,
+            "forecast": 16059,
+            "project_name": "UC#157_LOG_SD_Repository_LZ2"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 5383,
+            "project_name": "UC#175_ConMon_Conveyor_Belt_Drives_Bentley_Crewe_LZ2_2021"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 4873,
+            "project_name": "UC#175_POC_VW_PUE_2021_LZ2_Condition Monitoring Conveyor_Belt_Drives"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 6981,
+            "project_name": "UC#176_SMART HEATING_VW_ NAVARRA_2021_LZ2"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 40000,
+            "forecast": 5359,
+            "project_name": "UC#29_SPOC_AUDI_BRUESSEL_LZ2_2023_AWS_region_Ireland"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 1063,
+            "project_name": "UC#31_SEAT PM ELECTRIC WELDING CLAMPS_LZ2_2021"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 5009,
+            "project_name": "UC#38_SRS_EPIK_VW_BRASIL_ANCHIETA_LZ2_2021"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 2500,
+            "forecast": 7576,
+            "project_name": "UC#38_SRS_EPIK_VW_SOUTH_AFRICA_2021_LZ_Cape Town"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 817,
+            "project_name": "UC#51_Fraesmaschinen Cockpit"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 30000,
+            "forecast": 32457,
+            "project_name": "UC#609_Nova AVA_VW_GROUP_LZ2_2022"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 4322,
+            "project_name": "UC#677_digital TPM_Chemnitz"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 7982,
+            "project_name": "UC#760_Torques Monitoring_VW Navarrra_LZ2_2022"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 985,
+            "project_name": "UC1093_QA Glue Dispenser_ Klebedosierer"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 3000,
+            "forecast": 2192,
+            "project_name": "UC125_GBDE_AUDI_GYOER_LZ2_2023"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 1496,
+            "project_name": "UC174_AI-based productivity enhancement in additive manufacturing binder jetting"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 4997,
+            "project_name": "UC29_SPOC_AUDI_GYOER_LZ2_2023"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 2428,
+            "project_name": "UC29_SPOC_AUDI_NEV_LZ2_2023"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 0,
+            "forecast": 3954,
+            "project_name": "UC29_SPOC_AUDI_SJC_LZ2_2023"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 33000,
+            "forecast": 43025,
+            "project_name": "UC29_SPOC_before NAFS AUDI"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 15000,
+            "forecast": 2957,
+            "project_name": "UC36_Wheel_Alignment_Predictor"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 6000,
+            "forecast": 2626,
+            "project_name": "UC809_TLD_AUDI_GYOER_LZ2_2023"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 25000,
+            "forecast": 26835,
+            "project_name": "UC83 Cloud based energy data reporting and analytics"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 84000,
+            "forecast": 2173,
+            "project_name": "UC_1039_FISAMSTOOLS_VWAMS_LZ2_2023"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 997,
+            "project_name": "UC_1094_QA Wheels Inspection_ Raederpruefung"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 18788,
+            "project_name": "UC_25_DÜRR Fillingservice"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 3168,
+            "project_name": "UC_38_DPP EPIK_ VW Brasil_Curitiba LZ2_2022"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 3174,
+            "project_name": "UC_38_DPP EPIK_ VW Brasil_Taubaté LZ2_2022"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 2140,
+            "project_name": "UC_38_EPIK_VW_Brasil_Sao Carlos_LZ2_2022"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 12800,
+            "forecast": 14632,
+            "project_name": "UC_663_Bauteilerepository_BASIS_LZ2_2022"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 1182,
+            "project_name": "UC_925_I3D-Streaming_VW_LZ2_2023"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 6000,
+            "forecast": 5541,
+            "project_name": "UC_RUN_ Konzern_BDE_Betriebsdatenerfassung"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 0,
+            "forecast": 2606,
+            "project_name": "UC_xxx_VW_EMD_DFSM+_DataHub_LZ2_2022_AWSregionIreland"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 30000,
+            "forecast": 4521,
+            "project_name": "UNREAL CLOUD DPP"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 50000,
+            "forecast": 6668,
+            "project_name": "UPS RPCS"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 4497,
+            "project_name": "UPS RPCS DSA"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 2524,
+            "project_name": "VRCONTROLLER"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 5928,
+            "project_name": "VW Chattanooga BCS NV"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 32090,
+            "project_name": "VW Chattanooga ICV"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 5790,
+            "project_name": "VWCHATTANOOGACONNECTIVITY"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 90000,
+            "forecast": 46616,
+            "project_name": "VWEMDENWPS"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 60257,
+            "project_name": "VWLOCATIONSERVICE"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 10000,
+            "forecast": 11489,
+            "project_name": "VWN Datalake"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 3743,
+            "project_name": "VWN Hannover Edge Gateway 001"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 13708,
+            "project_name": "VWN Wrzesnia Edge Gateway 001"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 693,
+            "project_name": "VWN Wrzesnia Tightening Control System"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 5742,
+            "project_name": "VWPUEBLABCS"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 1,
+            "forecast": 2651,
+            "project_name": "VWZWICKAUDATAHUB"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 6000,
+            "forecast": 5283,
+            "project_name": "VW_EMD_BCS_KAROBAU"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 3000,
+            "forecast": 3874,
+            "project_name": "VW_SOUTH_AFRICA_BCS_2021"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 40459,
+            "project_name": "VW_WOB_Kunststofftechnik_Digitalisierung Prozesssteuerungstafel und Ticketsystem für Werkzeuge PWK"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 43000,
+            "forecast": 8778,
+            "project_name": "VW² Anomaly Detection"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 25000,
+            "forecast": 43785,
+            "project_name": "VW² Assembly control"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 15000,
+            "forecast": 690,
+            "project_name": "VW² Audi BXL"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 30000,
+            "forecast": 42354,
+            "project_name": "VW² IRIS"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 20000,
+            "forecast": 6015,
+            "project_name": "WPS Predictive Quality Brussels"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 76000,
+            "forecast": 7687,
+            "project_name": "WPS Predictive Quality Ingolstadt"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 5000,
+            "forecast": 2985,
+            "project_name": "i.Maintenance"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 16000,
+            "forecast": 969,
+            "project_name": "mDP – Mobile Device Platform"
+        },
+        {
+            "email": "cast.ses.1@efs.at",
+            "cost_limit": 25000,
+            "forecast": 34122,
+            "project_name": "smartDIP"
+        }
+    ]
+}

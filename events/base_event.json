@@ -1,5 +1,5 @@
 {
-    "month": "2023/09/Cost reports",
+    "month": "2023/10/Cost reports",
     "adresses": [
         {
             "email": "cast.ses.1@efs.at", 
@@ -23,6 +23,12 @@
             "email": "cast.ses.1@efs.at",
             "cost_limit": 5000,
             "project_name": "FantasyProject",
+            "forecast": 64491
+        },
+        {
+            "email": 0,
+            "cost_limit": 5000,
+            "project_name": "1300-Braunschweig",
             "forecast": 64491
         }
     ]

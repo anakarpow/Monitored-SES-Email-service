@@ -92,12 +92,17 @@ def match_file(file_list, item):
     returns file connection inclusive binary data
     attachment key in event no longer needed
     """
+
+    if (item['email'] == 0):
+        # item.pop('timestamp')
+        return 'MAILNOTFOUND'
+
     try:
         file_name = [
             report for report in file_list if item['project_name'] in report][0]
     except IndexError:
         print(f"Could not find CR for {item['project_name']}.")
-        return 'FILENOTFOUND'
+        return 'NOMATCHINGFILE'
     try:
         file = s3_client.get_object(Key=file_name, Bucket=input_bucket)
         return file
@@ -123,7 +128,7 @@ def send_email_with_attachment(item):
     supports attachments but no fine tuning in multiple recipients
     accoridng to testing : all adresses are set as Bcc
     """
-    if item['attachment'] == 'FILENOTFOUND':
+    if (item['attachment'] == 'FILENOTFOUND') or (item['attachment'] == 'NOMATCHINGFILE') or (item['attachment'] == 'MAILNOTFOUND'):
         item.pop('timestamp')
         return item
 
@@ -132,7 +137,9 @@ def send_email_with_attachment(item):
     SENDER = sender
     RECIPIENT = item['email']
     msg = MIMEMultipart()
-    msg["Subject"] = f"DPP Cost Report {item['project_name']} {item['timestamp']} "
+    rollout_subject = 'DPP CAST Update'
+    msg["Subject"] = rollout_subject
+    # msg["Subject"] = f"DPP Cost Report {item['project_name']} {item['timestamp']} "
     msg["From"] = SENDER
     msg["To"] = RECIPIENT
 
@@ -143,7 +150,7 @@ def send_email_with_attachment(item):
     ####################
     # CUSTOM TEXT for ROLLOUT
     # email_text = default_text(variables=item)
-    email_text = rollout_text()
+    email_text = rollout_text(item['project_name'])
     body = MIMEText(email_text, "html")
     msg.attach(body)
 

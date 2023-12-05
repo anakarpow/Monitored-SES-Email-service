@@ -18,4 +18,3 @@ sender_monitoring_email = 'extern.gregor.zopf@volkswagen.de'  # 'cast.ses.1@efs.
 receiver_monitoring_email = 'dpp.clearing.office.vwag.r.wob@volkswagen.de'
 
 
-# 'cast.ses.1@efs.at'

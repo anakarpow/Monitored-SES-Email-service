@@ -1,0 +1,515 @@
+{
+    "month": "2023/10/Cost reports",
+    "adresses": [
+{
+    "email": "christoph.groll@porsche.de",
+    "cost_limit": 1,
+    "forecast": 0,
+    "project_name": "PORSCHE"
+},
+{
+    "email": "jan.drtil@skoda-auto.cz",
+    "cost_limit": 9100,
+    "forecast": 25244,
+    "project_name": "PPS Toolshop (Ireland)"
+},
+{
+    "email": "wojciech.wisniewski@vw-poznan.pl",
+    "cost_limit": 5000,
+    "forecast": 6198,
+    "project_name": "PZN Data Ingest"
+},
+{
+    "email": "wojciech.wisniewski@vw-poznan.pl",
+    "cost_limit": 10000,
+    "forecast": 3272,
+    "project_name": "PZN DataManagment"
+},
+{
+    "email": "wojciech.wisniewski@vw-poznan.pl",
+    "cost_limit": 5000,
+    "forecast": 1260,
+    "project_name": "PZN Shared"
+},
+{
+    "email": "christoph.becker2@volkswagen.de",
+    "cost_limit": 100000,
+    "forecast": 18568,
+    "project_name": "Packaging Evolution"
+},
+{
+    "email": "laura.tolksdorf@volkswagen.de",
+    "cost_limit": 10000,
+    "forecast": 19534,
+    "project_name": "Paint Shop Monitor System"
+},
+{
+    "email": "gregor.thiele@porsche.de",
+    "cost_limit": 10000,
+    "forecast": 37891,
+    "project_name": "Planung"
+},
+{
+    "email": "jan.drtil@skoda-auto.cz",
+    "cost_limit": 20000,
+    "forecast": 2252,
+    "project_name": "PoC Latency check from factories to Ireland AWS DPP Instance"
+},
+{
+    "email": "christoph.groll@porsche.de",
+    "cost_limit": 25000,
+    "forecast": 207518,
+    "project_name": "Porsche Shared Services"
+},
+{
+    "email": "pascal.lenz@volkswagen.de",
+    "cost_limit": 14100,
+    "forecast": 14628,
+    "project_name": "PreCo (Predictive Control)"
+},
+{
+    "email": "mathias.reichelt@volkswagen.de",
+    "cost_limit": 1000,
+    "forecast": 1328,
+    "project_name": "PressFramework2.0 Cloud Connectivity PoC"
+},
+{
+    "email": "roland.harms@volkswagen.de",
+    "cost_limit": 250000,
+    "forecast": 34373,
+    "project_name": "Prozessanalysen Logistik"
+},
+{
+    "email": "thomas.geyer@volkswagen.de",
+    "cost_limit": 10000,
+    "forecast": 8300,
+    "project_name": "QS Audit"
+},
+{
+    "email": "niklas.krause@porsche.de",
+    "cost_limit": 20000,
+    "forecast": 11181,
+    "project_name": "Qualität"
+},
+{
+    "email": "wojciech.wisniewski@vw-poznan.pl",
+    "cost_limit": 18000,
+    "forecast": 1208,
+    "project_name": "Resistance Welding Spot"
+},
+{
+    "email": "nils.henschke@volkswagen.de",
+    "cost_limit": 20000,
+    "forecast": 53554,
+    "project_name": "RoadTestPrediction LZ2"
+},
+{
+    "email": "dominique.fabian.matz@volkswagen.de",
+    "cost_limit": 1,
+    "forecast": 3154,
+    "project_name": "SPL2019"
+},
+{
+    "email": "patrick.herzog@volkswagen.de",
+    "cost_limit": 50000,
+    "forecast": 60705,
+    "project_name": "Shortage Management Tool (ShoMa)"
+},
+{
+    "email": "dirk.lischnewski@volkswagen.de",
+    "cost_limit": 60000,
+    "forecast": 17364,
+    "project_name": "Smart Production Lab"
+},
+{
+    "email": "smart.productive.maintenance.support.vwag.r.han@volkswagen.de",
+    "cost_limit": 35000,
+    "forecast": 8807,
+    "project_name": "Smart Productive Maintenance "
+},
+{
+    "email": "iris.dittmar@volkswagen.de",
+    "cost_limit": 25000,
+    "forecast": 6931,
+    "project_name": "Supply Chain Master Planning"
+},
+{
+    "email": "mathias.schraps1@volkswagen.de",
+    "cost_limit": 1,
+    "forecast": 6668,
+    "project_name": "TRACKANDTRACE"
+},
+{
+    "email": "nick.hauck@audi.de",
+    "cost_limit": 10000,
+    "forecast": 7642,
+    "project_name": "UC #615 Tech Hub - Data Science Sandbox_Audi_Neckarsulm_LZ2_2021"
+},
+{
+    "email": "sascha.tittelwitz1@volkswagen.de",
+    "cost_limit": 20000,
+    "forecast": 483,
+    "project_name": "UC 994 AFIF (Automatisiertes Fahren in der Fabrik)"
+},
+{
+    "email": "martin.goede@volkswagen.de",
+    "cost_limit": 10000,
+    "forecast": 10364,
+    "project_name": "UC#123_ Gewerkeübergreifende Regelkreise_ VW Wolfsburg_LZ2_2021"
+},
+{
+    "email": "ludek.pavlik2@volkswagen.de",
+    "cost_limit": 30000,
+    "forecast": 16059,
+    "project_name": "UC#157_LOG_SD_Repository_LZ2"
+},
+{
+    "email": "Michelle.Evans@bentley.co.uk",
+    "cost_limit": 5000,
+    "forecast": 5383,
+    "project_name": "UC#175_ConMon_Conveyor_Belt_Drives_Bentley_Crewe_LZ2_2021"
+},
+{
+    "email": "juan2.ramos@vw.com.mx",
+    "cost_limit": 5000,
+    "forecast": 4873,
+    "project_name": "UC#175_POC_VW_PUE_2021_LZ2_Condition Monitoring Conveyor_Belt_Drives"
+},
+{
+    "email": "ana.amatriain@vw-navarra.es",
+    "cost_limit": 5000,
+    "forecast": 6981,
+    "project_name": "UC#176_SMART HEATING_VW_ NAVARRA_2021_LZ2"
+},
+{
+    "email": "frank1.guenther@audi.de",
+    "cost_limit": 40000,
+    "forecast": 5359,
+    "project_name": "UC#29_SPOC_AUDI_BRUESSEL_LZ2_2023_AWS_region_Ireland"
+},
+{
+    "email": "raul.gabas@seat.es",
+    "cost_limit": 20000,
+    "forecast": 1063,
+    "project_name": "UC#31_SEAT PM ELECTRIC WELDING CLAMPS_LZ2_2021"
+},
+{
+    "email": "marcelo.lander@volkswagen.com.br",
+    "cost_limit": 10000,
+    "forecast": 5009,
+    "project_name": "UC#38_SRS_EPIK_VW_BRASIL_ANCHIETA_LZ2_2021"
+},
+{
+    "email": "johan.venter@vwsa.co.za",
+    "cost_limit": 2500,
+    "forecast": 7576,
+    "project_name": "UC#38_SRS_EPIK_VW_SOUTH_AFRICA_2021_LZ_Cape Town"
+},
+{
+    "email": "ralph.kimmich@volkswagen.de",
+    "cost_limit": 10000,
+    "forecast": 817,
+    "project_name": "UC#51_Fraesmaschinen Cockpit"
+},
+{
+    "email": "michael.kinne-floetotto@volkswagen.de",
+    "cost_limit": 30000,
+    "forecast": 32457,
+    "project_name": "UC#609_Nova AVA_VW_GROUP_LZ2_2022"
+},
+{
+    "email": "carsten.weber@volkswagen.de",
+    "cost_limit": 10000,
+    "forecast": 4322,
+    "project_name": "UC#677_digital TPM_Chemnitz"
+},
+{
+    "email": "ana.amatriain@vw-navarra.es",
+    "cost_limit": 10000,
+    "forecast": 7982,
+    "project_name": "UC#760_Torques Monitoring_VW Navarrra_LZ2_2022"
+},
+{
+    "email": "christian.seifert@volkswagen.de",
+    "cost_limit": 20000,
+    "forecast": 985,
+    "project_name": "UC1093_QA Glue Dispenser_ Klebedosierer"
+},
+{
+    "email": "matthias2.mueller@audi.hu",
+    "cost_limit": 3000,
+    "forecast": 2192,
+    "project_name": "UC125_GBDE_AUDI_GYOER_LZ2_2023"
+},
+{
+    "email": "shahrooz.sadeghi.borujeni1@volkswagen.de",
+    "cost_limit": 5000,
+    "forecast": 1496,
+    "project_name": "UC174_AI-based productivity enhancement in additive manufacturing binder jetting"
+},
+{
+    "email": "laszlo.kecskemeti-szabo@audi.hu",
+    "cost_limit": 20000,
+    "forecast": 4997,
+    "project_name": "UC29_SPOC_AUDI_GYOER_LZ2_2023"
+},
+{
+    "email": "juri.ruppel@audi-faw-nev.com.cn",
+    "cost_limit": 20000,
+    "forecast": 2428,
+    "project_name": "UC29_SPOC_AUDI_NEV_LZ2_2023"
+},
+{
+    "email": 0,
+    "cost_limit": 0,
+    "forecast": 3954,
+    "project_name": "UC29_SPOC_AUDI_SJC_LZ2_2023"
+},
+{
+    "email": "benjamin.giering@audi.de",
+    "cost_limit": 33000,
+    "forecast": 43025,
+    "project_name": "UC29_SPOC_before NAFS AUDI"
+},
+{
+    "email": "alexander.rein@volkswagen.de",
+    "cost_limit": 15000,
+    "forecast": 2957,
+    "project_name": "UC36_Wheel_Alignment_Predictor"
+},
+{
+    "email": "laszlo.kecskemeti-szabo@audi.hu",
+    "cost_limit": 6000,
+    "forecast": 2626,
+    "project_name": "UC809_TLD_AUDI_GYOER_LZ2_2023"
+},
+{
+    "email": "alexander.rein@volkswagen.de",
+    "cost_limit": 25000,
+    "forecast": 26835,
+    "project_name": "UC83 Cloud based energy data reporting and analytics"
+},
+{
+    "email": "thomas.bodenburg@volkswagen.de",
+    "cost_limit": 84000,
+    "forecast": 2173,
+    "project_name": "UC_1039_FISAMSTOOLS_VWAMS_LZ2_2023"
+},
+{
+    "email": "christian.seifert@volkswagen.de",
+    "cost_limit": 20000,
+    "forecast": 997,
+    "project_name": "UC_1094_QA Wheels Inspection_ Raederpruefung"
+},
+{
+    "email": "stephanie.schmerschneider@volkswagen.de",
+    "cost_limit": 5000,
+    "forecast": 18788,
+    "project_name": "UC_25_DÜRR Fillingservice"
+},
+{
+    "email": "marcelo.lander@volkswagen.com.br",
+    "cost_limit": 10000,
+    "forecast": 3168,
+    "project_name": "UC_38_DPP EPIK_ VW Brasil_Curitiba LZ2_2022"
+},
+{
+    "email": "marcelo.lander@volkswagen.com.br",
+    "cost_limit": 10000,
+    "forecast": 3174,
+    "project_name": "UC_38_DPP EPIK_ VW Brasil_Taubaté LZ2_2022"
+},
+{
+    "email": "marcelo.lander@volkswagen.com.br",
+    "cost_limit": 10000,
+    "forecast": 2140,
+    "project_name": "UC_38_EPIK_VW_Brasil_Sao Carlos_LZ2_2022"
+},
+{
+    "email": "daniel.lakaw@volkswagen.de",
+    "cost_limit": 12800,
+    "forecast": 14632,
+    "project_name": "UC_663_Bauteilerepository_BASIS_LZ2_2022"
+},
+{
+    "email": "michael.schlichte@volkswagen.de",
+    "cost_limit": 5000,
+    "forecast": 1182,
+    "project_name": "UC_925_I3D-Streaming_VW_LZ2_2023"
+},
+{
+    "email": "boris.kretschmann@volkswagen.de",
+    "cost_limit": 6000,
+    "forecast": 5541,
+    "project_name": "UC_RUN_ Konzern_BDE_Betriebsdatenerfassung"
+},
+{
+    "email": 0,
+    "cost_limit": 0,
+    "forecast": 2606,
+    "project_name": "UC_xxx_VW_EMD_DFSM+_DataHub_LZ2_2022_AWSregionIreland"
+},
+{
+    "email": "alexander.kurt@volkswagen.de",
+    "cost_limit": 30000,
+    "forecast": 4521,
+    "project_name": "UNREAL CLOUD DPP"
+},
+{
+    "email": "antonio.delgado.gonzalez@volkswagen.de",
+    "cost_limit": 50000,
+    "forecast": 6668,
+    "project_name": "UPS RPCS"
+},
+{
+    "email": "antonio.delgado.gonzalez@volkswagen.de",
+    "cost_limit": 5000,
+    "forecast": 4497,
+    "project_name": "UPS RPCS DSA"
+},
+{
+    "email": "dennis.abmeier@volkswagen.de",
+    "cost_limit": 1,
+    "forecast": 2524,
+    "project_name": "VRCONTROLLER"
+},
+{
+    "email": "eric.keeton@vw.com",
+    "cost_limit": 5000,
+    "forecast": 5928,
+    "project_name": "VW Chattanooga BCS NV"
+},
+{
+    "email": "eric.keeton@vw.com",
+    "cost_limit": 10000,
+    "forecast": 32090,
+    "project_name": "VW Chattanooga ICV"
+},
+{
+    "email": "eric.keeton@vw.com",
+    "cost_limit": 5000,
+    "forecast": 5790,
+    "project_name": "VWCHATTANOOGACONNECTIVITY"
+},
+{
+    "email": "mathias.boomgaarden@volkswagen.de",
+    "cost_limit": 90000,
+    "forecast": 46616,
+    "project_name": "VWEMDENWPS"
+},
+{
+    "email": "sven.mosch@volkswagen.de",
+    "cost_limit": 1,
+    "forecast": 60257,
+    "project_name": "VWLOCATIONSERVICE"
+},
+{
+    "email": "gernot.jordan@volkswagen.de",
+    "cost_limit": 10000,
+    "forecast": 11489,
+    "project_name": "VWN Datalake"
+},
+{
+    "email": "irina.wilkow@volkswagen.de",
+    "cost_limit": 5000,
+    "forecast": 3743,
+    "project_name": "VWN Hannover Edge Gateway 001"
+},
+{
+    "email": "wojciech.wisniewski@vw-poznan.pl",
+    "cost_limit": 5000,
+    "forecast": 13708,
+    "project_name": "VWN Wrzesnia Edge Gateway 001"
+},
+{
+    "email": "wojciech.wisniewski@vw-poznan.pl",
+    "cost_limit": 5000,
+    "forecast": 693,
+    "project_name": "VWN Wrzesnia Tightening Control System"
+},
+{
+    "email": "roberto.ramos@vw.com.mx",
+    "cost_limit": 1,
+    "forecast": 5742,
+    "project_name": "VWPUEBLABCS"
+},
+{
+    "email": "mathias.schraps1@volkswagen.de",
+    "cost_limit": 1,
+    "forecast": 2651,
+    "project_name": "VWZWICKAUDATAHUB"
+},
+{
+    "email": "markus.liedtke@volkswagen.de",
+    "cost_limit": 6000,
+    "forecast": 5283,
+    "project_name": "VW_EMD_BCS_KAROBAU"
+},
+{
+    "email": "johan.venter@vwsa.co.za",
+    "cost_limit": 3000,
+    "forecast": 3874,
+    "project_name": "VW_SOUTH_AFRICA_BCS_2021"
+},
+{
+    "email": "andy.groth@volkswagen.de",
+    "cost_limit": 5000,
+    "forecast": 40459,
+    "project_name": "VW_WOB_Kunststofftechnik_Digitalisierung Prozesssteuerungstafel und Ticketsystem für Werkzeuge PWK"
+},
+{
+    "email": "joachim.frey@volkswagen.de",
+    "cost_limit": 43000,
+    "forecast": 8778,
+    "project_name": "VW² Anomaly Detection"
+},
+{
+    "email": "steve.liebschwager@volkswagen.de",
+    "cost_limit": 25000,
+    "forecast": 43785,
+    "project_name": "VW² Assembly control"
+},
+{
+    "email": "foued.el.laoui@audi.de",
+    "cost_limit": 15000,
+    "forecast": 690,
+    "project_name": "VW² Audi BXL"
+},
+{
+    "email": "oliver.bauer@volkswagen.de",
+    "cost_limit": 30000,
+    "forecast": 42354,
+    "project_name": "VW² IRIS"
+},
+{
+    "email": "martin.woop@volkswagen.de",
+    "cost_limit": 20000,
+    "forecast": 6015,
+    "project_name": "WPS Predictive Quality Brussels"
+},
+{
+    "email": "Mathias.Mayer@audi.de",
+    "cost_limit": 76000,
+    "forecast": 7687,
+    "project_name": "WPS Predictive Quality Ingolstadt"
+},
+{
+    "email": "stefan.horatschek@volkswagen.de",
+    "cost_limit": 5000,
+    "forecast": 2985,
+    "project_name": "i.Maintenance"
+},
+{
+    "email": "igor.piotrkowski@vw-poznan.pl",
+    "cost_limit": 16000,
+    "forecast": 969,
+    "project_name": "mDP – Mobile Device Platform"
+},
+{
+    "email": "smartdip.vwag.r.wob@volkswagen.de",
+    "cost_limit": 25000,
+    "forecast": 34122,
+    "project_name": "smartDIP"
+}
+]
+}

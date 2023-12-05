@@ -14,6 +14,9 @@ input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 if is_local:
     print('local event version ')
     event = '../events/base_event.json'
+    # # event = '../events/full_test_event.json'
+    # event = '../events/roll_out_Dec.json'
+
     with open(event, 'r') as file:
         event = json.load(file)
 
@@ -22,7 +25,9 @@ s3_client = boto3.client('s3')
 
 def lambda_handler(event, context):
 
+    print('ROLLOUT VERSION : no attachments and custom text')
     # get all CR for selected month > returns existing CR in S3
+
     file_list = list_bucket_files_with_date(
         s3_client, bucket=input_bucket, event=event)
 
@@ -33,9 +38,7 @@ def lambda_handler(event, context):
     sending_report = sending_loop(sending_list, file_list)
 
     print('Finished')
-    ###fails when CR not found because no timestanp ?
-    # for item in sending_report['failed_list']:
-    #     item.pop('timestamp')
+    print(sending_report)
     return sending_report
 
 
