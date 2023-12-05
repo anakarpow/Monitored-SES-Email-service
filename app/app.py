@@ -26,7 +26,6 @@ s3_client = boto3.client('s3')
 def lambda_handler(event, context):
 
     # get all CR for selected month > returns existing CR in S3
-
     file_list = list_bucket_files_with_date(
         s3_client, bucket=input_bucket, event=event)
 
