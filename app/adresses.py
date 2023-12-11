@@ -12,9 +12,7 @@ bounce_adress = 'bounce@simulator.amazonses.com'
 complaint_adress = 'complaint@simulator.amazonses.com'
 
 # should be CAST.ses
-sender_monitoring_email = 'extern.gregor.zopf@volkswagen.de'  # 'cast.ses.1@efs.at'
+sender_monitoring_email = 'extern.gregor.zopf@volkswagen.de'
 
 # should be gregor Citrix
 receiver_monitoring_email = 'dpp.clearing.office.vwag.r.wob@volkswagen.de'
-
-

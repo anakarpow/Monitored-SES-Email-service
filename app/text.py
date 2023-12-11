@@ -10,7 +10,6 @@ def default_text(variables):
         <html>
         <head></head>
         <body>
-        <h1>AWS SES Test {variables['project_name']} </h1>
         <p>Dear Ladies and Gentlemen,</p>
         <p> please find attached the DPP Cost Report for {variables['timestamp']} for the project {variables['project_name']}, including Cloud-Trail costs. </p>
 
