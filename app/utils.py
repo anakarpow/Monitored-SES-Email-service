@@ -94,7 +94,6 @@ def match_file(file_list, item):
     """
 
     if (item['email'] == 0):
-        # item.pop('timestamp')
         return 'MAILNOTFOUND'
 
     try:
