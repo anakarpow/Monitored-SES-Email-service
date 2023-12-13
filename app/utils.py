@@ -8,7 +8,7 @@ import boto3
 from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 from botocore.exceptions import ClientError
 from monitoring_email_html import format_monitoring_email
-from text import monitoring_text, default_text
+from text import default_text, monitoring_text
 
 is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
@@ -36,6 +36,8 @@ def monitor_sending(sending_list, success_list, failed_list):
 
     send_monitoring_email(success_list, failed_list)
 
+    # this object is then returned at runtime end &
+    # to triggering function
     return {'status': status, 'failed_list': failed_list}
 
 
