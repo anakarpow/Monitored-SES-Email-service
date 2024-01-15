@@ -11,18 +11,25 @@ def default_text(variables):
         <head></head>
         <body>
         <p>Dear Ladies and Gentlemen,</p>
-        <p> please find attached the DPP Cost Report for {variables['timestamp']} for the project {variables['project_name']}, including Cloud-Trail costs. </p>
+        <p> please find attached the DPP Cost Report for {variables['timestamp']} for the tenant {variables['project_name']}, including Cloud-Trail costs.   </p>
+        <a>
+        Transparency into operational costs is now offered through the inclusion of a metering overview </a>
 
-        <p> If the projects AWS consumption follows the trend of the past months, the AWS consumption will be in total ~€ {variables['forecast']} by the end of the year.
+
+        <p> The total AWS consumption for 2023 of the tenant is € € {variables['forecast']}.  
         The provided cost limit is € {variables['cost_limit']} - (if no limit was provided “-“ is shown).
         Please note that this leads to a difference of € {variables['delta_forecast_limit']}. <p>
 
-        If you have any questions about the DPP Cost Reports, please feel free to contact us at <a href="dpp.clearing.office.vwag.r.wob@volkswagen.de."> dpp.clearing.office.vwag.r.wob@volkswagen.de </a>
+        If you have any questions about the DPP Cost Reports, please feel free to contact us at 
+        <a href="dpp.clearing.office.vwag.r.wob@volkswagen.de."> dpp.clearing.office.vwag.r.wob@volkswagen.de </a>  
+        or via our 
+        <a href="https://teams.microsoft.com/l/team/19%3a6fa024c84ffc4a6386a2abd306e4688b%40thread.tacv2/conversations?groupId=12c71005-4bd9-4c3f-8935-2ba350c7985c&tenantId=2882be50-2012-4d88-ac86-544124e120c8"> Teams Channel. </a>
 
-        <p> AWS Consumption can also be tracked via the AWS Cost Review Dashboard. <p>
+        <p>
+        General information can be found in the <a href="https://volkswagen-net.de/wikis/display/DigitalProductionPlatform/DPP+Service+Offering">  DPP WIKI </a> 
+        </p>
 
-        General information can be found in the <a href="https://volkswagen-net.de/wikis/display/DigitalProductionPlatform/DPP+Service+Offering">  DPP WIKI</a>.
-
+        
         <p> Best regards, <p>
         <a>  DPP Clearing Office<a>
         </p>
