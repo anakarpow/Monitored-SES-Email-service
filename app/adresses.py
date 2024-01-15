@@ -1,5 +1,6 @@
 
-sender = 'extern.gregor.zopf@volkswagen.de'
+# sender = 'extern.gregor.zopf@volkswagen.de'
+sender = 'dpp.clearing.office.vwag.r.wob@volkswagen.de'
 
 # for testing
 adress_list = ['cast.ses.2@efs.at', 'cast.ses.1@efs.at']
