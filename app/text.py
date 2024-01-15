@@ -16,7 +16,7 @@ def default_text(variables):
         Transparency into operational costs is now offered through the inclusion of a metering overview </a>
 
 
-        <p> The total AWS consumption for 2023 of the tenant is € € {variables['forecast']}.  
+        <p> The total AWS consumption for 2023 of the tenant is € {variables['forecast']}.  
         The provided cost limit is € {variables['cost_limit']} - (if no limit was provided “-“ is shown).
         Please note that this leads to a difference of € {variables['delta_forecast_limit']}. <p>
 
