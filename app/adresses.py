@@ -1,5 +1,7 @@
 
+# for test
 # sender = 'extern.gregor.zopf@volkswagen.de'
+# for PROD
 sender = 'dpp.clearing.office.vwag.r.wob@volkswagen.de'
 
 # for testing
