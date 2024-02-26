@@ -3,8 +3,13 @@ import json
 import os
 
 import boto3
-from utils import (list_bucket_files_with_date, process_sending_list,
-                   sending_loop)
+from utils import (
+    check_if_test,
+    get_email_template,
+    list_bucket_files_with_date,
+    process_sending_list,
+    sending_loop,
+)
 
 is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
@@ -13,7 +18,8 @@ input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 # receives trigger from CR function with : month of interest to retrieve CR from S3, list of adresses
 if is_local:
     print('local event version ')
-    event = '../events/base_event.json'
+    # event = '../events/base_event.json'
+    event = '../events/test.json'
     # # event = '../events/full_test_event.json'
     # event = '../events/roll_out_Dec.json'
 
@@ -24,6 +30,13 @@ s3_client = boto3.client('s3')
 
 
 def lambda_handler(event, context):
+    # if test event add marker to event
+    # one email sent to specified adress, without attachement
+    event = check_if_test(event)
+
+    # look in bucket for emailtext archive
+    # add logic to select the right one
+    email_template = get_email_template(s3_client, input_bucket)
 
     # get all CR for selected month > returns existing CR in S3
     file_list = list_bucket_files_with_date(
@@ -33,7 +46,7 @@ def lambda_handler(event, context):
     sending_list = process_sending_list(event)
 
     # iterate sending list and send emails, activates monitoring process
-    sending_report = sending_loop(sending_list, file_list)
+    sending_report = sending_loop(sending_list, file_list, email_template)
 
     print('Finished')
     return sending_report
