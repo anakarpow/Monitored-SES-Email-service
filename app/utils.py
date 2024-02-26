@@ -68,7 +68,7 @@ def sending_loop(sending_list, file_list, email_template):
     # if test, dont send montoring email
     if 'test' in item:
         print('Test email sent without monitoring email')
-        exit()
+        return {'status': 'test email sent'}
     # checking nr of sent emails against adress list
     sending_report = monitor_sending(sending_list, success_list, failed_list)
     return sending_report

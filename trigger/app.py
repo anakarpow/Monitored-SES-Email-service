@@ -9,7 +9,9 @@ is_local = os.environ.get("local")
 client = boto3.client('lambda')
 if is_local:
     print('local version ')
-    event = '../events/base_event.json'
+    # event = '../events/base_event.json'
+    event = '../events/test.json'
+
     with open(event, 'r') as file:
         event = json.load(file)
 
@@ -29,7 +31,7 @@ def lambda_handler(event, context):
         LogType='None',
         Payload=json.dumps(event)
     )
-
+    print(event)
     outcome = resp['Payload'].read()
     print(outcome)
     # if 'Runtime.MarshalError' in str(outcome):
