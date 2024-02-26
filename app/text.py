@@ -2,7 +2,7 @@
 from datetime import datetime
 
 
-def default_text(variables):
+def default_text(email_template, variables):
     variables['delta_forecast_limit'] = variables['cost_limit'] - \
         variables['forecast']
 
@@ -13,10 +13,10 @@ def default_text(variables):
         <p>Dear Ladies and Gentlemen,</p>
         <p> please find attached the DPP Cost Report for {variables['timestamp']} for the tenant {variables['project_name']}, including Cloud-Trail costs.   </p>
         <a>
-        Transparency into operational costs is now offered through the inclusion of a metering overview </a>
+        {email_template}</a>
 
 
-        <p> The total AWS consumption for 2023 of the tenant is € {variables['forecast']}.  
+        <p> The total AWS consumption for 2024 of the tenant is € {variables['forecast']}.  
         The provided cost limit is € {variables['cost_limit']} - (if no limit was provided “-“ is shown).
         Please note that this leads to a difference of € {variables['delta_forecast_limit']}. <p>
 
@@ -80,3 +80,7 @@ def rollout_text(project_name):
 </body>
 </html>"""
     return text
+
+
+def manage_template(email_template, variables):
+    pass
