@@ -67,7 +67,7 @@ def sending_loop(sending_list, file_list, email_template):
 
     # if test, dont send montoring email
     if 'test' in item:
-        print('Test email sent')
+        print('Test email sent without monitoring email')
         exit()
     # checking nr of sent emails against adress list
     sending_report = monitor_sending(sending_list, success_list, failed_list)
@@ -238,6 +238,10 @@ def get_email_template(s3, input_bucket):
     for content in response.get("Contents", []):
         if not content.get("Key").endswith("/"):
             files.append(content.get("Key"))
+
+    if len(files) < 1:
+        print('No email template was found in the bucket ')
+        exit()
 
     query = s3.get_object(Bucket=input_bucket, Key=files[0])
     query = query["Body"].read().decode("utf-8")
