@@ -15,5 +15,6 @@ complaint_adress = 'complaint@simulator.amazonses.com'
 sender_monitoring_email = 'extern.gregor.zopf@volkswagen.de'
 
 # should be gregor Citrix
-receiver_monitoring_email = 'extern.gregor.zopf@volkswagen.de'
-# 'dpp.clearing.office.vwag.r.wob@volkswagen.de'
+receiver_monitoring_email = 'dpp.clearing.office.vwag.r.wob@volkswagen.de'
+
+# 'extern.gregor.zopf@volkswagen.de'
