@@ -13,7 +13,7 @@ phases:
     # on-failure: ABORT
   build:
     commands:
-      - sam build --template deployment/template.yaml
+      - sam build --template template.yaml
       - echo "building environemnt"
       - ls
   post_build:
