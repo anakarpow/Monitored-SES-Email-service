@@ -256,3 +256,6 @@ $RECYCLE.BIN/
 
 *.html
 
+/data
+
+.html*

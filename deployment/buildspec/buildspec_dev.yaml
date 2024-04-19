@@ -1,0 +1,22 @@
+version: 0.2
+env:
+  shell: bash
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+  pre_build:
+    commands:
+      # - source cfn-lint.sh
+      # - source code-scan.sh
+      - echo skipping pre-build for dev
+    # on-failure: ABORT
+  build:
+    commands:
+      - sam build --template deployment/template.yaml
+      - echo "building environemnt"
+      - ls
+  post_build:
+    commands:
+      - source deployment/scripts/assume_role_dev.sh
+      - sam deploy --config-file deployment/samconfig.toml --config-env dev --profile PIPE --no-fail-on-empty-changeset
