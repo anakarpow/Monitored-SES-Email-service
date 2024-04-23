@@ -7,10 +7,9 @@ phases:
       python: 3.11
   pre_build:
       commands:
-        # - source cfn-lint.sh
-        # - source code-scan.sh
-        - echo skipping pre-build for dev
-      # on-failure: ABORT
+      - source cfn-lint.sh
+      - source code-scan.sh
+      - echo scans completed
   build:
     commands:
       - sam build --template template.yaml

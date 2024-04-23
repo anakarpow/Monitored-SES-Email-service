@@ -181,6 +181,7 @@ Resources:
               - !Sub arn:aws:s3:::${PrefixLowercase}*/*
               - !Sub arn:aws:s3:::${Prefix}*
               - !Sub arn:aws:s3:::${Prefix}*/*
-
+              - !Sub arn:aws:s3:::vw-lambda-*
+              - !Sub arn:aws:s3:::vw-lambda-*/*
       Roles:
         - Ref: SESRole

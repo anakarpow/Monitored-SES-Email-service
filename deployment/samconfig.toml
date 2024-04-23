@@ -69,4 +69,6 @@ parameter_overrides=[
     'BucketInput=cast-output',
     'VPCId=vpc-0918291a04d21410c',
     'Subnet1=subnet-010914f48fba0cf02',
-    'Subnet2=subnet-07eee462afa64bcf0']
+    'Subnet2=subnet-07eee462afa64bcf0',
+    'BucketInputOverview=cast-input',
+    'BucketInput=cast-output']
