@@ -259,3 +259,8 @@ $RECYCLE.BIN/
 /data
 
 .html*
+
+events/*
+
+
+*.json
