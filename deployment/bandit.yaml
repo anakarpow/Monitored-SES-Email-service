@@ -1,2 +1,2 @@
 # FILE: bandit.yaml
-skips: ["B108", "B110"]
+skips: ["B108", "B110"] # use of tmp/ , try_except_pass
