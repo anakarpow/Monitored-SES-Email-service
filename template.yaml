@@ -37,6 +37,16 @@ Parameters:
     Description: Subnet id
     NoEcho: true
 
+  Prefix:
+    Description: project prefix
+    Type: String
+    Default: CAST-
+
+  PrefixLowercase:
+    Description: project prefix
+    Type: String
+    Default: cast-
+
 Resources:
   TriggerFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -104,9 +114,15 @@ Resources:
           - Effect: Allow
             Action:
               - lambda:invokeFunction
+            Resource:
+              -
+              - !GetAtt SendingFunction.Arn
+
+          - Effect: Allow
+            Action:
               - lambda:listFunctions
             Resource:
-              - "*"
+              - !Sub arn:aws:lambda:eu-west-1:${AWS::AccountId}:function:*
       Roles:
         - Ref: InvokingRole
 
@@ -138,6 +154,14 @@ Resources:
               - ses:SendRawEmail
             Resource:
               - "*"
+            Condition:
+              ForAnyValue:StringEquals:
+                ses:FromAddress:
+                  [
+                    "dpp.clearing.office.vwag.r.wob@volkswagen.de",
+                    "cast.ses.2@efs.at",
+                    "cast.ses.1@efs.at",
+                  ]
       Roles:
         - Ref: SESRole
 
@@ -155,6 +179,10 @@ Resources:
               - s3:PutObjectTagging
               - s3:GetBucketLocation
             Resource:
-              - "*"
+              - !Sub arn:aws:s3:::${PrefixLowercase}*
+              - !Sub arn:aws:s3:::${PrefixLowercase}*/*
+              - !Sub arn:aws:s3:::${Prefix}*
+              - !Sub arn:aws:s3:::${Prefix}*/*
+
       Roles:
         - Ref: SESRole
