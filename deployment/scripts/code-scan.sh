@@ -1,4 +1,5 @@
 
 #!/bin/bash
 pip install bandit
-bandit test_code.py
+bandit app/ -r 
+bandit trigger/ -r 
