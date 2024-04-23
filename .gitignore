@@ -260,7 +260,11 @@ $RECYCLE.BIN/
 
 .html*
 
-events/*
+events/
+
+data/
+
+
 
 
 *.json
