@@ -159,6 +159,7 @@ Resources:
                     "dpp.clearing.office.vwag.r.wob@volkswagen.de",
                     "cast.ses.2@efs.at",
                     "cast.ses.1@efs.at",
+                    "extern.gregor.zopf@volkswagen.de"
                   ]
       Roles:
         - Ref: SESRole
