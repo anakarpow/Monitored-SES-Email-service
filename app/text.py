@@ -16,7 +16,7 @@ def default_text(email_template, variables):
         {email_template}</a>
 
 
-        <p> The Forecast for 2024 of the Tenant” is € {variables['forecast']}.  
+        <p> The Forecast for 2024 of the Tenant is € {variables['forecast']}.  
         The provided cost limit is € {variables['cost_limit']} - (if no limit was provided “-“ is shown).
         Please note that this leads to a difference of € {variables['delta_forecast_limit']}. <p>
 

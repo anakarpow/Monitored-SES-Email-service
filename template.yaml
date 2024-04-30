@@ -120,7 +120,7 @@ Resources:
             Action:
               - lambda:listFunctions
             Resource:
-              - !Sub arn:aws:lambda:eu-west-1:${AWS::AccountId}:function:*
+              - "*"
       Roles:
         - Ref: InvokingRole
 
