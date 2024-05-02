@@ -69,7 +69,7 @@ Resources:
     Type: AWS::Serverless::Function 
     Properties:
       FunctionName: Sender
-      Description:  CAST email sending Lmabda. Distributes Cost Reports according to Sending list from CRC
+      Description:  CAST email sending Lambda. Distributes Cost Reports according to Sending list from CRC
       Role: !GetAtt SESRole.Arn
       CodeUri: app/
       Handler: app.lambda_handler
