@@ -48,10 +48,10 @@ Parameters:
 
 Resources:
   TriggerFunction:
-    Type: AWS::Serverless::Function 
+    Type: AWS::Serverless::Function
     Properties:
       FunctionName: Trigger
-      Description: Triggers CAST-SES
+      Description: Triggers CAST email-sending function
       Role: !GetAtt InvokingRole.Arn
       CodeUri: trigger/
       Handler: app.lambda_handler
@@ -66,10 +66,10 @@ Resources:
           - !Ref Subnet2
 
   SendingFunction:
-    Type: AWS::Serverless::Function 
+    Type: AWS::Serverless::Function
     Properties:
-      FunctionName: Sender
-      Description:  CAST email sending Lambda. Distributes Cost Reports according to Sending list from CRC
+      FunctionName: !Sub ${Prefix}CRS
+      Description: CRS -- Distributes Cost Reports according to Sending list from CRC
       Role: !GetAtt SESRole.Arn
       CodeUri: app/
       Handler: app.lambda_handler
@@ -163,7 +163,7 @@ Resources:
                     "dpp.clearing.office.vwag.r.wob@volkswagen.de",
                     "cast.ses.2@efs.at",
                     "cast.ses.1@efs.at",
-                    "extern.gregor.zopf@volkswagen.de"
+                    "extern.gregor.zopf@volkswagen.de",
                   ]
       Roles:
         - Ref: SESRole
