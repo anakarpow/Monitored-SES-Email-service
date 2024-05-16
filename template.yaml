@@ -50,7 +50,7 @@ Resources:
   TriggerFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: Trigger
+      FunctionName: !Sub ${Prefix}CRS-Trigger
       Description: Triggers CAST email-sending function
       Role: !GetAtt InvokingRole.Arn
       CodeUri: trigger/
@@ -68,7 +68,7 @@ Resources:
   SendingFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: !Sub ${Prefix}CRS
+      FunctionName: !Sub ${Prefix}CRS-Sender
       Description: CRS -- Distributes Cost Reports according to Sending list from CRC
       Role: !GetAtt SESRole.Arn
       CodeUri: app/

@@ -21,7 +21,7 @@ def lambda_handler(event, context):
     func_paginator = client.get_paginator('list_functions')
     for func_page in func_paginator.paginate():
         for func in func_page['Functions']:
-            if 'Sending' in func['FunctionName']:
+            if 'Sender' in func['FunctionName']:
                 sending_func = func['FunctionName']
                 print(sending_func)
 

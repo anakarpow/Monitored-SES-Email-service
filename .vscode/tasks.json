@@ -15,7 +15,7 @@
       "label": "Deploy DEV",
       "type": "shell",
       "detail": "deploy current container to DEV stage.",
-      "command": "export AWS_PROFILE=471685057907_PA_DEVELOPER; sam deploy --config-env dev",
+      "command": "export AWS_PROFILE=471685057907_PA_DEVELOPER; sam deploy --config-env dev --config-file deployment/samconfig.toml",
       "icon": {"id": "light-bulb","color": "terminal.ansiGreen"}
 
     },
@@ -23,7 +23,7 @@
       "label": "Deploy INT",
       "type": "shell",
       "detail": "deploy current container to INT stage.",
-      "command": "export AWS_PROFILE=596480830369_PA_DEVELOPER; sam deploy --config-env int",
+      "command": "export AWS_PROFILE=596480830369_PA_DEVELOPER; sam deploy --config-env int --config-file deployment/samconfig.toml",
       "icon": {"id": "light-bulb","color": "terminal.ansiMagenta"}
 
     },
@@ -31,7 +31,7 @@
       "label": "Deploy PROD",
       "type": "shell",
       "detail": "deploy current container to PROD stage.",
-      "command": "export AWS_PROFILE=936022423514_PA_FULLADMIN; sam deploy --config-env prod",
+      "command": "export AWS_PROFILE=936022423514_PA_FULLADMIN; sam deploy --config-env prod --config-file deployment/samconfig.toml",
       "icon": {"id": "light-bulb","color": "terminal.ansiRed"}
 
     },

@@ -55,7 +55,7 @@ parameter_overrides=[
 
 # DEV advanced account
 [prod.deploy.parameters]
-stack_name = 'CAST-SES'
+stack_name = 'CAST-Mail'
 s3_bucket = 'cast-deployment'
 region = 'eu-west-1'
 capabilities = 'CAPABILITY_IAM'
