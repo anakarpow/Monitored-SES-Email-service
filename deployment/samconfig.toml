@@ -49,7 +49,7 @@ parameter_overrides=[
     'Subnet1=subnet-0c0de0a7916e385ec',
     'Subnet2=subnet-092ee8f5c41040211',
     'BucketInputOverview=vw-lambda-reporting-manual-input',
-    'BucketInput=vw-lambda-reporting-output']
+    'BucketInput=cast-output-dev']
 
 
 
