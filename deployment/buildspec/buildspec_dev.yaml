@@ -2,18 +2,25 @@ version: 0.2
 env:
   shell: bash
 phases:
-  install:
-    runtime-versions:
-      python: 3.11
   pre_build:
     commands:
+      - echo installing basic tools
+      - source deployment/scripts/install_tools.sh > logs.txt
+      - source deployment/scripts/python_version.sh > logs.txt
+
+      - echo running scans
+      - source deployment/scripts/cfn-nag.sh
       - source deployment/scripts/cfn-lint.sh
       - source deployment/scripts/code-scan.sh
       - echo scans completed
+
   build:
     commands:
       - sam build --template template.yaml
-      - echo "building environemnt"
+      - echo installing own CAST package
+      - pip install . --target .aws-sam/build/CostReportingFunction/
+      - pip install . --target .aws-sam/build/MeteringFunction/
+      - echo building environemnt
   post_build:
     commands:
       - source deployment/scripts/assume_role_dev.sh

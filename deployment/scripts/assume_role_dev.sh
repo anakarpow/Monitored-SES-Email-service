@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+# set -x
 
 ROLE_ARN=arn:aws:iam::471685057907:role/CAST-DeployerRole-dev
 OUTPUT_PROFILE=PIPE

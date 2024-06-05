@@ -1,5 +1,7 @@
-
 #!/bin/bash
 pip install bandit
-bandit app/ -r -c deployment/bandit.yaml 
-bandit trigger/ -r -c deployment/bandit.yaml 
+bandit cost-reporting/  -r -c deployment/bandit.yaml  --severity-level high
+
+bandit metering/  -r -c deployment/bandit.yaml  --severity-level high
+
+bandit cast_package/  -r -c deployment/bandit.yaml  --severity-level high

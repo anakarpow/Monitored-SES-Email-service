@@ -31,17 +31,15 @@ warm_containers = "EAGER"
 warm_containers = "EAGER"
 
 
-
-
 # DEV advanced account
 [dev.deploy.parameters]
 stack_name = 'CAST-Mail'
 s3_bucket = 'cost-reporting-vw'
 region = 'eu-west-1'
 capabilities = 'CAPABILITY_IAM'
-tags=" GITC- GITC-Risk Class=\"3\" GITC- Data Classification=\"internal\" GITC- Data Classification=\"true\" GITC-ApplicationID=\"82299\" backup=\"true\" "
-parameter_overrides=[
-# INFRA VARIABLES
+tags = " GITC- GITC-Risk Class=\"3\" GITC- Data Classification=\"internal\" GITC- Data Classification=\"true\" GITC-ApplicationID=\"82299\" backup=\"true\" "
+parameter_overrides = [
+    # INFRA VARIABLES
     'Env=dev',
     'CreateNewSecret=False',
     'GeneralName=CAST',
@@ -49,8 +47,8 @@ parameter_overrides=[
     'Subnet1=subnet-0c0de0a7916e385ec',
     'Subnet2=subnet-092ee8f5c41040211',
     'BucketInputOverview=vw-lambda-reporting-manual-input',
-    'BucketInput=cast-output-dev']
-
+    'BucketInput=cast-output-dev',
+]
 
 
 # DEV advanced account
@@ -59,9 +57,9 @@ stack_name = 'CAST-Mail'
 s3_bucket = 'cast-deployment'
 region = 'eu-west-1'
 capabilities = 'CAPABILITY_IAM'
-tags=" GITC- GITC-Risk Class=\"3\" GITC- Data Classification=\"internal\" GITC- Data Classification=\"true\" GITC-ApplicationID=\"82299\" backup=\"true\" "
-parameter_overrides=[
-# INFRA VARIABLES
+tags = " GITC- GITC-Risk Class=\"3\" GITC- Data Classification=\"internal\" GITC- Data Classification=\"true\" GITC-ApplicationID=\"82299\" backup=\"true\" "
+parameter_overrides = [
+    # INFRA VARIABLES
     'Env=prod',
     'CreateNewSecret=False',
     'GeneralName=CAST-SES',
@@ -71,4 +69,5 @@ parameter_overrides=[
     'Subnet1=subnet-010914f48fba0cf02',
     'Subnet2=subnet-07eee462afa64bcf0',
     'BucketInputOverview=cast-input',
-    'BucketInput=cast-output']
+    'BucketInput=cast-output',
+]

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
 
-pip install cfn-lint
+pip install cfn-lint > logs.txt
 cfn-lint template.yaml; exit_status=$?
 
 ERROR_MASK=2
