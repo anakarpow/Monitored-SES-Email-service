@@ -17,9 +17,6 @@ phases:
   build:
     commands:
       - sam build --template template.yaml
-      - echo installing own CAST package
-      - pip install . --target .aws-sam/build/CostReportingFunction/
-      - pip install . --target .aws-sam/build/MeteringFunction/
       - echo building environemnt
   post_build:
     commands:
