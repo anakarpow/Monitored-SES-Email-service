@@ -24,4 +24,4 @@ phases:
   post_build:
     commands:
       - source deployment/scripts/assume_role_prod.sh
-      - sam deploy --config-env prod --profile PIPE --no-fail-on-empty-changeset
+      - sam deploy --config-file deployment/samconfig.toml --config-env prod --profile PIPE --no-fail-on-empty-changeset
