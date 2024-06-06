@@ -11,6 +11,7 @@ phases:
       - echo running scans
       - source deployment/scripts/cfn-nag.sh
       - source deployment/scripts/cfn-lint.sh
+      - source deployment/scripts/grype.sh
       - source deployment/scripts/code-scan.sh
       - echo scans completed
 
