@@ -1,6 +1,7 @@
 
 import json
 import os
+from random import sample
 
 import boto3
 from utils import (
@@ -30,26 +31,37 @@ s3_client = boto3.client('s3')
 
 
 def lambda_handler(event, context):
-    # if test event add marker to event
-    # one email sent to specified adress, without attachement
-    event = check_if_test(event)
 
-    # look in bucket for emailtext archive
-    # add logic to select the right one
-    email_template = get_email_template(s3_client, input_bucket)
+    # read event and go to specific workflow
+    if event['missing_fields']:
+        # customerDB event
+        sample = {"adresses": [
+            {"project_name": "name",
+             "missing_fields": ['a', 'b', 'c'],
+             "email_adresses": ['a', 'b', 'c']}
+        ]}
+        pass
+    else:
+        # if test event add marker to event
+        # one email sent to specified adress, without attachement
+        event = check_if_test(event)
 
-    # get all CR for selected month > returns existing CR in S3
-    file_list = list_bucket_files_with_date(
-        s3_client, bucket=input_bucket, event=event)
+        # look in bucket for emailtext archive
+        # add logic to select the right one
+        email_template = get_email_template(s3_client, input_bucket)
 
-    # work on sending list, adding metadata
-    sending_list = process_sending_list(event)
+        # get all CR for selected month > returns existing CR in S3
+        file_list = list_bucket_files_with_date(
+            s3_client, bucket=input_bucket, event=event)
 
-    # iterate sending list and send emails, activates monitoring process
-    sending_report = sending_loop(sending_list, file_list, email_template)
+        # work on sending list, adding metadata
+        sending_list = process_sending_list(event)
 
-    print('Finished')
-    return sending_report
+        # iterate sending list and send emails, activates monitoring process
+        sending_report = sending_loop(sending_list, file_list, email_template)
+
+        print('Finished')
+        return sending_report
 
 
 if __name__ == "__main__":
