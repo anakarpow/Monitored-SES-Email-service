@@ -41,6 +41,15 @@ def lambda_handler(event, context):
              "email_adresses": ['a', 'b', 'c']}
         ]}
         pass
+    # get email template => rewrite func to have prefix as parameter. to use same func for both use cases
+    # write new sending loop according to requirements
+    # smth like if clearing office in list 
+        # send to CO
+    # else
+        # send to tenant 
+    # make sure to integrate monitor_sending function
+    # parameters = sending_list, success_list, failed_list
+    # return sending_report like other workflow
     else:
         # if test event add marker to event
         # one email sent to specified adress, without attachement
