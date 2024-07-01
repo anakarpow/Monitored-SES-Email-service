@@ -265,6 +265,8 @@ $RECYCLE.BIN/
 data/
 
 
+updater/test_data/
+
 
 
 *.json
