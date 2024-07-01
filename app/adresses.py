@@ -1,8 +1,8 @@
 
 # for test
-# sender = 'extern.gregor.zopf@volkswagen.de'
+sender = 'extern.gregor.zopf@volkswagen.de'
 # for PROD
-sender = 'dpp.clearing.office.vwag.r.wob@volkswagen.de'
+# sender = 'dpp.clearing.office.vwag.r.wob@volkswagen.de'
 
 # for testing
 adress_list = ['cast.ses.2@efs.at', 'cast.ses.1@efs.at']
@@ -18,6 +18,7 @@ complaint_adress = 'complaint@simulator.amazonses.com'
 sender_monitoring_email = 'extern.gregor.zopf@volkswagen.de'
 
 # should be gregor Citrix
-receiver_monitoring_email = 'dpp.clearing.office.vwag.r.wob@volkswagen.de'
+# receiver_monitoring_email = 'dpp.clearing.office.vwag.r.wob@volkswagen.de'
+receiver_monitoring_email = 'cast.ses.1@efs.at'
 # 'extern.gregor.zopf@volkswagen.de'
 # 'dpp.clearing.office.vwag.r.wob@volkswagen.de'
