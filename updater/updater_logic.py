@@ -6,18 +6,11 @@ import boto3
 import os
 
 def lambda_handler(event, context):
-        
-    # test data for local
-    # file = 'test_data/Output (9).json'
-    # with open(file, 'r') as foo:
-    #     data = json.load(foo)
 
     s3 = boto3.client('s3')
     client = boto3.client('lambda')
-    
-    query_input_bucket = os.environ.get("BUCKET_INPUT_OVERVIEW")
-    #'vw-lambda-reporting-manual-input'
 
+    query_input_bucket = os.environ.get("BUCKET_INPUT_OVERVIEW")
 
     # query API
     data=query_and_return_dict(s3, query_input_bucket)
@@ -26,13 +19,8 @@ def lambda_handler(event, context):
     output_df = utils.extract_contact_and_account_data(data)
 
     test_json = output_df.to_dict(orient='records')
-    with open('test_data/draft_result.json', 'w') as file:
-        json.dump(test_json, file)
 
-    # once data workflow is done
-    # if output_df is not empty
-        # invoke lambda sending payload
-    if len(output_df) > 0:
+    if any(len(i) for i in output_df['missing_fields']) > 0:
         response = client.invoke(
                 FunctionName='CAST-CRS-Sender',
                 InvocationType='RequestResponse',
