@@ -28,6 +28,7 @@ def monitor_sending(sending_list, success_list, failed_list):
         print(f'Not all {len(sending_list)} email have been sent !')
         print("Failed email for following projects")
         for item in failed_list:
+            # print('from monitoring', item)
             print(f" {item['project_name']}")
         status = 0
     else:
@@ -287,16 +288,19 @@ def sending_loop_misfields(sending_list):
     success_list = []
     failed_list = []
     for item in sending_list:
+
+        for recipient in item['email_adresses']:
         # send email
-        resp = send_email_with_misfields(
-            item)
+            resp = send_email_with_misfields(
+                recipient, item)
         # attaching meta info to resp
-        resp['delivery'] = {"project_name": item['project_name'],
-                            "email_adress": item['email_adresses'][0]}
-        if 'MessageId' in resp:
-            success_list.append(resp)
-        else:
-            failed_list.append(resp)
+            if resp != 'co':
+                resp['delivery'] = {"project_name": item['project_name'],
+                                    "email_adress": recipient}
+                if 'MessageId' in resp:
+                    success_list.append(resp)
+                else:
+                    failed_list.append(resp)
 
     # if test, dont send montoring email
     if 'test' in item:
@@ -306,36 +310,40 @@ def sending_loop_misfields(sending_list):
     sending_report = monitor_sending(sending_list, success_list, failed_list)
     return sending_report
 
-def send_email_with_misfields(item):
+def send_email_with_misfields(recipient, item):
     """
     supports attachments but no fine tuning in multiple recipients
     accoridng to testing : all adresses are set as Bcc
     """
     # sendig coordinates
     SENDER = sender
-    RECIPIENT = item['email_adresses'][0]
-    msg = MIMEMultipart()
-    msg["Subject"] = f"DPP Cost Report {item['project_name']} "
-    msg["From"] = SENDER
-    msg["To"] = RECIPIENT
 
-    email_text = missing_fields_text(variables=item)
-    body = MIMEText(email_text, "html")
-    msg.attach(body)
+    if recipient != 'ClearingOffice':
+        RECIPIENT = recipient
+        msg = MIMEMultipart()
+        msg["Subject"] = f"DPP Cost Report {item['project_name']} "
+        msg["From"] = SENDER
+        msg["To"] = RECIPIENT
+
+        email_text = missing_fields_text(variables=item)
+        body = MIMEText(email_text, "html")
+        msg.attach(body)
 
 
-    # Convert message to string and send
-    try:
-        response = ses_client.send_raw_email(
-            Source=SENDER,
-            Destinations=[msg['To']],
-            RawMessage={"Data": msg.as_string()}
-        )
-        print("Email sent!")
-        item.pop('timestamp')
+        # Convert message to string and send
+        try:
+            response = ses_client.send_raw_email(
+                Source=SENDER,
+                Destinations=[msg['To']],
+                RawMessage={"Data": msg.as_string()}
+            )
+            print("Email sent!")
+            return response
+
+        # Display an error if something goes wrong.
+        except Exception as e:
+            print(e)
+            return {}
+    else:
+        response = 'co'
         return response
-
-    # Display an error if something goes wrong.
-    except Exception as e:
-        print(e)
-        return {}

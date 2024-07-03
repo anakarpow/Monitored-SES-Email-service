@@ -78,25 +78,8 @@ def lambda_handler(event, context):
     # read event and go to specific workflow
     
     #if 'missing_fields' in event:
-    print(event)
+    # print(event)
     if len(event) > 0:
-        # customerDB event
-        sample = {"adresses": [
-            {"project_name": "name",
-             "missing_fields": ['a', 'b', 'c'],
-             "email_adresses": ['a', 'b', 'c']}
-        ]}
-        #pass
-        # for pr in event:
-        #     sending_list.append(pr['email_adresses'][0])
-        #     missing_fields.append(pr['missing_fields'])
-
-            # send email
-    
-        # for i in range(len(sending_list)):
-            # send to sending_ist[i] 
-            # send what: missing_fields[i]
-
         # get_email_template 
         # => rewrite func get_email_template to have prefix as parameter. to use same func for both use cases 
         # (either updater or cost-reporting) - bucket is always the same -> either 2 different folders or one folder and filter for files 
