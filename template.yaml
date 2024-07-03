@@ -79,6 +79,21 @@ Resources:
           BUCKET_INPUT: !Ref BucketInput
           BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
 
+  UnpatingFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${Prefix}CRS-Updater
+      Description: CRS -- Finds the missing data
+      Role: arn:aws:iam::471685057907:role/vw-lambda-reporting-CostReportingFunctionRole-AXA0WJOBOLIW
+      CodeUri: updater/
+      Handler: updater_logic.lambda_handler
+      Runtime: python3.11
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview #query_input_bucket
+
   CASTLambdasSG:
     Type: AWS::EC2::SecurityGroup
     DeletionPolicy: Delete
