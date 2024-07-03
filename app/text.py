@@ -84,3 +84,20 @@ def rollout_text(project_name):
 
 def manage_template(email_template, variables):
     pass
+
+def missing_fields_text(variables):
+
+    default = f"""
+        <html>
+        <head></head>
+        <body>
+        <p>Dear Ladies and Gentlemen,</p>
+        <p> you should upadte following fields {variables['missing_fields']} <p>
+
+        
+        <p> Best regards, <p>
+        <a>  DPP Clearing Office<a>
+        </p>
+        </body>
+        </html>"""
+    return default

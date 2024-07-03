@@ -8,7 +8,7 @@ import boto3
 from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 from botocore.exceptions import ClientError
 from monitoring_email_html import format_monitoring_email
-from text import default_text, monitoring_text
+from text import default_text, monitoring_text, missing_fields_text
 
 is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
@@ -274,3 +274,68 @@ def check_if_test(event):
 #     from data.success_list import success_list
 #     send_monitoring_email(success_list, failed_list)
 #     exit()
+
+
+def sending_loop_misfields(sending_list):
+    """
+    iterates sending_list, matching CR by project name
+    sends email
+    adds metadata on sending process 
+    calls monitoring function
+    """
+    # start reporting lists
+    success_list = []
+    failed_list = []
+    for item in sending_list:
+        # send email
+        resp = send_email_with_misfields(
+            item)
+        # attaching meta info to resp
+        resp['delivery'] = {"project_name": item['project_name'],
+                            "email_adress": item['email_adresses'][0]}
+        if 'MessageId' in resp:
+            success_list.append(resp)
+        else:
+            failed_list.append(resp)
+
+    # if test, dont send montoring email
+    if 'test' in item:
+        print('Test email sent without monitoring email')
+        return {'status': 'test email sent'}
+    # checking nr of sent emails against adress list
+    sending_report = monitor_sending(sending_list, success_list, failed_list)
+    return sending_report
+
+def send_email_with_misfields(item):
+    """
+    supports attachments but no fine tuning in multiple recipients
+    accoridng to testing : all adresses are set as Bcc
+    """
+    # sendig coordinates
+    SENDER = sender
+    RECIPIENT = item['email_adresses'][0]
+    msg = MIMEMultipart()
+    msg["Subject"] = f"DPP Cost Report {item['project_name']} "
+    msg["From"] = SENDER
+    msg["To"] = RECIPIENT
+
+    email_text = missing_fields_text(variables=item)
+    body = MIMEText(email_text, "html")
+    msg.attach(body)
+
+
+    # Convert message to string and send
+    try:
+        response = ses_client.send_raw_email(
+            Source=SENDER,
+            Destinations=[msg['To']],
+            RawMessage={"Data": msg.as_string()}
+        )
+        print("Email sent!")
+        item.pop('timestamp')
+        return response
+
+    # Display an error if something goes wrong.
+    except Exception as e:
+        print(e)
+        return {}
