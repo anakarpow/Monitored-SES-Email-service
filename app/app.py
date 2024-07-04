@@ -44,7 +44,6 @@ event = [
     {
         "email_adresses": [
             "cast.ses.1@efs.at",
-            "ClearingOffice"
         ],
         "project_name": "Ice-Cream Detection",
         "missing_fields": [
@@ -63,10 +62,13 @@ event = [
     },
     {
         "email_adresses": [
-            "ClearingOffice"
+            "cast.ses.2@efs.at"
         ],
-        "project_name": "For CO Only",
+        # summaryreportconatct goes to CO
+        # billingmethod to tenant 
+        "project_name": "For CO TEST",
         "missing_fields": [
+            "summaryreportcontact",
             "billingmethod"
         ]
     }
