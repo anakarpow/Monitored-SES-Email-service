@@ -92,7 +92,24 @@ def missing_fields_text(variables):
         <head></head>
         <body>
         <p>Dear Ladies and Gentlemen,</p>
-        <p> you should upadte following fields {variables['missing_fields']} <p>
+        <p> you should update following fields {variables['missing_fields']} <p>
+
+        
+        <p> Best regards, <p>
+        <a>  DPP Clearing Office<a>
+        </p>
+        </body>
+        </html>"""
+    return default
+
+def missing_fields_co_text():
+
+    default = f"""
+        <html>
+        <head></head>
+        <body>
+        <p>Dear Clearing Office,</p>
+        <p> you should update the 'summaryreportcontact' field <p>
 
         
         <p> Best regards, <p>

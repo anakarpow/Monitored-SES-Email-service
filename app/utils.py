@@ -8,7 +8,7 @@ import boto3
 from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 from botocore.exceptions import ClientError
 from monitoring_email_html import format_monitoring_email
-from text import default_text, monitoring_text, missing_fields_text
+from text import default_text, monitoring_text, missing_fields_text, missing_fields_co_text
 
 is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
@@ -318,10 +318,10 @@ def send_email_with_misfields(recipient, item):
     # sendig coordinates
     SENDER = sender
 
-    if recipient != 'ClearingOffice':
+    if 'summaryreportcontact' not in item['missing_fields']:
         RECIPIENT = recipient
         msg = MIMEMultipart()
-        msg["Subject"] = f"DPP Cost Report {item['project_name']} "
+        msg["Subject"] = f"DPP Missing Data {item['project_name']} "
         msg["From"] = SENDER
         msg["To"] = RECIPIENT
 
@@ -346,4 +346,28 @@ def send_email_with_misfields(recipient, item):
             return {}
     else:
         response = 'co'
-        return response
+        RECIPIENT = 'cast.ses.1@efs.at'
+        msg = MIMEMultipart()
+        msg["Subject"] = f"DPP Missing Data {item['project_name']} "
+        msg["From"] = SENDER
+        msg["To"] = RECIPIENT
+
+        email_text = missing_fields_co_text()
+        body = MIMEText(email_text, "html")
+        msg.attach(body)
+
+
+        # Convert message to string and send
+        try:
+            response = ses_client.send_raw_email(
+                Source=SENDER,
+                Destinations=[msg['To']],
+                RawMessage={"Data": msg.as_string()}
+            )
+            print("Email to CO sent!")
+            return response
+
+        # Display an error if something goes wrong.
+        except Exception as e:
+            print(e)
+            return {}
