@@ -277,7 +277,7 @@ def check_if_test(event):
 #     exit()
 
 
-def sending_loop_misfields(sending_list):
+def sending_loop_misfields(sending_list, projects_co):
     """
     iterates sending_list, matching CR by project name
     sends email
@@ -294,6 +294,7 @@ def sending_loop_misfields(sending_list):
             resp = send_email_with_misfields(
                 recipient, item)
         # attaching meta info to resp
+            #print(resp)
             if resp != 'co':
                 resp['delivery'] = {"project_name": item['project_name'],
                                     "email_adress": recipient}
@@ -301,7 +302,8 @@ def sending_loop_misfields(sending_list):
                     success_list.append(resp)
                 else:
                     failed_list.append(resp)
-
+    if len(projects_co) > 0:
+        send_email_to_co(projects_co)
     # if test, dont send montoring email
     if 'test' in item:
         print('Test email sent without monitoring email')
@@ -317,8 +319,8 @@ def send_email_with_misfields(recipient, item):
     """
     # sendig coordinates
     SENDER = sender
-
-    if 'summaryreportcontact' not in item['missing_fields']:
+    #print(len([x for x in item['missing_fields'] if x != 'summaryreportcontact']))
+    if len([x for x in item['missing_fields'] if x != 'summaryreportcontact']) > 0:
         RECIPIENT = recipient
         msg = MIMEMultipart()
         msg["Subject"] = f"DPP Missing Data {item['project_name']} "
@@ -346,28 +348,37 @@ def send_email_with_misfields(recipient, item):
             return {}
     else:
         response = 'co'
-        RECIPIENT = 'cast.ses.1@efs.at'
-        msg = MIMEMultipart()
-        msg["Subject"] = f"DPP Missing Data {item['project_name']} "
-        msg["From"] = SENDER
-        msg["To"] = RECIPIENT
 
-        email_text = missing_fields_co_text()
-        body = MIMEText(email_text, "html")
-        msg.attach(body)
+def send_email_to_co(projects_co):
+    """
+    supports attachments but no fine tuning in multiple recipients
+    accoridng to testing : all adresses are set as Bcc
+    """
+    # sendig coordinates
+    SENDER = sender
+    RECIPIENT = 'cast.ses.1@efs.at'
+    #RECIPIENT = 'AMinaeva@efs.at'
+    msg = MIMEMultipart()
+    msg["Subject"] = f"DPP Missing Data For Clearing Office"
+    msg["From"] = SENDER
+    msg["To"] = RECIPIENT
+
+    email_text = missing_fields_co_text(projects_co)
+    body = MIMEText(email_text, "html")
+    msg.attach(body)
 
 
-        # Convert message to string and send
-        try:
-            response = ses_client.send_raw_email(
-                Source=SENDER,
-                Destinations=[msg['To']],
-                RawMessage={"Data": msg.as_string()}
-            )
-            print("Email to CO sent!")
-            return response
+    # Convert message to string and send
+    try:
+        response = ses_client.send_raw_email(
+            Source=SENDER,
+            Destinations=[msg['To']],
+            RawMessage={"Data": msg.as_string()}
+        )
+        print("Email to CO sent!")
+        return response
 
-        # Display an error if something goes wrong.
-        except Exception as e:
-            print(e)
-            return {}
+    # Display an error if something goes wrong.
+    except Exception as e:
+        print(e)
+        return {}

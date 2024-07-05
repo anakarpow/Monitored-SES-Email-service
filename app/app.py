@@ -89,7 +89,11 @@ def lambda_handler(event, context):
     # write new sending_loop() according to requirements (ganz neue funktion)
         # for each item in list send the list of missing fileds 
         sending_list = event
-        sending_report = sending_loop_misfields(sending_list)
+        projects_co = []
+        for pr in event:
+            if 'summaryreportcontact' in pr['missing_fields']:
+                projects_co.append(pr['project_name'])
+        sending_report = sending_loop_misfields(sending_list, projects_co)
 
     # smth like if clearing office in list
         # send to CO
