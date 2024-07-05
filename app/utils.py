@@ -293,8 +293,7 @@ def sending_loop_misfields(sending_list, projects_co):
         # send email
             resp = send_email_with_misfields(
                 recipient, item)
-        # attaching meta info to resp
-            #print(resp)
+        # track the emails that were send (without the CO)
             if resp != 'co':
                 resp['delivery'] = {"project_name": item['project_name'],
                                     "email_adress": recipient}
@@ -302,12 +301,15 @@ def sending_loop_misfields(sending_list, projects_co):
                     success_list.append(resp)
                 else:
                     failed_list.append(resp)
+    # send the emails to CO if there is 'summaryreportcontact' in the missing fields
     if len(projects_co) > 0:
         send_email_to_co(projects_co)
+
     # if test, dont send montoring email
     if 'test' in item:
         print('Test email sent without monitoring email')
         return {'status': 'test email sent'}
+    
     # checking nr of sent emails against adress list
     sending_report = monitor_sending(sending_list, success_list, failed_list)
     return sending_report
@@ -319,7 +321,8 @@ def send_email_with_misfields(recipient, item):
     """
     # sendig coordinates
     SENDER = sender
-    #print(len([x for x in item['missing_fields'] if x != 'summaryreportcontact']))
+    
+    # send all the missing fields except summaryreportcontact
     if len([x for x in item['missing_fields'] if x != 'summaryreportcontact']) > 0:
         RECIPIENT = recipient
         msg = MIMEMultipart()
@@ -357,12 +360,13 @@ def send_email_to_co(projects_co):
     # sendig coordinates
     SENDER = sender
     RECIPIENT = 'cast.ses.1@efs.at'
-    #RECIPIENT = 'AMinaeva@efs.at'
+    
     msg = MIMEMultipart()
     msg["Subject"] = f"DPP Missing Data For Clearing Office"
     msg["From"] = SENDER
     msg["To"] = RECIPIENT
 
+    # send the email to CO with the names of the projects
     email_text = missing_fields_co_text(projects_co)
     body = MIMEText(email_text, "html")
     msg.attach(body)

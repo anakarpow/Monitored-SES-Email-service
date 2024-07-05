@@ -7,7 +7,7 @@ import os
 
 def lambda_handler(event, context):
 
-    s3 = boto3.client('s3')
+    s3 = boto3.client('s3', region_name='eu-west-1')
     client = boto3.client('lambda')
 
     query_input_bucket = os.environ.get("BUCKET_INPUT_OVERVIEW")
@@ -24,9 +24,8 @@ def lambda_handler(event, context):
         response = client.invoke(
                 FunctionName='CAST-CRS-Sender',
                 InvocationType='RequestResponse',
-                Payload=test_json,
+                Payload=json.dumps(test_json),
             )
-        print(response['Payload'].read())
     return
 
 if __name__ == "__main__":

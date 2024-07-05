@@ -1,4 +1,3 @@
-
 import json
 import os
 from random import sample
@@ -30,84 +29,21 @@ input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 
 s3_client = boto3.client('s3')
 
-event = [
-    {
-        "email_adresses": [
-            "cast.ses.1@efs.at",
-            "cast.ses.2@efs.at"
-        ],
-        "project_name": "TestABC",
-        "missing_fields": [
-            "wanumber"
-        ]
-    },
-    {
-        "email_adresses": [
-            "cast.ses.1@efs.at",
-        ],
-        "project_name": "Ice-Cream Detection",
-        "missing_fields": [
-            "wanumber"
-        ]
-    },
-    {
-        "email_adresses": [
-            "cast.ses.2@efs.at"
-        ],
-        "project_name": "Soda-Zitrone",
-        "missing_fields": [
-            "businessserviceid",
-            "billingmethod",
-            "dppcentral"        ]
-    },
-    {
-        "email_adresses": [
-            "cast.ses.2@efs.at"
-        ],
-        # summaryreportconatct goes to CO
-        # billingmethod to tenant 
-        "project_name": "For CO TEST",
-        "missing_fields": [
-            "summaryreportcontact",
-            "billingmethod"
-        ]
-    }
-
-]
 def lambda_handler(event, context):
-    # sending_list = []
-    # missing_fields = []
-    # read event and go to specific workflow
     
-    #if 'missing_fields' in event:
-    # print(event)
-    if len(event) > 0:
-        # get_email_template 
-        # => rewrite func get_email_template to have prefix as parameter. to use same func for both use cases 
-        # (either updater or cost-reporting) - bucket is always the same -> either 2 different folders or one folder and filter for files 
-
-    # write new sending_loop() according to requirements (ganz neue funktion)
-        # for each item in list send the list of missing fileds 
+    # function to send the email with missing values    
+    if 'missing_fields' in event:
         sending_list = event
+        
+        # list of project that have to be sent to CO
         projects_co = []
         for pr in event:
             if 'summaryreportcontact' in pr['missing_fields']:
                 projects_co.append(pr['project_name'])
+        
+        # send the emails
         sending_report = sending_loop_misfields(sending_list, projects_co)
 
-    # smth like if clearing office in list
-        # send to CO
-    # else
-        # send to tenant
-
-    # !!!make sure to integrate monitor_sending function (use as it is -- check if it is so)
-    # parameters = sending_list, success_list, failed_list
-    
-    # return sending_report like other workflow from sending_loop func - rewrite this function
-
-    # no attachments, only text from file from s3 bucket + list of missing fields
-
-    # send_email_with_attachment some parts can be taken forthis part
         print('Finished')
         return sending_report
 
@@ -135,4 +71,4 @@ def lambda_handler(event, context):
 
 
 if __name__ == "__main__":
-    lambda_handler(event, None)
+    lambda_handler(None, None)
