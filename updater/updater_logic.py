@@ -33,6 +33,8 @@ def lambda_handler(event, context):
             json.dump(test_json, file)
         return
     else:
+        # stop here to avoid sending emails
+        exit()
         # invoke SES Lambda
         if any(len(i) for i in output_df['missing_fields']) > 0:
             response = client.invoke(
