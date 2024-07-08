@@ -4,8 +4,8 @@ import pandas as pd
 def extract_contact_and_account_data(data):
 
     # required info from cutomerDB
-    to_keep = ['plant', 'sk', 'wanumber', 'businessserviceid',
-               'billingmethod', 'dppcentral', 'servicecenter', 'costcenterplant']
+    to_keep = ['plant', 'wanumber', 'businessserviceid',
+               'billingmethod', 'dppcentral', 'costcenterkonzernverrechnungskostenstelle', 'summaryreportcontact']
 
     # for each project extract contact amd account data
     #  contact info and concat to df
