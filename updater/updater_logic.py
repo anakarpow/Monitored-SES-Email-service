@@ -33,6 +33,10 @@ def lambda_handler(event, context):
             json.dump(test_json, file)
         output_df[['project_name', 'missing_fields']].to_csv(
             'test_data/draft_result.csv', index=False)
+    
+    # to test today
+    # run locally and invoke Sender in AWS wth test_event
+    
         return
     else:
         # stop here to avoid sending emails
