@@ -21,8 +21,8 @@ def extract_contact_and_account_data(data):
 
         main_contact_channel_df = pd.concat(
             [main_contact_channel_df, project_df])
-    print(main_contact_channel_df)
-    # sort contact data, filter out BILLING contacts
+        
+    # sort contact data, filter relevant accounts
     main_contact_channel_df = main_contact_channel_df.reset_index(drop=True)
     main_contact_channel_df = main_contact_channel_df[main_contact_channel_df.topic == 'BILLING']
     main_contact_channel_df = main_contact_channel_df[main_contact_channel_df.status != 'closed']
