@@ -46,6 +46,7 @@ def lambda_handler(event, context):
 
         print('Finished')
         return sending_report
+    
 
     else:
         # if test event add marker to event

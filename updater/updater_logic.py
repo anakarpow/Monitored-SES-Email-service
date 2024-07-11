@@ -25,19 +25,31 @@ def lambda_handler(event, context):
 
     # unpack dict, return df with output info
     output_df = utils.extract_contact_and_account_data(data)
-    test_json = output_df.to_dict(orient='records')
+    sending_json = output_df.to_dict(orient='records')
 
     # save to local data
     if is_local:
         with open('test_data/draft_result.json', 'w') as file:
-            json.dump(test_json, file)
+            json.dump(sending_json, file)
+            
         output_df[['project_name', 'missing_fields']].to_csv(
             'test_data/draft_result.csv', index=False)
-    
+
+        #########################
+        with open('test_data/test_event_v1.json', 'r') as file:
+            test_json = json.load(file)
+            print(test_json)
+        response = client.invoke(
+            FunctionName='CAST-CRS-Sender',
+            InvocationType='RequestResponse',
+            Payload=json.dumps(test_json),
+        )
+        print(response['Payload'].read())
+        #########################
     # to test today
     # run locally and invoke Sender in AWS wth test_event
-    
-        return
+
+        return response
     else:
         # stop here to avoid sending emails
         exit()
