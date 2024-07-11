@@ -14,7 +14,7 @@ def lambda_handler(event, context):
 
     # read sample data in local version
     if is_local:
-        input_json = 'test_data/Output (13).json'
+        input_json = 'test_data/Output.json'
         with open(input_json, 'r') as file:
             data = json.load(file)
     # query API in cloud version
