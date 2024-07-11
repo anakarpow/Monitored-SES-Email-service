@@ -51,6 +51,10 @@ def lambda_handler(event, context):
 
         return response
     else:
+        ###
+        # write function writing output_df['project_name', 'missing_fields'] xlsx to cast-output-dev bucket in customer_data_updates/ folder  
+        ###
+
         # stop here to avoid sending emails
         exit()
         # invoke SES Lambda
