@@ -277,7 +277,7 @@ def check_if_test(event):
 #     exit()
 
 
-def sending_loop_misfields(sending_list, projects_co):
+def sending_loop_missing_fields(sending_list, projects_co):
     """
     iterates sending_list, matching CR by project name
     sends email
@@ -291,7 +291,7 @@ def sending_loop_misfields(sending_list, projects_co):
 
         for recipient in item['email_adresses']:
         # send email
-            resp = send_email_with_misfields(
+            resp = send_email_with_missing_fields(
                 recipient, item)
         # track the emails that were send (without the CO)
             if resp != 'co':
@@ -314,7 +314,7 @@ def sending_loop_misfields(sending_list, projects_co):
     sending_report = monitor_sending(sending_list, success_list, failed_list)
     return sending_report
 
-def send_email_with_misfields(recipient, item):
+def send_email_with_missing_fields(recipient, item):
     """
     supports attachments but no fine tuning in multiple recipients
     accoridng to testing : all adresses are set as Bcc
@@ -323,7 +323,7 @@ def send_email_with_misfields(recipient, item):
     SENDER = sender
     
     # send all the missing fields except summaryreportcontact
-    if len([x for x in item['missing_fields'] if x != 'summaryreportcontact']) > 0:
+    if len([field for field in item['missing_fields'] if field != 'summaryreportcontact']) > 0:
         RECIPIENT = recipient
         msg = MIMEMultipart()
         msg["Subject"] = f"DPP Missing Data {item['project_name']} "
@@ -359,7 +359,7 @@ def send_email_to_co(projects_co):
     """
     # sendig coordinates
     SENDER = sender
-    RECIPIENT = 'cast.ses.1@efs.at'
+    RECIPIENT = receiver_monitoring_email
     
     msg = MIMEMultipart()
     msg["Subject"] = f"DPP Missing Data For Clearing Office"

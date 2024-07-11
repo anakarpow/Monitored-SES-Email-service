@@ -9,7 +9,7 @@ from utils import (
     list_bucket_files_with_date,
     process_sending_list,
     sending_loop,
-    sending_loop_misfields,
+    sending_loop_missing_fields,
 )
 
 is_local = os.environ.get("local")
@@ -37,12 +37,12 @@ def lambda_handler(event, context):
         
         # list of project that have to be sent to CO
         projects_co = []
-        for pr in event:
-            if 'summaryreportcontact' in pr['missing_fields']:
-                projects_co.append(pr['project_name'])
+        for project in event:
+            if 'summaryreportcontact' in project['missing_fields']:
+                projects_co.append(project['project_name'])
         
         # send the emails
-        sending_report = sending_loop_misfields(sending_list, projects_co)
+        sending_report = sending_loop_missing_fields(sending_list, projects_co)
 
         print('Finished')
         return sending_report
