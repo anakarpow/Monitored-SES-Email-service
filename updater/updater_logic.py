@@ -14,7 +14,7 @@ def lambda_handler(event, context):
 
     # read sample data in local version
     if is_local:
-        input_json = 'test_data/Output (12).json'
+        input_json = 'test_data/Output (13).json'
         with open(input_json, 'r') as file:
             data = json.load(file)
     # query API in cloud version
@@ -31,6 +31,8 @@ def lambda_handler(event, context):
     if is_local:
         with open('test_data/draft_result.json', 'w') as file:
             json.dump(test_json, file)
+        output_df[['project_name', 'missing_fields']].to_csv(
+            'test_data/draft_result.csv', index=False)
         return
     else:
         # stop here to avoid sending emails

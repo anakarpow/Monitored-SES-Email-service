@@ -16,12 +16,17 @@ def extract_contact_and_account_data(data):
         # extract contact data
         project_df = pd.json_normalize(project['hasContactChannels'])
         project_df['project_name'] = project['name']
+        project_df['status'] = project['status']
+        project_df['hasAccounts'] = len(project['hasAccounts'])
+
         main_contact_channel_df = pd.concat(
             [main_contact_channel_df, project_df])
-
+    print(main_contact_channel_df)
     # sort contact data, filter out BILLING contacts
     main_contact_channel_df = main_contact_channel_df.reset_index(drop=True)
     main_contact_channel_df = main_contact_channel_df[main_contact_channel_df.topic == 'BILLING']
+    main_contact_channel_df = main_contact_channel_df[main_contact_channel_df.status != 'closed']
+    main_contact_channel_df = main_contact_channel_df[main_contact_channel_df.hasAccounts > 0]
 
     # contact data: extract info from id string
     # split string and drop useless cols
@@ -62,4 +67,5 @@ def extract_contact_and_account_data(data):
         lambda x: x.index[x == False].tolist(), axis=1)
     # now drop old cols
     merge_contacts.drop(columns=to_keep+['id'], inplace=True)
+
     return merge_contacts
