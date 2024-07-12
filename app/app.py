@@ -31,8 +31,9 @@ s3_client = boto3.client('s3')
 
 def lambda_handler(event, context):
     
+    # return event[0]
     # function to send the email with missing values    
-    if 'missing_fields' in event:
+    if 'missing_fields' in event[0]:
         sending_list = event
         
         # list of project that have to be sent to CO
@@ -42,6 +43,7 @@ def lambda_handler(event, context):
                 projects_co.append(project['project_name'])
         
         # send the emails
+        # return projects_co
         sending_report = sending_loop_missing_fields(sending_list, projects_co)
 
         print('Finished')
