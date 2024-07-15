@@ -24,6 +24,8 @@ def monitor_sending(sending_list, success_list, failed_list):
     sends reporting email if not equal
     returns status and failed emails 
     """
+    send_monitoring_email(success_list, failed_list)
+
     if len(success_list) < len(sending_list):
         print(f'Not all {len(sending_list)} email have been sent !')
         print("Failed email for following projects")
@@ -34,7 +36,6 @@ def monitor_sending(sending_list, success_list, failed_list):
         status = 1
         failed_list = []
 
-    send_monitoring_email(success_list, failed_list)
 
     # this object is then returned at runtime end &
     # to triggering function
