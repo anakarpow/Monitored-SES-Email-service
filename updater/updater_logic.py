@@ -4,8 +4,7 @@ import utils
 import json
 import boto3
 import os
-from datetime import datetime
-import io
+
 is_local = os.environ.get("local")
 
 s3 = boto3.client('s3', region_name='eu-west-1')
@@ -30,31 +29,18 @@ def lambda_handler(event, context):
     sending_json = output_df.to_dict(orient='records')
 
     # save to local data
-    if is_local:
-        with open('test_data/draft_result.json', 'w') as file:
-            json.dump(sending_json, file)
-
-        output_df[['project_name', 'missing_fields']].to_csv(
-            'test_data/draft_result.csv', index=False)
-        return
-
-    else:
-
-        with io.BytesIO() as output:
-            with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
-                output_df[['project_name', 'missing_fields']].to_excel(writer)
-                data = output.getvalue()
-                s3.upload_fileobj(io.BytesIO(data), 'cast-output-dev',
-                                  'customer_data_updates/missing_fields' + str(datetime.now()) + '.xlsx')
-
+    utils.save_missing_fields(is_local, sending_json, output_df, s3)
         # stop here to avoid sending emails
-        exit()
+        # exit()
         # invoke SES Lambda
+    if is_local:
+        pass
+    else:
         if any(len(i) for i in output_df['missing_fields']) > 0:
             response = client.invoke(
                 FunctionName='CAST-CRS-Sender',
                 InvocationType='RequestResponse',
-                Payload=json.dumps(test_json),
+                Payload=json.dumps(sending_json),
             )
         return
 
