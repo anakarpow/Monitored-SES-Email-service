@@ -268,3 +268,5 @@ data/
 
 
 *.json
+
+updater/test_data

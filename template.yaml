@@ -66,6 +66,7 @@ Resources:
   SendingFunction:
     Type: AWS::Serverless::Function
     Properties:
+      Timeout: 240
       FunctionName: !Sub ${Prefix}CRS-Sender
       Description: CRS -- Distributes Cost Reports according to Sending list from CRC
       Role: !GetAtt SESRole.Arn
