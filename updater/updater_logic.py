@@ -33,37 +33,19 @@ def lambda_handler(event, context):
     if is_local:
         with open('test_data/draft_result.json', 'w') as file:
             json.dump(sending_json, file)
-            
+
         output_df[['project_name', 'missing_fields']].to_csv(
             'test_data/draft_result.csv', index=False)
+        return
+
+    else:
 
         with io.BytesIO() as output:
             with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
                 output_df[['project_name', 'missing_fields']].to_excel(writer)
                 data = output.getvalue()
-                s3.upload_fileobj(io.BytesIO(data), 'cast-output-dev', 'customer_data_updates/missing_fields' + str(datetime.now()) + '.xlsx')
-
-        #########################
-        with open('test_data/test_event_v1.json', 'r') as file:
-            test_json = json.load(file)
-            #print(test_json)
-        response = client.invoke(
-            FunctionName='CAST-CRS-Sender',
-            InvocationType='RequestResponse',
-            Payload=json.dumps(test_json),
-        )
-
-        print(response['Payload'].read())
-        #########################
-    # to test today
-    # run locally and invoke Sender in AWS wth test_event
-
-        return response
-    else:
-        ###
-        # write function writing output_df['project_name', 'missing_fields'] xlsx to cast-output-dev bucket in customer_data_updates/ folder
-        
-        ###
+                s3.upload_fileobj(io.BytesIO(data), 'cast-output-dev',
+                                  'customer_data_updates/missing_fields' + str(datetime.now()) + '.xlsx')
 
         # stop here to avoid sending emails
         exit()
