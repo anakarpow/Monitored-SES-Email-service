@@ -1,3 +1,4 @@
 pandas
 boto3
 requests_aws4auth
+xlsxwriter
