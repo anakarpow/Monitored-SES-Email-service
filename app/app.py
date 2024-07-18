@@ -17,38 +17,38 @@ input_bucket = os.environ.get("BUCKET_INPUT")
 input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 
 # # receives trigger from CR function with : month of interest to retrieve CR from S3, list of adresses
-# if is_local:
-#     print('local event version ')
-#     # event = '../events/base_event.json'
-#     event = '../events/test.json'
-#     # # event = '../events/full_test_event.json'
-#     # event = '../events/roll_out_Dec.json'
 
-#     with open(event, 'r') as file:
-#         event = json.load(file)
 
 s3_client = boto3.client('s3')
 
+
 def lambda_handler(event, context):
-    
+    if is_local:
+        print('local event version ')
+        event = '../events/test.json'
+
+        with open(event, 'r') as file:
+            event = json.load(file)
+
     # return event[0]
-    # function to send the email with missing values    
+    # function to send the email with missing values
+
+    # TODO not compatible with base_event.json & test.json format
     if 'missing_fields' in event[0]:
         sending_list = event
-        
+
         # list of project that have to be sent to CO
         projects_co = []
         for project in event:
             if 'summaryreportcontact' in project['missing_fields']:
                 projects_co.append(project['project_name'])
-        
+
         # send the emails
         # return projects_co
         sending_report = sending_loop_missing_fields(sending_list, projects_co)
 
         print('Finished')
         return sending_report
-    
 
     else:
         # if test event add marker to event
