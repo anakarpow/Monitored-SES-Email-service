@@ -80,6 +80,30 @@ Resources:
           BUCKET_INPUT: !Ref BucketInput
           BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
 
+  UpdatingFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${Prefix}CRS-Updater
+      Description: CRS -- Finds the missing data
+      Role: arn:aws:iam::471685057907:role/vw-lambda-reporting-CostReportingFunctionRole-AXA0WJOBOLIW
+      CodeUri: updater/
+      Handler: updater_logic.lambda_handler
+      Runtime: python3.11
+      VpcConfig:
+        SecurityGroupIds:
+          - !GetAtt CASTLambdasSG.GroupId
+        SubnetIds:
+          - !Ref Subnet1
+          - !Ref Subnet2
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview 
+          API_ROLE: arn:aws:iam::715146888639:role/dcodev
+          ProxyId: default
+          AWS_STS_REGIONAL_ENDPOINTS: regional
+
   CASTLambdasSG:
     Type: AWS::EC2::SecurityGroup
     DeletionPolicy: Delete
