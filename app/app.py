@@ -59,6 +59,8 @@ def lambda_handler(event, context):
         # add logic to select the right one
         email_template = get_email_template(s3_client, input_bucket)
 
+        ## TODO ignore lines above
+        # TODO copy next two functions
         # get all CR for selected month > returns existing CR in S3
         file_list = list_bucket_files_with_date(
             s3_client, bucket=input_bucket, event=event)
@@ -66,6 +68,7 @@ def lambda_handler(event, context):
         # work on sending list, adding metadata
         sending_list = process_sending_list(event)
 
+        # TODO create new sending loop 
         # iterate sending list and send emails, activates monitoring process
         sending_report = sending_loop(sending_list, file_list, email_template)
 
