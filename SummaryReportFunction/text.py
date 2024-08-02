@@ -2,13 +2,7 @@
 from datetime import datetime
 
 
-def default_text(email_template, variables):
-    # variables['delta_forecast_limit'] = variables['cost_limit'] - \
-    #     variables['forecast']
-
-    #  <p> The Forecast for 2024 of the Tenant is € {variables['forecast']}.  
-    #     The provided cost limit is € {variables['cost_limit']} - (if no limit was provided “-“ is shown).
-    #     Please note that this leads to a difference of € {variables['delta_forecast_limit']}. <p>
+def default_text(variables):
 
     default = f"""
         <html>
@@ -16,11 +10,8 @@ def default_text(email_template, variables):
         <body>
         <p>Dear Ladies and Gentlemen,</p>
         <p> please find attached the DPP Summary Report for {variables['timestamp']} for the tenant {variables['CostCenter']}, including Cloud-Trail costs.   </p>
-        <a>
-        {email_template}</a>
 
-
-       Text goes here
+       An awesome email with lots of cool data is written here! :)
 
         If you have any questions about the DPP Cost Reports, please feel free to contact us at 
         <a href="dpp.clearing.office.vwag.r.wob@volkswagen.de."> dpp.clearing.office.vwag.r.wob@volkswagen.de </a>  

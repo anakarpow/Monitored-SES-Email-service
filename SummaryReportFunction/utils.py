@@ -43,7 +43,7 @@ def monitor_sending(sending_list, success_list, failed_list):
     return {'status': status, 'failed_list': failed_list}
 
 
-def sending_loop(sending_list, file_list, email_template):
+def sending_loop_summary(sending_list, file_list):
     """
     iterates sending_list, matching CR by project name
     sends email
@@ -58,7 +58,7 @@ def sending_loop(sending_list, file_list, email_template):
         item['attachment'] = match_file(file_list, item)
         # send email
         resp = send_email_with_attachment(
-            item, email_template)
+            item)
         # attaching meta info to resp
         resp['delivery'] = {"CostCenter": item['CostCenter']}
 
@@ -128,7 +128,7 @@ def list_bucket_files_with_date(s3, bucket, event):
     return files
 
 
-def send_email_with_attachment(item, email_template):
+def send_email_with_attachment(item):
     """
     supports attachments but no fine tuning in multiple recipients
     accoridng to testing : all adresses are set as Bcc
@@ -146,7 +146,7 @@ def send_email_with_attachment(item, email_template):
     msg["From"] = SENDER
     msg["To"] = RECIPIENT
 
-    email_text = default_text(email_template, variables=item)
+    email_text = default_text(variables=item)
     body = MIMEText(email_text, "html")
     msg.attach(body)
 

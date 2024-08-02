@@ -4,12 +4,10 @@ from random import sample
 
 import boto3
 from utils import (
-    check_if_test,
     get_email_template,
     list_bucket_files_with_date,
     process_sending_list,
-    sending_loop,
-    sending_loop_missing_fields,
+    sending_loop_summary,
 )
 
 is_local = os.environ.get("local")
@@ -19,6 +17,7 @@ input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 s3_client = boto3.client('s3')
 
 def lambda_handler(event, context):
+    print("is local: ", is_local)
     if is_local:
         print('local event version ')
         event = '../events/sumary_report.json'
@@ -28,7 +27,7 @@ def lambda_handler(event, context):
 
     # look in bucket for emailtext archive
     # add logic to select the right one
-    email_template = get_email_template(s3_client, input_bucket)
+    # email_template = get_email_template(s3_client, input_bucket)
         
     # get all CR for selected month > returns existing CR in S3
     file_list = list_bucket_files_with_date(
@@ -38,7 +37,7 @@ def lambda_handler(event, context):
         
     # TODO create new sending loop
     # iterate sending list and send emails, activates monitoring process
-    sending_report = sending_loop(sending_list, file_list, email_template)
+    sending_report = sending_loop_summary(sending_list, file_list)
 
     print('Finished')
     return sending_report
