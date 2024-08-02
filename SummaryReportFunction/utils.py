@@ -229,6 +229,38 @@ def send_monitoring_email(success_list, failed_list):
     return
 
 
+# def get_email_template(s3, input_bucket):
+#     """
+#     retrieves email_template from bucket
+#     """
+#     files = []
+#     response = s3.list_objects_v2(
+#         Bucket=input_bucket, Prefix='email_templates')
+#     for content in response.get("Contents", []):
+#         if not content.get("Key").endswith("/"):
+#             files.append(content.get("Key"))
+
+#     if len(files) < 1:
+#         print('No email template was found in the bucket ')
+#         exit()
+
+#     query = s3.get_object(Bucket=input_bucket, Key=files[0])
+#     query = query["Body"].read().decode("utf-8")
+#     print("standard email_template loaded from bucket")
+#     return query
+
+
+# def check_if_test(event):
+#     if 'test_email' in event:
+#         event.update({"month": "2024/10/Cost reports",
+#                       "adresses": [
+#                           {"email": event['test_email'],
+#                            "CostCenter": "Test",
+#                            "test": "True"
+#                            }]})
+#     return event
+
+
 # if __name__ == "__main__":
 #     # filename = '../output/2023-06-DPP-AUDI AG-AUDINECKARSULMDATALAKE.html'
 #     # with open('../test_data/main_dict_5_2022.json', 'r') as file:
@@ -241,3 +273,114 @@ def send_monitoring_email(success_list, failed_list):
 #     from data.success_list import success_list
 #     send_monitoring_email(success_list, failed_list)
 #     exit()
+
+
+# def sending_loop_missing_fields(sending_list, projects_co):
+#     """
+#     iterates sending_list, matching CR by project name
+#     sends email
+#     adds metadata on sending process 
+#     calls monitoring function
+#     """
+#     # start reporting lists
+#     success_list = []
+#     failed_list = []
+#     for item in sending_list:
+
+#         for recipient in item['email_adresses']:
+#         # send email
+#             resp = send_email_with_missing_fields(
+#                 recipient, item)
+#         # track the emails that were send (without the CO)
+#             if resp != 'co':
+#                 resp['delivery'] = {"CostCenter": item['CostCenter'],
+#                                     "email_adress": recipient}
+#                 if 'MessageId' in resp:
+#                     success_list.append(resp)
+#                 else:
+#                     failed_list.append(resp)
+#     # send the emails to CO if there is 'summaryreportcontact' in the missing fields
+#     if len(projects_co) > 0:
+#         send_email_to_co(projects_co)
+
+#     # if test, dont send montoring email
+#     if 'test' in item:
+#         print('Test email sent without monitoring email')
+#         return {'status': 'test email sent'}
+    
+#     # checking nr of sent emails against adress list
+#     sending_report = monitor_sending(sending_list, success_list, failed_list)
+#     return sending_report
+
+def send_email_with_missing_fields(recipient, item):
+    """
+    supports attachments but no fine tuning in multiple recipients
+    accoridng to testing : all adresses are set as Bcc
+    """
+    # sendig coordinates
+    SENDER = sender
+    
+    # send all the missing fields except summaryreportcontact
+    if len([field for field in item['missing_fields'] if field != 'summaryreportcontact']) > 0:
+        RECIPIENT = recipient
+        msg = MIMEMultipart()
+        msg["Subject"] = f"DPP Missing Data {item['CostCenter']} "
+        msg["From"] = SENDER
+        msg["To"] = RECIPIENT
+
+        email_text = missing_fields_text(variables=item)
+        body = MIMEText(email_text, "html")
+        msg.attach(body)
+
+
+        # Convert message to string and send
+        try:
+            response = ses_client.send_raw_email(
+                Source=SENDER,
+                Destinations=[msg['To']],
+                RawMessage={"Data": msg.as_string()}
+            )
+            print("Email sent!")
+            return response
+
+        # Display an error if something goes wrong.
+        except Exception as e:
+            print(e)
+            return {}
+    else:
+        response = 'co'
+
+def send_email_to_co(projects_co):
+    """
+    supports attachments but no fine tuning in multiple recipients
+    accoridng to testing : all adresses are set as Bcc
+    """
+    # sendig coordinates
+    SENDER = sender
+    RECIPIENT = receiver_monitoring_email
+    
+    msg = MIMEMultipart()
+    msg["Subject"] = f"DPP Missing Data For Clearing Office"
+    msg["From"] = SENDER
+    msg["To"] = RECIPIENT
+
+    # send the email to CO with the names of the projects
+    email_text = missing_fields_co_text(projects_co)
+    body = MIMEText(email_text, "html")
+    msg.attach(body)
+
+
+    # Convert message to string and send
+    try:
+        response = ses_client.send_raw_email(
+            Source=SENDER,
+            Destinations=[msg['To']],
+            RawMessage={"Data": msg.as_string()}
+        )
+        print("Email to CO sent!")
+        return response
+
+    # Display an error if something goes wrong.
+    except Exception as e:
+        print(e)
+        return {}
