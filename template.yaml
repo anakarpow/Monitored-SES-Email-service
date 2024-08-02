@@ -51,7 +51,7 @@ Resources:
       FunctionName: !Sub ${Prefix}CRS-Trigger
       Description: Triggers CAST email-sending function
       Role: !GetAtt InvokingRole.Arn
-      CodeUri: trigger/
+      CodeUri: TriggerFunction/
       Handler: app.lambda_handler
       Runtime: python3.11
       Architectures:
@@ -63,14 +63,14 @@ Resources:
           - !Ref Subnet1
           - !Ref Subnet2
 
-  SendingFunction:
+  CostReportFunction:
     Type: AWS::Serverless::Function
     Properties:
       Timeout: 240
       FunctionName: !Sub ${Prefix}CRS-Sender
       Description: CRS -- Distributes Cost Reports according to Sending list from CRC
       Role: !GetAtt SESRole.Arn
-      CodeUri: app/
+      CodeUri: CostReportFunction/
       Handler: app.lambda_handler
       Runtime: python3.11
       Architectures:
@@ -103,7 +103,7 @@ Resources:
       FunctionName: !Sub ${Prefix}CRS-Updater
       Description: CRS -- Finds the missing data
       Role: arn:aws:iam::471685057907:role/vw-lambda-reporting-CostReportingFunctionRole-AXA0WJOBOLIW
-      CodeUri: updater/
+      CodeUri: UpdaterFunction/
       Handler: updater_logic.lambda_handler
       Runtime: python3.11
       VpcConfig:
@@ -158,7 +158,7 @@ Resources:
             Action:
               - lambda:invokeFunction
             Resource:
-              - !GetAtt SendingFunction.Arn
+              - !GetAtt CostReportFunction.Arn
 
           - Effect: Allow
             Action:

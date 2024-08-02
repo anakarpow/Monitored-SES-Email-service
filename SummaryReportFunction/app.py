@@ -15,6 +15,7 @@ input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 
 s3_client = boto3.client('s3')
 
+
 def lambda_handler(event, context):
     if is_local:
         print('local event version ')
