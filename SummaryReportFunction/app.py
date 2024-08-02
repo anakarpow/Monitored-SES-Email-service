@@ -22,10 +22,6 @@ def lambda_handler(event, context):
 
         with open(event, 'r') as file:
             event = json.load(file)
-
-    # look in bucket for emailtext archive
-    # add logic to select the right one
-    # email_template = get_email_template(s3_client, input_bucket)
         
     # get all CR for selected month > returns existing CR in S3
     file_list = list_bucket_files_with_date(
@@ -33,7 +29,6 @@ def lambda_handler(event, context):
     # work on sending list, adding metadata
     sending_list = process_sending_list(event)
         
-    # TODO create new sending loop
     # iterate sending list and send emails, activates monitoring process
     sending_report = sending_loop_summary(sending_list, file_list)
 
