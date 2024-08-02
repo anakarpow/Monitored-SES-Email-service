@@ -80,6 +80,23 @@ Resources:
           BUCKET_INPUT: !Ref BucketInput
           BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
 
+  SendingSummaryFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Timeout: 240
+      FunctionName: !Sub ${Prefix}SR-Sender
+      Description: SR -- Distributes Summary Reports according to Sending list from CRC
+      Role: !GetAtt SESRole.Arn
+      CodeUri: SummaryReportFunction/
+      Handler: app.lambda_handler
+      Runtime: python3.11
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          BUCKET_INPUT: !Ref BucketInput
+          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
+
   UpdatingFunction:
     Type: AWS::Serverless::Function
     Properties:
