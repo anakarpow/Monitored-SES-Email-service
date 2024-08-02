@@ -229,36 +229,36 @@ def send_monitoring_email(success_list, failed_list):
     return
 
 
-def get_email_template(s3, input_bucket):
-    """
-    retrieves email_template from bucket
-    """
-    files = []
-    response = s3.list_objects_v2(
-        Bucket=input_bucket, Prefix='email_templates')
-    for content in response.get("Contents", []):
-        if not content.get("Key").endswith("/"):
-            files.append(content.get("Key"))
+# def get_email_template(s3, input_bucket):
+#     """
+#     retrieves email_template from bucket
+#     """
+#     files = []
+#     response = s3.list_objects_v2(
+#         Bucket=input_bucket, Prefix='email_templates')
+#     for content in response.get("Contents", []):
+#         if not content.get("Key").endswith("/"):
+#             files.append(content.get("Key"))
 
-    if len(files) < 1:
-        print('No email template was found in the bucket ')
-        exit()
+#     if len(files) < 1:
+#         print('No email template was found in the bucket ')
+#         exit()
 
-    query = s3.get_object(Bucket=input_bucket, Key=files[0])
-    query = query["Body"].read().decode("utf-8")
-    print("standard email_template loaded from bucket")
-    return query
+#     query = s3.get_object(Bucket=input_bucket, Key=files[0])
+#     query = query["Body"].read().decode("utf-8")
+#     print("standard email_template loaded from bucket")
+#     return query
 
 
-def check_if_test(event):
-    if 'test_email' in event:
-        event.update({"month": "2024/10/Cost reports",
-                      "adresses": [
-                          {"email": event['test_email'],
-                           "CostCenter": "Test",
-                           "test": "True"
-                           }]})
-    return event
+# def check_if_test(event):
+#     if 'test_email' in event:
+#         event.update({"month": "2024/10/Cost reports",
+#                       "adresses": [
+#                           {"email": event['test_email'],
+#                            "CostCenter": "Test",
+#                            "test": "True"
+#                            }]})
+#     return event
 
 
 # if __name__ == "__main__":
@@ -275,42 +275,42 @@ def check_if_test(event):
 #     exit()
 
 
-def sending_loop_missing_fields(sending_list, projects_co):
-    """
-    iterates sending_list, matching CR by project name
-    sends email
-    adds metadata on sending process 
-    calls monitoring function
-    """
-    # start reporting lists
-    success_list = []
-    failed_list = []
-    for item in sending_list:
+# def sending_loop_missing_fields(sending_list, projects_co):
+#     """
+#     iterates sending_list, matching CR by project name
+#     sends email
+#     adds metadata on sending process 
+#     calls monitoring function
+#     """
+#     # start reporting lists
+#     success_list = []
+#     failed_list = []
+#     for item in sending_list:
 
-        for recipient in item['email_adresses']:
-        # send email
-            resp = send_email_with_missing_fields(
-                recipient, item)
-        # track the emails that were send (without the CO)
-            if resp != 'co':
-                resp['delivery'] = {"CostCenter": item['CostCenter'],
-                                    "email_adress": recipient}
-                if 'MessageId' in resp:
-                    success_list.append(resp)
-                else:
-                    failed_list.append(resp)
-    # send the emails to CO if there is 'summaryreportcontact' in the missing fields
-    if len(projects_co) > 0:
-        send_email_to_co(projects_co)
+#         for recipient in item['email_adresses']:
+#         # send email
+#             resp = send_email_with_missing_fields(
+#                 recipient, item)
+#         # track the emails that were send (without the CO)
+#             if resp != 'co':
+#                 resp['delivery'] = {"CostCenter": item['CostCenter'],
+#                                     "email_adress": recipient}
+#                 if 'MessageId' in resp:
+#                     success_list.append(resp)
+#                 else:
+#                     failed_list.append(resp)
+#     # send the emails to CO if there is 'summaryreportcontact' in the missing fields
+#     if len(projects_co) > 0:
+#         send_email_to_co(projects_co)
 
-    # if test, dont send montoring email
-    if 'test' in item:
-        print('Test email sent without monitoring email')
-        return {'status': 'test email sent'}
+#     # if test, dont send montoring email
+#     if 'test' in item:
+#         print('Test email sent without monitoring email')
+#         return {'status': 'test email sent'}
     
-    # checking nr of sent emails against adress list
-    sending_report = monitor_sending(sending_list, success_list, failed_list)
-    return sending_report
+#     # checking nr of sent emails against adress list
+#     sending_report = monitor_sending(sending_list, success_list, failed_list)
+#     return sending_report
 
 def send_email_with_missing_fields(recipient, item):
     """
