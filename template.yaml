@@ -48,7 +48,7 @@ Resources:
   TriggerFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: !Sub ${Prefix}CRS-Trigger
+      FunctionName: !Sub ${Prefix}CRS-Trigger-New
       Description: Triggers CAST email-sending function
       Role: !GetAtt InvokingRole.Arn
       CodeUri: TriggerFunction/
@@ -67,7 +67,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Timeout: 240
-      FunctionName: !Sub ${Prefix}CRS-Sender
+      FunctionName: !Sub ${Prefix}CRS-Sender-New
       Description: CRS -- Distributes Cost Reports according to Sending list from CRC
       Role: !GetAtt SESRole.Arn
       CodeUri: CostReportFunction/
@@ -84,7 +84,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Timeout: 240
-      FunctionName: !Sub ${Prefix}SR-Sender
+      FunctionName: !Sub ${Prefix}SR-Sender-New
       Description: SR -- Distributes Summary Reports according to Sending list from CRC
       Role: !GetAtt SESRole.Arn
       CodeUri: SummaryReportFunction/
@@ -100,7 +100,7 @@ Resources:
   UpdatingFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: !Sub ${Prefix}CRS-Updater
+      FunctionName: !Sub ${Prefix}CRS-Updater-New
       Description: CRS -- Finds the missing data
       Role: arn:aws:iam::471685057907:role/vw-lambda-reporting-CostReportingFunctionRole-AXA0WJOBOLIW
       CodeUri: UpdaterFunction/
