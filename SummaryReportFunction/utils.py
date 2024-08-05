@@ -1,4 +1,5 @@
 import os
+import sys
 from datetime import datetime
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
@@ -8,7 +9,8 @@ import boto3
 from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 from botocore.exceptions import ClientError
 from monitoring_email_html import format_monitoring_email
-from text import default_text, monitoring_text, missing_fields_text, missing_fields_co_text
+from text import default_text, monitoring_text
+
 
 is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")

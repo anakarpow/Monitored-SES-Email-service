@@ -75,6 +75,8 @@ Resources:
       Runtime: python3.11
       Architectures:
         - x86_64
+      Layers:
+        - !Ref SharedLayer
       Environment:
         Variables:
           BUCKET_INPUT: !Ref BucketInput
@@ -92,6 +94,8 @@ Resources:
       Runtime: python3.11
       Architectures:
         - x86_64
+      Layers:
+        - !Ref SharedLayer
       Environment:
         Variables:
           BUCKET_INPUT: !Ref BucketInput
@@ -230,3 +234,13 @@ Resources:
               - !Sub arn:aws:s3:::vw-lambda-*/*
       Roles:
         - Ref: SESRole
+
+  SharedLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: SharedLayer
+      Description: Some code to share with the other lambda functions
+      ContentUri: ./shared
+      CompatibleRuntimes:
+        - python3.11
+      RetentionPolicy: Delete

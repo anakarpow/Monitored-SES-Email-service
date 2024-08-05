@@ -4,7 +4,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 import boto3
-from SummaryReportFunction.adresses import sender
+from adress import sender
 from botocore.exceptions import ClientError
 from text import default
 
