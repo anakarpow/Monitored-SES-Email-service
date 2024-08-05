@@ -1,11 +1,11 @@
 import os
+import sys
 from datetime import datetime
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 import boto3
-from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 from botocore.exceptions import ClientError
 from monitoring_email_html import format_monitoring_email
 from text import default_text, monitoring_text, missing_fields_text, missing_fields_co_text
@@ -13,6 +13,11 @@ from text import default_text, monitoring_text, missing_fields_text, missing_fie
 is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
 input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
+
+if is_local:
+    sys.path.insert(1, '../shared/python')
+
+from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 
 ses_client = boto3.client("ses", region_name="eu-west-1")
 s3_client = boto3.client('s3')
