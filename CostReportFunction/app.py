@@ -20,6 +20,8 @@ input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 
 
 s3_client = boto3.client('s3')
+lambda_client = boto3.client('lambda')
+
 
 
 def lambda_handler(event, context):
@@ -35,45 +37,51 @@ def lambda_handler(event, context):
 
     # TODO not compatible with base_event.json & test.json format
     if 'missing_fields' in event:
-        sending_list = event
+        # sending_list = event
 
-        # list of project that have to be sent to CO
-        projects_co = []
-        for project in event:
-            if 'summaryreportcontact' in project['missing_fields']:
-                projects_co.append(project['project_name'])
+        # # list of project that have to be sent to CO
+        # projects_co = []
+        # for project in event:
+        #     if 'summaryreportcontact' in project['missing_fields']:
+        #         projects_co.append(project['project_name'])
 
-        # send the emails
-        # return projects_co
-        sending_report = sending_loop_missing_fields(sending_list, projects_co)
+        # # send the emails
+        # # return projects_co
+        # sending_report = sending_loop_missing_fields(sending_list, projects_co)
 
-        print('Finished')
-        return sending_report
+        # print('Finished')
+        # return sending_report
+        response = lambda_client.invoke(FunctionName="CAST-MFR-Sender-New")
+        return response["Payload"].read()
 
     else:
-        # if test event add marker to event
-        # one email sent to specified adress, without attachement
-        event = check_if_test(event)
+        # # if test event add marker to event
+        # # one email sent to specified adress, without attachement
+        # event = check_if_test(event)
 
-        # look in bucket for emailtext archive
-        # add logic to select the right one
-        email_template = get_email_template(s3_client, input_bucket)
+        # # look in bucket for emailtext archive
+        # # add logic to select the right one
+        # email_template = get_email_template(s3_client, input_bucket)
 
-        # TODO ignore lines above
-        # TODO copy next two functions
-        # get all CR for selected month > returns existing CR in S3
-        file_list = list_bucket_files_with_date(
-            s3_client, bucket=input_bucket, event=event)
+        # # TODO ignore lines above
+        # # TODO copy next two functions
+        # # get all CR for selected month > returns existing CR in S3
+        # file_list = list_bucket_files_with_date(
+        #     s3_client, bucket=input_bucket, event=event)
 
-        # work on sending list, adding metadata
-        sending_list = process_sending_list(event)
+        # # work on sending list, adding metadata
+        # sending_list = process_sending_list(event)
 
-        # TODO create new sending loop
-        # iterate sending list and send emails, activates monitoring process
-        sending_report = sending_loop(sending_list, file_list, email_template)
+        # # TODO create new sending loop
+        # # iterate sending list and send emails, activates monitoring process
+        # sending_report = sending_loop(sending_list, file_list, email_template)
 
-        print('Finished')
-        return sending_report
+        # print('Finished')
+        # return sending_report
+
+        response = lambda_client.invoke(FunctionName="CAST-Report-Sender-New")
+        return response["Payload"].read()
+        
 
 
 if __name__ == "__main__":
