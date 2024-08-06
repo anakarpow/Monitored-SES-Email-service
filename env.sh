@@ -3,6 +3,7 @@ export BUCKET_INPUT='vw-lambda-reporting-output'
 export local="running local"
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 export branch=$(git symbolic-ref --short HEAD)
+export PYTHONPATH='../shared/python'
 
 if [ $branch = DEV ]
 then
