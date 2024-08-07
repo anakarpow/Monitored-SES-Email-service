@@ -15,7 +15,7 @@ def lambda_handler(event, context):
 
     # read sample data in local version
     if is_local:
-        input_json = 'test_data/Output.json'
+        input_json = '../test_data/Output.json'
         with open(input_json, 'r') as file:
             data = json.load(file)
     # query API in cloud version
@@ -30,11 +30,12 @@ def lambda_handler(event, context):
 
     # save to local data
     utils.save_missing_fields(is_local, sending_json, output_df, s3)
-        # stop here to avoid sending emails
-        # exit()
-        # invoke SES Lambda
+    # stop here to avoid sending emails
+    # exit()
+    # invoke SES Lambda
     if is_local:
-        pass
+        print('running local, not sending emails')
+        return
     else:
         if any(len(i) for i in output_df['missing_fields']) > 0:
             response = client.invoke(

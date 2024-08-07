@@ -100,7 +100,7 @@ Resources:
         Variables:
           BUCKET_INPUT: !Ref BucketInput
           BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
-  
+
   MissingFieldsReportFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -146,7 +146,7 @@ Resources:
       Description: CRS -- Finds the missing data
       Role: arn:aws:iam::471685057907:role/vw-lambda-reporting-CostReportingFunctionRole-AXA0WJOBOLIW
       CodeUri: UpdaterFunction/
-      Handler: updater_logic.lambda_handler
+      Handler: app.lambda_handler
       Runtime: python3.11
       VpcConfig:
         SecurityGroupIds:
@@ -158,7 +158,7 @@ Resources:
         - x86_64
       Environment:
         Variables:
-          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview 
+          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
           API_ROLE: arn:aws:iam::715146888639:role/dcodev
           ProxyId: default
           AWS_STS_REGIONAL_ENDPOINTS: regional
@@ -225,7 +225,7 @@ Resources:
             Action:
               - sts:AssumeRole
       Path: "/"
-  
+
   InvokePolicy:
     Type: AWS::IAM::Policy
     Properties:
@@ -239,7 +239,6 @@ Resources:
               - "*"
       Roles:
         - Ref: SESRole
-
 
   SESPolicy:
     Type: AWS::IAM::Policy
