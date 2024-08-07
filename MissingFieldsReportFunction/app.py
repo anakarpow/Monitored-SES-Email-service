@@ -26,7 +26,7 @@ s3_client = boto3.client('s3')
 
 def lambda_handler(event, context):
     if is_local:
-
+        print('local event version ')
         event = '../events/missing_fields_test.json'
 
         with open(event, 'r') as file:
