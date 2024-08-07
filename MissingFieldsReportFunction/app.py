@@ -22,13 +22,12 @@ input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 s3_client = boto3.client('s3')
 
 # TODO not compatible with base_event.json & test.json format
+
+
 def lambda_handler(event, context):
     if is_local:
-        print('local event version ')
-        print('no testing event')
-        print('ending...')
-        return
-        event = '../events/test.json'
+
+        event = '../events/missing_fields_test.json'
 
         with open(event, 'r') as file:
             event = json.load(file)

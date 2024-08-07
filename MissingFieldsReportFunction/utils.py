@@ -1,3 +1,4 @@
+from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 import os
 import sys
 from datetime import datetime
@@ -17,7 +18,6 @@ input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 # if is_local:
 #     sys.path.insert(1, '../shared/python')
 
-from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 
 ses_client = boto3.client("ses", region_name="eu-west-1")
 s3_client = boto3.client('s3')
@@ -41,7 +41,6 @@ def monitor_sending(sending_list, success_list, failed_list):
     else:
         status = 1
         failed_list = []
-
 
     # this object is then returned at runtime end &
     # to triggering function
@@ -296,7 +295,7 @@ def sending_loop_missing_fields(sending_list, projects_co):
     for item in sending_list:
 
         for recipient in item['email_adresses']:
-        # send email
+            # send email
             resp = send_email_with_missing_fields(
                 recipient, item)
         # track the emails that were send (without the CO)
@@ -315,10 +314,11 @@ def sending_loop_missing_fields(sending_list, projects_co):
     if 'test' in item:
         print('Test email sent without monitoring email')
         return {'status': 'test email sent'}
-    
+
     # checking nr of sent emails against adress list
     sending_report = monitor_sending(sending_list, success_list, failed_list)
     return sending_report
+
 
 def send_email_with_missing_fields(recipient, item):
     """
@@ -327,7 +327,7 @@ def send_email_with_missing_fields(recipient, item):
     """
     # sendig coordinates
     SENDER = sender
-    
+
     # send all the missing fields except summaryreportcontact
     if len([field for field in item['missing_fields'] if field != 'summaryreportcontact']) > 0:
         RECIPIENT = recipient
@@ -339,7 +339,6 @@ def send_email_with_missing_fields(recipient, item):
         email_text = missing_fields_text(variables=item)
         body = MIMEText(email_text, "html")
         msg.attach(body)
-
 
         # Convert message to string and send
         try:
@@ -356,7 +355,8 @@ def send_email_with_missing_fields(recipient, item):
             print(e)
             return {}
     else:
-        response = 'co'
+        return 'co'
+
 
 def send_email_to_co(projects_co):
     """
@@ -366,7 +366,7 @@ def send_email_to_co(projects_co):
     # sendig coordinates
     SENDER = sender
     RECIPIENT = receiver_monitoring_email
-    
+
     msg = MIMEMultipart()
     msg["Subject"] = f"DPP Missing Data For Clearing Office"
     msg["From"] = SENDER
@@ -376,7 +376,6 @@ def send_email_to_co(projects_co):
     email_text = missing_fields_co_text(projects_co)
     body = MIMEText(email_text, "html")
     msg.attach(body)
-
 
     # Convert message to string and send
     try:
