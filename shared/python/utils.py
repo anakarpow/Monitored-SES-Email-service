@@ -26,21 +26,15 @@ def monitor_sending(sending_list, success_list, failed_list):
     returns status and failed emails 
     """
 
-    # item_key = 'project_name'
-    # if 'CostCenter' in item:
-    #     item_key = 'CostCenter'
-
     send_monitoring_email(success_list, failed_list)
 
     if len(success_list) < len(sending_list):
         print(f'Not all {len(sending_list)} email have been sent !')
         print("Failed email for following projects")
         for item in failed_list:
-            item_key = 'project_name'
-            if 'CostCenter' in item['delivery']:
-                item_key = 'CostCenter'
-            # print('from monitoring', item)
-            print("item key: ", item)
+
+            item_key = get_item_key_name(item)
+            
             print(f" {item['delivery'][item_key]}")
         status = 0
     else:
@@ -58,9 +52,7 @@ def match_file(file_list, item):
     attachment key in event no longer needed
     """
 
-    item_key = 'project_name'
-    if 'CostCenter' in item:
-        item_key = 'CostCenter'
+    item_key = get_item_key_name(item)
 
     if (item['email'] == 0):
         return 'MAILNOTFOUND'
@@ -268,3 +260,15 @@ def send_monitoring_email(success_list, failed_list):
 #     from data.success_list import success_list
 #     send_monitoring_email(success_list, failed_list)
 #     exit()
+
+def get_item_key_name(item):
+
+    """
+        decides the key to be used dependend on the report type
+    """
+
+    item_key = 'project_name'
+    if 'CostCenter' in item:
+        item_key = 'CostCenter'
+    
+    return item_key

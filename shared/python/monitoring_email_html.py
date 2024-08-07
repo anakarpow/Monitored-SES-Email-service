@@ -4,13 +4,14 @@ from datetime import datetime
 import dominate
 from dominate.tags import *
 
+
 is_local = os.environ.get("local")
 
 
 def format_monitoring_email(success_list, failed_list):
     timestamp = datetime.today().strftime('%d.%m.%Y')
     doc = dominate.document(title="CAST email sending Report")
-    item_key = 'CostCenter'
+
     css = open("style.css").read()
     with doc.head:
         style(css)
@@ -23,7 +24,7 @@ def format_monitoring_email(success_list, failed_list):
             with tbody():
                 for project in success_list:
                     item_key = 'project_name'
-                    if 'CostCenter' in project['delivery']:
+                    if 'CostCenter' in project:
                         item_key = 'CostCenter'
                     with tr(_class='success'):
                         td(project['delivery'][item_key], align="center")
@@ -32,7 +33,7 @@ def format_monitoring_email(success_list, failed_list):
                 if len(failed_list) > 0:
                     for project in failed_list:
                         item_key = 'project_name'
-                        if 'CostCenter' in project['delivery']:
+                        if 'CostCenter' in project:
                             item_key = 'CostCenter'
                         with tr(_class='failed'):
                             td(project['delivery']
