@@ -19,18 +19,26 @@ from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 ses_client = boto3.client("ses", region_name="eu-west-1")
 s3_client = boto3.client('s3')
 
-def monitor_sending(sending_list, success_list, failed_list, item_key='project_name'):
+def monitor_sending(sending_list, success_list, failed_list):
     """
     crosschecks nr of emails succefully sent to SES API against sending_list
     sends reporting email if not equal
     returns status and failed emails 
     """
-    send_monitoring_email(success_list, failed_list, item_key)
+
+    # item_key = 'project_name'
+    # if 'CostCenter' in item:
+    #     item_key = 'CostCenter'
+
+    send_monitoring_email(success_list, failed_list)
 
     if len(success_list) < len(sending_list):
         print(f'Not all {len(sending_list)} email have been sent !')
         print("Failed email for following projects")
         for item in failed_list:
+            item_key = 'project_name'
+            if 'CostCenter' in item['delivery']:
+                item_key = 'CostCenter'
             # print('from monitoring', item)
             print("item key: ", item)
             print(f" {item['delivery'][item_key]}")
@@ -43,12 +51,16 @@ def monitor_sending(sending_list, success_list, failed_list, item_key='project_n
     # to triggering function
     return {'status': status, 'failed_list': failed_list}
 
-def match_file(file_list, item, item_key='project_name'):
+def match_file(file_list, item):
     """
     matches item_key with file_list
     returns file connection inclusive binary data
     attachment key in event no longer needed
     """
+
+    item_key = 'project_name'
+    if 'CostCenter' in item:
+        item_key = 'CostCenter'
 
     if (item['email'] == 0):
         return 'MAILNOTFOUND'
@@ -143,7 +155,7 @@ def list_bucket_files_with_date(s3, bucket, event):
 #         print(e)
 #         return {}
 
-def send_monitoring_email(success_list, failed_list, item_key):
+def send_monitoring_email(success_list, failed_list):
     """
     sends reporting email on sending status 
     attaches list of failed emails
@@ -171,7 +183,7 @@ def send_monitoring_email(success_list, failed_list, item_key):
     # gather email text
     email_text = monitoring_text(failed_list)
     # and attacemnt
-    filename = format_monitoring_email(success_list, failed_list, item_key)
+    filename = format_monitoring_email(success_list, failed_list)
     with open(filename, 'r') as content_file:
         attachment = content_file.read()
 

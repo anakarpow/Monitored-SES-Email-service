@@ -34,7 +34,7 @@ def sending_loop_summary(sending_list, file_list):
     failed_list = []
     for item in sending_list:
         # get respective CR
-        item['attachment'] = match_file(file_list, item, 'CostCenter')
+        item['attachment'] = match_file(file_list, item)
         # send email
         resp = send_email_with_attachment(
             item)
@@ -51,7 +51,7 @@ def sending_loop_summary(sending_list, file_list):
         print('Test email sent without monitoring email')
         return {'status': 'test email sent'}
     # checking nr of sent emails against adress list
-    sending_report = monitor_sending(sending_list, success_list, failed_list, 'CostCenter')
+    sending_report = monitor_sending(sending_list, success_list, failed_list)
     return sending_report
 
 

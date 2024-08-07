@@ -34,7 +34,7 @@ def sending_loop(sending_list, file_list, email_template):
     failed_list = []
     for item in sending_list:
         # get respective CR
-        item['attachment'] = match_file(file_list, item, 'project_name')
+        item['attachment'] = match_file(file_list, item)
         # send email
         resp = send_email_with_attachment(
             item, email_template)
