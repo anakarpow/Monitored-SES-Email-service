@@ -17,8 +17,6 @@ input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 
 s3_client = boto3.client('s3')
 
-# TODO not compatible with base_event.json & test.json format
-
 
 def lambda_handler(event, context):
     if is_local:
@@ -28,7 +26,6 @@ def lambda_handler(event, context):
         with open(event, 'r') as file:
             event = json.load(file)
 
-    # return event[0]
     # function to send the email with missing values
 
     sending_list = event

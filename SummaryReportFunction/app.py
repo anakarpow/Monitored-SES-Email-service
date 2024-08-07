@@ -1,6 +1,5 @@
 import json
 import os
-from random import sample
 
 import boto3
 from utils import (
@@ -37,7 +36,6 @@ def lambda_handler(event, context):
     # work on sending list, adding metadata
     sending_list = process_sending_list(event)
         
-    # TODO create new sending loop
     # iterate sending list and send emails, activates monitoring process
     sending_report = sending_loop_summary(sending_list, file_list)
 

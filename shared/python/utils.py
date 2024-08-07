@@ -8,7 +8,7 @@ from email.mime.text import MIMEText
 import boto3
 from botocore.exceptions import ClientError
 from monitoring_email_html import format_monitoring_email
-from text import default_text, monitoring_text, missing_fields_text, missing_fields_co_text
+from text import monitoring_text
 
 is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
@@ -19,7 +19,6 @@ from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 ses_client = boto3.client("ses", region_name="eu-west-1")
 s3_client = boto3.client('s3')
 
-# TODO used in CR, MFR, SR => KEEP
 def monitor_sending(sending_list, success_list, failed_list, item_key='project_name'):
     """
     crosschecks nr of emails succefully sent to SES API against sending_list
@@ -68,7 +67,6 @@ def match_file(file_list, item, item_key='project_name'):
         print(e)
         return 'FILENOTFOUND'
 
-# TODO used in multiple functions, CR, SR, => KEEP
 def process_sending_list(event):
     """
     retrieves email list and adds timestamp
@@ -84,7 +82,6 @@ def process_sending_list(event):
     return sending_list
 
 
-# TODO used in all funcions, CR, SR => KEEP
 def list_bucket_files_with_date(s3, bucket, event):
     """
     lists objects in specified bucket according to event month and year
@@ -96,57 +93,56 @@ def list_bucket_files_with_date(s3, bucket, event):
         files.append(content.get('Key'))
     return files
 
+# def send_email_with_attachment(item):
+#     """
+#     supports attachments but no fine tuning in multiple recipients
+#     accoridng to testing : all adresses are set as Bcc
+#     """
+#     if (item['attachment'] == 'FILENOTFOUND') or (item['attachment'] == 'NOMATCHINGFILE') or (item['attachment'] == 'MAILNOTFOUND'):
+#         item.pop('timestamp')
+#         return item
 
-    """
-    supports attachments but no fine tuning in multiple recipients
-    accoridng to testing : all adresses are set as Bcc
-    """
-    if (item['attachment'] == 'FILENOTFOUND') or (item['attachment'] == 'NOMATCHINGFILE') or (item['attachment'] == 'MAILNOTFOUND'):
-        item.pop('timestamp')
-        return item
+#     item['timestamp'] = item['timestamp'].strftime('%B %Y')
+#     # sendig coordinates
+#     SENDER = sender
+#     RECIPIENT = item['email']
+#     msg = MIMEMultipart()
+#     msg["Subject"] = f"DPP Cost Report {item['project_name']} {item['timestamp']} "
+#     msg["From"] = SENDER
+#     msg["To"] = RECIPIENT
 
-    item['timestamp'] = item['timestamp'].strftime('%B %Y')
-    # sendig coordinates
-    SENDER = sender
-    RECIPIENT = item['email']
-    msg = MIMEMultipart()
-    msg["Subject"] = f"DPP Cost Report {item['project_name']} {item['timestamp']} "
-    msg["From"] = SENDER
-    msg["To"] = RECIPIENT
+#     email_text = default_text(email_template, variables=item)
+#     body = MIMEText(email_text, "html")
+#     msg.attach(body)
 
-    email_text = default_text(email_template, variables=item)
-    body = MIMEText(email_text, "html")
-    msg.attach(body)
+#     if item['attachment'] == 'TEST':
+#         pass
+#     else:
+#         try:
+#             part = MIMEApplication(item['attachment']['Body'].read())
+#             part.add_header("Content-Disposition",
+#                             "attachment",
+#                             filename=f"{item['project_name']}.html")
+#             msg.attach(part)
+#         except (FileNotFoundError)as e:
+#             print(e)
 
-    if item['attachment'] == 'TEST':
-        pass
-    else:
-        try:
-            part = MIMEApplication(item['attachment']['Body'].read())
-            part.add_header("Content-Disposition",
-                            "attachment",
-                            filename=f"{item['project_name']}.html")
-            msg.attach(part)
-        except (FileNotFoundError)as e:
-            print(e)
+#     # Convert message to string and send
+#     try:
+#         response = ses_client.send_raw_email(
+#             Source=SENDER,
+#             Destinations=[msg['To']],
+#             RawMessage={"Data": msg.as_string()}
+#         )
+#         print("Email sent!")
+#         item.pop('timestamp')
+#         return response
 
-    # Convert message to string and send
-    try:
-        response = ses_client.send_raw_email(
-            Source=SENDER,
-            Destinations=[msg['To']],
-            RawMessage={"Data": msg.as_string()}
-        )
-        print("Email sent!")
-        item.pop('timestamp')
-        return response
+#     # Display an error if something goes wrong.
+#     except Exception as e:
+#         print(e)
+#         return {}
 
-    # Display an error if something goes wrong.
-    except Exception as e:
-        print(e)
-        return {}
-
-# only used in CR, MFR => KEEP
 def send_monitoring_email(success_list, failed_list, item_key):
     """
     sends reporting email on sending status 
@@ -197,7 +193,6 @@ def send_monitoring_email(success_list, failed_list, item_key):
     print('Monitoring email sent')
     return
 
-# TODO use in CR, SR => do changes to adapt to each
 # def send_email_with_attachment(item, email_template):
 #     """
 #     supports attachments but no fine tuning in multiple recipients

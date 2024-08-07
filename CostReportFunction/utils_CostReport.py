@@ -1,22 +1,17 @@
 import os
-import sys
-from datetime import datetime
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 import boto3
-from botocore.exceptions import ClientError
-from monitoring_email_html import format_monitoring_email
-from text import default_text, monitoring_text, missing_fields_text, missing_fields_co_text
-
+from text import default_text
 from utils import (
     monitor_sending,
     match_file,
     # send_email_with_attachment
 )
 
-from adresses import receiver_monitoring_email, sender, sender_monitoring_email
+from adresses import sender
 
 is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
