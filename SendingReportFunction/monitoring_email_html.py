@@ -10,7 +10,7 @@ is_local = os.environ.get("local")
 def format_monitoring_email(success_list, failed_list):
     timestamp = datetime.today().strftime('%d.%m.%Y')
     doc = dominate.document(title="CAST email sending Report")
-
+    
     css = open("style.css").read()
     with doc.head:
         style(css)

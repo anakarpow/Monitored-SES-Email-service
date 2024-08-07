@@ -225,6 +225,21 @@ Resources:
             Action:
               - sts:AssumeRole
       Path: "/"
+  
+  InvokePolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: CASTInvokePolicy
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action:
+              - lambda:InvokeFunction
+            Resource:
+              - "*"
+      Roles:
+        - Ref: SESRole
+
 
   SESPolicy:
     Type: AWS::IAM::Policy
