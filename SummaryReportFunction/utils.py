@@ -234,15 +234,3 @@ def send_monitoring_email(success_list, failed_list):
     print('Monitoring email sent')
     return
 
-# if __name__ == "__main__":
-#     # filename = '../output/2023-06-DPP-AUDI AG-AUDINECKARSULMDATALAKE.html'
-#     # with open('../test_data/main_dict_5_2022.json', 'r') as file:
-#     #     data = json.load(file)
-#     #     for project, values in data.items():
-#     #         send_email_with_attachment(data[project], filename)
-#     import sys
-#     sys.path.append('../')
-#     from data.failed_list import failed_list
-#     from data.success_list import success_list
-#     send_monitoring_email(success_list, failed_list)
-#     exit()
