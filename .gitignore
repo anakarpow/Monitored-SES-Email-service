@@ -260,7 +260,7 @@ $RECYCLE.BIN/
 
 .html*
 
-# events/
+
 
 data/
 
@@ -269,9 +269,7 @@ updater/test_data/
 
 
 
-*.json
 
 
 
 updater/test_data
-
