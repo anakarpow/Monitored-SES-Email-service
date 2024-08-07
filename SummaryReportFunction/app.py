@@ -6,7 +6,10 @@ import boto3
 from utils import (
     list_bucket_files_with_date,
     process_sending_list,
-    sending_loop_summary,
+)
+
+from utils_SummaryReport import (
+    sending_loop_summary
 )
 
 is_local = os.environ.get("local")

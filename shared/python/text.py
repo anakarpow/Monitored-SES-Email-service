@@ -37,7 +37,6 @@ def default_text(email_template, variables):
         </html>"""
     return default
 
-
 def monitoring_text(failed_list):
     timestamp = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
     monitoring_email = f"""Hi, attached find the sending report for CAST launched at {timestamp}.\n

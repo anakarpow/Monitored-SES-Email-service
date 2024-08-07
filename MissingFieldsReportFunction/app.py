@@ -3,13 +3,9 @@ import os
 from random import sample
 
 import boto3
-from utils import (
-    check_if_test,
-    get_email_template,
-    list_bucket_files_with_date,
-    process_sending_list,
-    sending_loop,
-    sending_loop_missing_fields,
+
+from utils_MissingFieldsReport import (
+    sending_loop_missing_fields
 )
 
 is_local = os.environ.get("local")

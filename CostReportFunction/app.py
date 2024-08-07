@@ -4,12 +4,14 @@ from random import sample
 
 import boto3
 from utils import (
-    check_if_test,
-    get_email_template,
     list_bucket_files_with_date,
     process_sending_list,
+)
+
+from utils_CostReport import (
+    check_if_test,
+    get_email_template,
     sending_loop,
-    sending_loop_missing_fields,
 )
 
 is_local = os.environ.get("local")

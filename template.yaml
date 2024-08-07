@@ -45,24 +45,6 @@ Parameters:
     Default: cast-
 
 Resources:
-  TriggerFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      FunctionName: !Sub ${Prefix}CRS-Trigger-New
-      Description: Triggers CAST email-sending function
-      Role: !GetAtt InvokingRole.Arn
-      CodeUri: TriggerFunction/
-      Handler: app.lambda_handler
-      Runtime: python3.11
-      Architectures:
-        - x86_64
-      VpcConfig:
-        SecurityGroupIds:
-          - !GetAtt CASTLambdasSG.GroupId
-        SubnetIds:
-          - !Ref Subnet1
-          - !Ref Subnet2
-
   CostReportFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -225,20 +207,6 @@ Resources:
             Action:
               - sts:AssumeRole
       Path: "/"
-
-  InvokePolicy:
-    Type: AWS::IAM::Policy
-    Properties:
-      PolicyName: CASTInvokePolicy
-      PolicyDocument:
-        Statement:
-          - Effect: Allow
-            Action:
-              - lambda:InvokeFunction
-            Resource:
-              - "*"
-      Roles:
-        - Ref: SESRole
 
   SESPolicy:
     Type: AWS::IAM::Policy
