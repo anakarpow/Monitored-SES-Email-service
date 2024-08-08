@@ -102,25 +102,6 @@ Resources:
           BUCKET_INPUT: !Ref BucketInput
           BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
 
-  SendingReportFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      Timeout: 240
-      FunctionName: !Sub ${Prefix}Report-Sender-New
-      Description: Report -- Distributes Reports according to Sending list from CRC
-      Role: !GetAtt SESRole.Arn
-      CodeUri: SendingReportFunction/
-      Handler: app.lambda_handler
-      Runtime: python3.11
-      Architectures:
-        - x86_64
-      # Layers:
-      #   - !Ref SharedLayer
-      Environment:
-        Variables:
-          BUCKET_INPUT: !Ref BucketInput
-          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
-
   UpdatingFunction:
     Type: AWS::Serverless::Function
     Properties:
