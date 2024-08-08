@@ -55,9 +55,6 @@ def make_client(credentials):
     except Exception as e:
         print(e)
 
-    # transport = RequestsHTTPTransport(url=url, headers=headers, auth=auth)
-    # client = Client(transport=transport, fetch_schema_from_transport=False)
-
     print("Appsync client created: ready for API query")
 
     return auth

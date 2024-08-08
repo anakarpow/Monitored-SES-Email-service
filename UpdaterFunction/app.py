@@ -30,13 +30,13 @@ def lambda_handler(event, context):
 
     # save to local data
     utils.save_missing_fields(is_local, sending_json, output_df, s3)
-    # stop here to avoid sending emails
-    # exit()
+
     # invoke SES Lambda
     if is_local:
         print('running local, not sending emails')
         return
     else:
+        return {'status': 'stopped before sending emails. TEST'}
         if any(len(i) for i in output_df['missing_fields']) > 0:
             response = client.invoke(
                 FunctionName='CAST-CRS-Sender',

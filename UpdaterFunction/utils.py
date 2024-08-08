@@ -24,7 +24,7 @@ def extract_contact_and_account_data(data):
 
         main_contact_channel_df = pd.concat(
             [main_contact_channel_df, project_df])
-        
+
     # sort contact data, filter relevant accounts
     main_contact_channel_df = main_contact_channel_df.reset_index(drop=True)
     main_contact_channel_df = main_contact_channel_df[main_contact_channel_df.topic == 'BILLING']
@@ -73,6 +73,7 @@ def extract_contact_and_account_data(data):
 
     return merge_contacts
 
+
 def save_missing_fields(is_local, sending_json, output_df, s3):
     if is_local:
         with open('test_data/draft_result.json', 'w') as file:
@@ -90,4 +91,3 @@ def save_missing_fields(is_local, sending_json, output_df, s3):
                 data = output.getvalue()
                 s3.upload_fileobj(io.BytesIO(data), 'cast-output-dev',
                                   'customer_data_updates/missing_fields_' + str(datetime.now().date()) + '.xlsx')
-

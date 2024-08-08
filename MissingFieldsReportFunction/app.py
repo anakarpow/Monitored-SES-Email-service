@@ -33,7 +33,6 @@ def lambda_handler(event, context):
     # list of project that have to be sent to CO
     projects_co = []
     for project in event:
-        print("PROJECT: ", project)
         if 'summaryreportcontact' in project['missing_fields']:
             projects_co.append(project['project_name'])
 
