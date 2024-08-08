@@ -32,8 +32,7 @@ def monitor_sending(sending_list, success_list, failed_list):
         print(f'Not all {len(sending_list)} email have been sent !')
         print("Failed email for following projects")
         for item in failed_list:
-
-            item_key = get_item_key_name(item)
+            item_key = get_item_key_name(item['delivery'])
             
             print(f" {item['delivery'][item_key]}")
         status = 0

@@ -24,7 +24,7 @@ def format_monitoring_email(success_list, failed_list):
             with tbody():
                 for project in success_list:
                     item_key = 'project_name'
-                    if 'CostCenter' in project:
+                    if 'CostCenter' in project['delivery']:
                         item_key = 'CostCenter'
                     with tr(_class='success'):
                         td(project['delivery'][item_key], align="center")
@@ -33,7 +33,7 @@ def format_monitoring_email(success_list, failed_list):
                 if len(failed_list) > 0:
                     for project in failed_list:
                         item_key = 'project_name'
-                        if 'CostCenter' in project:
+                        if 'CostCenter' in project['delivery']:
                             item_key = 'CostCenter'
                         with tr(_class='failed'):
                             td(project['delivery']

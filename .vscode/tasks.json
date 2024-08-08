@@ -7,7 +7,7 @@
       "label": "Build",
       "type": "shell",
       "detail": "build container for deployement from current directory",
-      "command": "sam validate -t template.yaml;  sam build --use-container --template template.yaml; cd AddressesLayer; zip -r ../AddressesLayer.zip ." ,
+      "command": "sam validate -t template.yaml;  sam build --use-container --template template.yaml" ,
       "icon": {"id": "light-bulb","color": "terminal.ansiWhite"}
 
     },
