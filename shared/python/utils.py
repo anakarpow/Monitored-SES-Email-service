@@ -97,55 +97,6 @@ def list_bucket_files_with_date(s3, bucket, event):
         files.append(content.get('Key'))
     return files
 
-# def send_email_with_attachment(item):
-#     """
-#     supports attachments but no fine tuning in multiple recipients
-#     accoridng to testing : all adresses are set as Bcc
-#     """
-#     if (item['attachment'] == 'FILENOTFOUND') or (item['attachment'] == 'NOMATCHINGFILE') or (item['attachment'] == 'MAILNOTFOUND'):
-#         item.pop('timestamp')
-#         return item
-
-#     item['timestamp'] = item['timestamp'].strftime('%B %Y')
-#     # sendig coordinates
-#     SENDER = sender
-#     RECIPIENT = item['email']
-#     msg = MIMEMultipart()
-#     msg["Subject"] = f"DPP Cost Report {item['project_name']} {item['timestamp']} "
-#     msg["From"] = SENDER
-#     msg["To"] = RECIPIENT
-
-#     email_text = default_text(email_template, variables=item)
-#     body = MIMEText(email_text, "html")
-#     msg.attach(body)
-
-#     if item['attachment'] == 'TEST':
-#         pass
-#     else:
-#         try:
-#             part = MIMEApplication(item['attachment']['Body'].read())
-#             part.add_header("Content-Disposition",
-#                             "attachment",
-#                             filename=f"{item['project_name']}.html")
-#             msg.attach(part)
-#         except (FileNotFoundError)as e:
-#             print(e)
-
-#     # Convert message to string and send
-#     try:
-#         response = ses_client.send_raw_email(
-#             Source=SENDER,
-#             Destinations=[msg['To']],
-#             RawMessage={"Data": msg.as_string()}
-#         )
-#         print("Email sent!")
-#         item.pop('timestamp')
-#         return response
-
-#     # Display an error if something goes wrong.
-#     except Exception as e:
-#         print(e)
-#         return {}
 
 def send_monitoring_email(success_list, failed_list):
     """
@@ -197,69 +148,6 @@ def send_monitoring_email(success_list, failed_list):
     print('Monitoring email sent')
     return
 
-# def send_email_with_attachment(item, email_template):
-#     """
-#     supports attachments but no fine tuning in multiple recipients
-#     accoridng to testing : all adresses are set as Bcc
-#     """
-#     if (item['attachment'] == 'FILENOTFOUND') or (item['attachment'] == 'NOMATCHINGFILE') or (item['attachment'] == 'MAILNOTFOUND'):
-#         item.pop('timestamp')
-#         return item
-
-#     item['timestamp'] = item['timestamp'].strftime('%B %Y')
-#     # sendig coordinates
-#     SENDER = sender
-#     RECIPIENT = item['email']
-#     msg = MIMEMultipart()
-#     msg["Subject"] = f"DPP Cost Report {item['project_name']} {item['timestamp']} "
-#     msg["From"] = SENDER
-#     msg["To"] = RECIPIENT
-
-#     email_text = default_text(email_template, variables=item)
-#     body = MIMEText(email_text, "html")
-#     msg.attach(body)
-
-#     if item['attachment'] == 'TEST':
-#         pass
-#     else:
-#         try:
-#             part = MIMEApplication(item['attachment']['Body'].read())
-#             part.add_header("Content-Disposition",
-#                             "attachment",
-#                             filename=f"{item['project_name']}.html")
-#             msg.attach(part)
-#         except (FileNotFoundError)as e:
-#             print(e)
-
-#     # Convert message to string and send
-#     try:
-#         response = ses_client.send_raw_email(
-#             Source=SENDER,
-#             Destinations=[msg['To']],
-#             RawMessage={"Data": msg.as_string()}
-#         )
-#         print("Email sent!")
-#         item.pop('timestamp')
-#         return response
-
-#     # Display an error if something goes wrong.
-#     except Exception as e:
-#         print(e)
-#         return {}
-
-
-# if __name__ == "__main__":
-#     # filename = '../output/2023-06-DPP-AUDI AG-AUDINECKARSULMDATALAKE.html'
-#     # with open('../test_data/main_dict_5_2022.json', 'r') as file:
-#     #     data = json.load(file)
-#     #     for project, values in data.items():
-#     #         send_email_with_attachment(data[project], filename)
-#     import sys
-#     sys.path.append('../')
-#     from data.failed_list import failed_list
-#     from data.success_list import success_list
-#     send_monitoring_email(success_list, failed_list)
-#     exit()
 
 def get_item_key_name(item):
 

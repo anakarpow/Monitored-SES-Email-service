@@ -36,7 +36,7 @@ def sending_loop_summary(sending_list, file_list):
         # get respective CR
         item['attachment'] = match_file(file_list, item)
         # send email
-        resp = send_email_with_attachment(
+        resp = send_summary_email_with_attachment(
             item)
         # attaching meta info to resp
         resp['delivery'] = {"CostCenter": item['CostCenter']}
@@ -55,7 +55,7 @@ def sending_loop_summary(sending_list, file_list):
     return sending_report
 
 
-def send_email_with_attachment(item):
+def send_summary_email_with_attachment(item):
     """
     supports attachments but no fine tuning in multiple recipients
     accoridng to testing : all adresses are set as Bcc
