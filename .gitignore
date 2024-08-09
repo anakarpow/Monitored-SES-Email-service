@@ -260,9 +260,14 @@ $RECYCLE.BIN/
 
 .html*
 
-# events/
+
 
 data/
+
+
+updater/test_data/
+
+
 
 
 

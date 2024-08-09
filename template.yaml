@@ -45,17 +45,72 @@ Parameters:
     Default: cast-
 
 Resources:
-  TriggerFunction:
+  CostReportFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: !Sub ${Prefix}CRS-Trigger
-      Description: Triggers CAST email-sending function
-      Role: !GetAtt InvokingRole.Arn
-      CodeUri: trigger/
+      Timeout: 240
+      FunctionName: !Sub ${Prefix}CRS-Sender-New
+      Description: CRS -- Distributes Cost Reports according to Sending list from CRC
+      Role: !GetAtt SESRole.Arn
+      CodeUri: CostReportFunction/
       Handler: app.lambda_handler
       Runtime: python3.11
       Architectures:
         - x86_64
+      Layers:
+        - !Ref SharedLayer
+      Environment:
+        Variables:
+          BUCKET_INPUT: !Ref BucketInput
+          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
+
+  SendingSummaryFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Timeout: 240
+      FunctionName: !Sub ${Prefix}SR-Sender-New
+      Description: SR -- Distributes Summary Reports according to Sending list from CRC
+      Role: !GetAtt SESRole.Arn
+      CodeUri: SummaryReportFunction/
+      Handler: app.lambda_handler
+      Runtime: python3.11
+      Architectures:
+        - x86_64
+      Layers:
+        - !Ref SharedLayer
+      Environment:
+        Variables:
+          BUCKET_INPUT: !Ref BucketInput
+          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
+
+  MissingFieldsReportFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Timeout: 240
+      FunctionName: !Sub ${Prefix}MFR-Sender-New
+      Description: MFR -- Distributes Missing Field Reports according to Sending list from CRC
+      Role: !GetAtt SESRole.Arn
+      CodeUri: MissingFieldsReportFunction/
+      Handler: app.lambda_handler
+      Runtime: python3.11
+      Architectures:
+        - x86_64
+      Layers:
+        - !Ref SharedLayer
+      Environment:
+        Variables:
+          BUCKET_INPUT: !Ref BucketInput
+          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
+
+  UpdatingFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${Prefix}CRS-Updater-New
+      Description: CRS -- Finds the missing data
+      Role: arn:aws:iam::471685057907:role/vw-lambda-reporting-CostReportingFunctionRole-AXA0WJOBOLIW
+      CodeUri: UpdaterFunction/
+      Handler: app.lambda_handler
+      Runtime: python3.11
       VpcConfig:
         SecurityGroupIds:
           - !GetAtt CASTLambdasSG.GroupId
@@ -77,8 +132,10 @@ Resources:
         - x86_64
       Environment:
         Variables:
-          BUCKET_INPUT: !Ref BucketInput
           BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
+          API_ROLE: arn:aws:iam::715146888639:role/dcodev
+          ProxyId: default
+          AWS_STS_REGIONAL_ENDPOINTS: regional
 
   CASTLambdasSG:
     Type: AWS::EC2::SecurityGroup
@@ -117,7 +174,7 @@ Resources:
             Action:
               - lambda:invokeFunction
             Resource:
-              - !GetAtt SendingFunction.Arn
+              - !GetAtt CostReportFunction.Arn
 
           - Effect: Allow
             Action:
@@ -189,3 +246,13 @@ Resources:
               - !Sub arn:aws:s3:::vw-lambda-*/*
       Roles:
         - Ref: SESRole
+
+  SharedLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: SharedLayer
+      Description: Some code to share with the other lambda functions
+      ContentUri: ./shared
+      CompatibleRuntimes:
+        - python3.11
+      RetentionPolicy: Delete

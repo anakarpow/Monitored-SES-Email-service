@@ -1,13 +1,15 @@
-
 import json
 import os
 
 import boto3
 from utils import (
-    check_if_test,
-    get_email_template,
     list_bucket_files_with_date,
     process_sending_list,
+)
+
+from utils_CostReport import (
+    check_if_test,
+    get_email_template,
     sending_loop,
 )
 
@@ -15,21 +17,19 @@ is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
 input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 
-# receives trigger from CR function with : month of interest to retrieve CR from S3, list of adresses
-if is_local:
-    print('local event version ')
-    # event = '../events/base_event.json'
-    event = '../events/test.json'
-    # # event = '../events/full_test_event.json'
-    # event = '../events/roll_out_Dec.json'
-
-    with open(event, 'r') as file:
-        event = json.load(file)
+# # receives trigger from CR function with : month of interest to retrieve CR from S3, list of adresses
 
 s3_client = boto3.client('s3')
 
 
 def lambda_handler(event, context):
+    if is_local:
+        print('local event version ')
+        event = '../events/test.json'
+
+        with open(event, 'r') as file:
+            event = json.load(file)
+
     # if test event add marker to event
     # one email sent to specified adress, without attachement
     event = check_if_test(event)
@@ -53,4 +53,4 @@ def lambda_handler(event, context):
 
 
 if __name__ == "__main__":
-    lambda_handler(event, None)
+    lambda_handler(None, None)

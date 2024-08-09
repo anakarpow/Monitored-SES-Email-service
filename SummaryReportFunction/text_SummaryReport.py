@@ -2,23 +2,16 @@
 from datetime import datetime
 
 
-def default_text(email_template, variables):
-    variables['delta_forecast_limit'] = variables['cost_limit'] - \
-        variables['forecast']
+def default_text(variables):
 
     default = f"""
         <html>
         <head></head>
         <body>
         <p>Dear Ladies and Gentlemen,</p>
-        <p> please find attached the DPP Cost Report for {variables['timestamp']} for the tenant {variables['project_name']}, including Cloud-Trail costs.   </p>
-        <a>
-        {email_template}</a>
+        <p> please find attached the DPP Summary Report for {variables['timestamp']} for the tenant {variables['CostCenter']}, including Cloud-Trail costs.   </p>
 
-
-        <p> The Forecast for 2024 of the Tenant is € {variables['forecast']}.  
-        The provided cost limit is € {variables['cost_limit']} - (if no limit was provided “-“ is shown).
-        Please note that this leads to a difference of € {variables['delta_forecast_limit']}. <p>
+       An awesome email with lots of cool data is written here! :)
 
         If you have any questions about the DPP Cost Reports, please feel free to contact us at 
         <a href="dpp.clearing.office.vwag.r.wob@volkswagen.de."> dpp.clearing.office.vwag.r.wob@volkswagen.de </a>  
@@ -84,3 +77,37 @@ def rollout_text(project_name):
 
 def manage_template(email_template, variables):
     pass
+
+def missing_fields_text(variables):
+
+    default = f"""
+        <html>
+        <head></head>
+        <body>
+        <p>Dear Ladies and Gentlemen,</p>
+        <p> you should update following fields {[x for x in variables['missing_fields'] if x != 'summaryreportcontact']} <p>
+
+        
+        <p> Best regards, <p>
+        <a>  DPP Clearing Office<a>
+        </p>
+        </body>
+        </html>"""
+    return default
+
+def missing_fields_co_text(projects_co):
+
+    default = f"""
+        <html>
+        <head></head>
+        <body>
+        <p>Dear Clearing Office,</p>
+        <p> you should update the 'summaryreportcontact' field in the next projects: {projects_co}<p>
+
+        
+        <p> Best regards, <p>
+        <a>  DPP Clearing Office<a>
+        </p>
+        </body>
+        </html>"""
+    return default

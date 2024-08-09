@@ -1,0 +1,50 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #004666;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-align: left;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+table th {
+    background-color: #004666;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+table tr:hover td {
+    background-color: #0f0066;
+}
+
+thead {
+    background-color: #004666;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.success {
+    background-color: green;
+}
+
+
+.failed {
+    background-color: red;
+}
