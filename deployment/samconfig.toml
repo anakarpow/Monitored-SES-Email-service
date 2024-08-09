@@ -33,7 +33,7 @@ warm_containers = "EAGER"
 
 # DEV advanced account
 [dev.deploy.parameters]
-stack_name = 'CAST-Mail-Testing-New'
+stack_name = 'CAST-Mail'
 s3_bucket = 'cost-reporting-vw'
 region = 'eu-west-1'
 capabilities = 'CAPABILITY_IAM'
