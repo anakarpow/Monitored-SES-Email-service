@@ -44,6 +44,9 @@ Parameters:
     Type: String
     Default: cast-
 
+Conditions:
+  ProdResources: !Equals [!Ref Env, prod]
+
 Resources:
   CostReportFunction:
     Type: AWS::Serverless::Function
@@ -107,7 +110,12 @@ Resources:
     Properties:
       FunctionName: !Sub ${Prefix}CDB-Updater
       Description: CRS -- Finds the missing data
-      Role: arn:aws:iam::471685057907:role/vw-lambda-reporting-CostReportingFunctionRole-AXA0WJOBOLIW
+      Role:
+        !If [
+          ProdResources,
+          arn:aws:iam::936022423514:role/CAST-billing,
+          arn:aws:iam::471685057907:role/vw-lambda-reporting-CostReportingFunctionRole-AXA0WJOBOLIW,
+        ]
       CodeUri: UpdaterFunction/
       Handler: app.lambda_handler
       Runtime: python3.11
