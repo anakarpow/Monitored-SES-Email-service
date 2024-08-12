@@ -49,7 +49,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Timeout: 240
-      FunctionName: !Sub ${Prefix}CRS-Sender-New
+      FunctionName: !Sub ${Prefix}CRS-Sender
       Description: CRS -- Distributes Cost Reports according to Sending list from CRC
       Role: !GetAtt SESRole.Arn
       CodeUri: CostReportFunction/
@@ -68,7 +68,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Timeout: 240
-      FunctionName: !Sub ${Prefix}SR-Sender-New
+      FunctionName: !Sub ${Prefix}SR-Sender
       Description: SR -- Distributes Summary Reports according to Sending list from CRC
       Role: !GetAtt SESRole.Arn
       CodeUri: SummaryReportFunction/
@@ -87,7 +87,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Timeout: 240
-      FunctionName: !Sub ${Prefix}MFR-Sender-New
+      FunctionName: !Sub ${Prefix}MFR-Sender
       Description: MFR -- Distributes Missing Field Reports according to Sending list from CRC
       Role: !GetAtt SESRole.Arn
       CodeUri: MissingFieldsReportFunction/
@@ -105,7 +105,7 @@ Resources:
   UpdatingFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: !Sub ${Prefix}CRS-Updater-New
+      FunctionName: !Sub ${Prefix}CDB-Updater
       Description: CRS -- Finds the missing data
       Role: arn:aws:iam::471685057907:role/vw-lambda-reporting-CostReportingFunctionRole-AXA0WJOBOLIW
       CodeUri: UpdaterFunction/
