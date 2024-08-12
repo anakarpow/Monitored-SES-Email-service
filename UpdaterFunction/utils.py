@@ -84,10 +84,11 @@ def save_missing_fields(is_local, sending_json, output_df, s3):
         return
 
     else:
-
+        # TODO excel file is empty: make sure it creates valid data
         with io.BytesIO() as output:
             with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
                 output_df[['project_name', 'missing_fields']].to_excel(writer)
                 data = output.getvalue()
+                # TODO make bucket name stage dependant
                 s3.upload_fileobj(io.BytesIO(data), 'cast-output-dev',
                                   'customer_data_updates/missing_fields_' + str(datetime.now().date()) + '.xlsx')
