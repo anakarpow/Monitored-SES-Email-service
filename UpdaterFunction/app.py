@@ -1,14 +1,24 @@
-import pandas as pd
-from api_utils import query_and_return_dict
-import utils
-import json
-import boto3
 import os
+import boto3
+import json
+import pandas as pd
+from UpdaterFunction.utils import extract_contact_and_account_data, save_missing_fields
+from api_utils import query_and_return_dict
+
 
 is_local = os.environ.get("local")
 
 s3 = boto3.client('s3', region_name='eu-west-1')
 client = boto3.client('lambda', region_name='eu-west-1')
+
+
+# TODO 
+    # - add trigger for specific day. maybe https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
+    # - make sure excel file is created with data
+    # - invoke MissingFieldsReportFunction instead of CRS 
+    # - make sure monitorin email is sent
+    # - add default event in console : f.e {send_email:true}
+        # - if false : just upload excel file
 
 
 def lambda_handler(event, context):
@@ -25,11 +35,11 @@ def lambda_handler(event, context):
         data = query_and_return_dict(s3, query_input_bucket)
 
     # unpack dict, return df with output info
-    output_df = utils.extract_contact_and_account_data(data)
+    output_df = extract_contact_and_account_data(data)
     sending_json = output_df.to_dict(orient='records')
 
     # save to local data
-    utils.save_missing_fields(is_local, sending_json, output_df, s3)
+    save_missing_fields(is_local, sending_json, output_df, s3)
 
     # invoke SES Lambda
     if is_local:
