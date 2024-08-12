@@ -118,25 +118,6 @@ Resources:
           - !Ref Subnet1
           - !Ref Subnet2
 
-  SendingFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      Timeout: 240
-      FunctionName: !Sub ${Prefix}CRS-Sender
-      Description: CRS -- Distributes Cost Reports according to Sending list from CRC
-      Role: !GetAtt SESRole.Arn
-      CodeUri: app/
-      Handler: app.lambda_handler
-      Runtime: python3.11
-      Architectures:
-        - x86_64
-      Environment:
-        Variables:
-          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
-          API_ROLE: arn:aws:iam::715146888639:role/dcodev
-          ProxyId: default
-          AWS_STS_REGIONAL_ENDPOINTS: regional
-
   CASTLambdasSG:
     Type: AWS::EC2::SecurityGroup
     DeletionPolicy: Delete
