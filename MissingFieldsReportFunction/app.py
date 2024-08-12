@@ -26,13 +26,11 @@ def lambda_handler(event, context):
         with open(event, 'r') as file:
             event = json.load(file)
 
-    # function to send the email with missing values
-
     sending_list = event
 
     # list of project that have to be sent to CO
     projects_co = []
-    for project in event:
+    for project in sending_list:
         if 'summaryreportcontact' in project['missing_fields']:
             projects_co.append(project['project_name'])
 
