@@ -15,6 +15,7 @@ client = boto3.client('lambda', region_name='eu-west-1')
 # TODO 
     # - add trigger for specific day. maybe https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
     # - make sure excel file is created with data
+    # - make bucket parameter stage dependant in save_missing_fields()
     # - invoke MissingFieldsReportFunction instead of CRS 
     # - make sure monitorin email is sent
     # - add default event in console : f.e {send_email:true}
