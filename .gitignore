@@ -217,6 +217,10 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+
+
+
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
