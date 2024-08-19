@@ -272,12 +272,17 @@ Resources:
     Properties: 
       Name: "TriggerMissingValuesCheck"
       Description: "Scheduled Rule To Invoke Lambda Function"
-      ScheduleExpression: cron(0 8 ? * 2 *) # "rate(10 minutes)"
+      ScheduleExpression: cron(0 12 ? * 2 *) # "rate(10 minutes)"
       State: "ENABLED"
       Targets: 
         - 
           Arn: "arn:aws:lambda:eu-west-1:471685057907:function:CAST-CDB-Updater"
           Id: "TargetFunctionCDBUpdater"
+          Input: |- 
+            {
+              "send_email": "False"
+            }
+
   PermissionForEventsToInvokeLambda: 
     Type: AWS::Lambda::Permission
     Properties: 
