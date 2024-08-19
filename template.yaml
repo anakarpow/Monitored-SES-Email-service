@@ -144,6 +144,7 @@ Resources:
           API_ROLE: !Ref ApiRole
           BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
           ProxyId: !Ref ProxyId
+          BUCKET_INPUT: !Ref BucketInput
 
   CASTLambdasSG:
     Type: AWS::EC2::SecurityGroup
