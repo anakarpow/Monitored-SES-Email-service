@@ -48,6 +48,14 @@ Parameters:
     Description: stage
     Type: String
 
+  ApiRole:
+    Type: String
+    Description: api role for updater function
+
+  ProxyId:
+    Type: String
+    Description: default proxy id
+
 Conditions:
   ProdResources: !Equals [!Ref Env, prod]
 
@@ -131,6 +139,11 @@ Resources:
         SubnetIds:
           - !Ref Subnet1
           - !Ref Subnet2
+      Environment:
+        Variables:
+          API_ROLE: !Ref ApiRole
+          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
+          ProxyId: !Ref ProxyId
 
   CASTLambdasSG:
     Type: AWS::EC2::SecurityGroup

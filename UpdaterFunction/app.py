@@ -43,7 +43,7 @@ def lambda_handler(event, context):
 
     save_missing_fields(is_local, sending_json, output_df, s3)
 
-    if event['send_email'] == True:
+    if event['send_email'] == "True":
 
         # invoke SES Lambda
         if is_local:
@@ -61,4 +61,4 @@ def lambda_handler(event, context):
 
 
 if __name__ == "__main__":
-    lambda_handler({"send_email": False}, None)
+    lambda_handler({"send_email": "False"}, None)
