@@ -48,6 +48,14 @@ Parameters:
     Description: stage
     Type: String
 
+  ApiRole:
+    Type: String
+    Description: api role for updater function
+
+  ProxyId:
+    Type: String
+    Description: default proxy id
+
 Conditions:
   ProdResources: !Equals [!Ref Env, prod]
 
@@ -131,6 +139,12 @@ Resources:
         SubnetIds:
           - !Ref Subnet1
           - !Ref Subnet2
+      Environment:
+        Variables:
+          API_ROLE: !Ref ApiRole
+          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
+          ProxyId: !Ref ProxyId
+          BUCKET_INPUT: !Ref BucketInput
 
   CASTLambdasSG:
     Type: AWS::EC2::SecurityGroup
@@ -250,26 +264,29 @@ Resources:
       ContentUri: ./shared
       CompatibleRuntimes:
         - python3.11
+
       RetentionPolicy: Delete
 
   ScheduledRule: 
     Type: AWS::Events::Rule
     Properties: 
-      Description: "ScheduledRule"
-      ScheduleExpression: cron(0 12 ? * 2 *) 
+      Name: "TriggerMissingValuesCheck"
+      Description: "Scheduled Rule To Invoke Lambda Function"
+      ScheduleExpression: cron(0 12 ? * 2 *) # "rate(10 minutes)"
       State: "ENABLED"
       Targets: 
         - 
-          Arn: 
-            Fn::GetAtt: 
-              - UpdatingFunction
-              - "Arn"
-          Id: "TargetFunctionV1"
+          Arn: "arn:aws:lambda:eu-west-1:471685057907:function:CAST-CDB-Updater"
+          Id: "TargetFunctionCDBUpdater"
+          Input: |- 
+            {
+              "send_email": "False"
+            }
 
   PermissionForEventsToInvokeLambda: 
     Type: AWS::Lambda::Permission
     Properties: 
-      FunctionName: !Ref UpdatingFunction
+      FunctionName: "CAST-CDB-Updater"
       Action: "lambda:InvokeFunction"
       Principal: "events.amazonaws.com"
       SourceArn: 
