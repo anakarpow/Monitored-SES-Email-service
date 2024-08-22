@@ -256,19 +256,20 @@ Resources:
     Type: AWS::Events::Rule
     Properties: 
       Description: "ScheduledRule"
-      ScheduleExpression: cron(0 12 ? * 2 *) # "rate(10 minutes)"
+      ScheduleExpression: cron(0 12 ? * 2 *) 
       State: "ENABLED"
       Targets: 
         - 
           Arn: 
             Fn::GetAtt: 
-              - "LambdaFunction"
+              - UpdatingFunction
               - "Arn"
           Id: "TargetFunctionV1"
+
   PermissionForEventsToInvokeLambda: 
     Type: AWS::Lambda::Permission
     Properties: 
-      FunctionName: !Ref "LambdaFunction"
+      FunctionName: !Ref UpdatingFunction
       Action: "lambda:InvokeFunction"
       Principal: "events.amazonaws.com"
       SourceArn: 
