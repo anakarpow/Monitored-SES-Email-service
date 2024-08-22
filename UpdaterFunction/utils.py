@@ -76,11 +76,8 @@ def extract_contact_and_account_data(data):
 
 def save_missing_fields(is_local, sending_json, output_df, s3):
     if is_local:
-        with open('test_data/draft_result.json', 'w') as file:
-            json.dump(sending_json, file)
-
         output_df[['project_name', 'missing_fields']].to_csv(
-            'test_data/draft_result.csv', index=False)
+            '../test_data/draft_result.csv', index=False)
         return
 
     else:
