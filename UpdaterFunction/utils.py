@@ -2,6 +2,7 @@ import pandas as pd
 from datetime import datetime
 import io
 import json
+import os
 
 
 def extract_contact_and_account_data(data):
@@ -85,7 +86,9 @@ def save_missing_fields(is_local, sending_json, output_df, s3):
         with io.BytesIO() as output:
             with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
                 output_df[['project_name', 'missing_fields']].to_excel(writer)
-                data = output.getvalue()
-                # TODO make bucket name stage dependant
-                s3.upload_fileobj(io.BytesIO(data), 'cast-output-dev',
-                                  'customer_data_updates/missing_fields_' + str(datetime.now().date()) + '.xlsx')
+            data = output.getvalue()
+        # TODO make bucket name stage dependant
+        # s3.upload_fileobj(io.BytesIO(data), 'cast-output-dev',
+        missing_fields_bucket = os.environ.get("BUCKET_INPUT")
+        s3.upload_fileobj(io.BytesIO(data), missing_fields_bucket,
+                            'customer_data_updates/missing_fields_' + str(datetime.now().date()) + '.xlsx')
