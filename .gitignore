@@ -279,5 +279,3 @@ updater/test_data/
 *.json
 
 updater/test_data
-
-*.csv

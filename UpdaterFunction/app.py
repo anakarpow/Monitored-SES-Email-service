@@ -1,8 +1,6 @@
 import os
 import boto3
 import json
-import pandas as pd
-from utils import extract_contact_and_account_data, save_missing_fields
 from utils import extract_contact_and_account_data, save_missing_fields
 from api_utils import query_and_return_dict
 
@@ -41,14 +39,13 @@ def lambda_handler(event, context):
             print('running local, not sending emails')
             return
         else:
-            return {'status': 'stopped before sending emails. TEST'}
             if any(len(i) for i in output_df['missing_fields']) > 0:
                 response = client.invoke(
                     FunctionName='CAST-MFR-Sender',
                     InvocationType='RequestResponse',
                     Payload=json.dumps(sending_json),
                 )
-            return
+            return 
 
 
 if __name__ == "__main__":
