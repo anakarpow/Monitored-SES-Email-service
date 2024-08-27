@@ -11,6 +11,7 @@ s3 = boto3.client('s3', region_name='eu-west-1')
 client = boto3.client('lambda', region_name='eu-west-1')
 
 
+
 def lambda_handler(event, context):
 
     # read sample data in local version
@@ -45,7 +46,7 @@ def lambda_handler(event, context):
                     InvocationType='RequestResponse',
                     Payload=json.dumps(sending_json),
                 )
-            return 
+            return
 
 
 if __name__ == "__main__":
