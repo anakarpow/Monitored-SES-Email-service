@@ -272,7 +272,7 @@ Resources:
     Properties: 
       Name: "TriggerMissingValuesCheck"
       Description: "Scheduled Rule To Invoke Lambda Function"
-      ScheduleExpression: cron(0 12 ? * 2 *) # "rate(10 minutes)"
+      ScheduleExpression: cron(0 12 ? * 6L *)
       State: "ENABLED"
       Targets: 
         - 
