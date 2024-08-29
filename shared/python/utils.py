@@ -1,3 +1,4 @@
+from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 import os
 import sys
 from datetime import datetime
@@ -14,10 +15,10 @@ is_local = os.environ.get("local")
 input_bucket = os.environ.get("BUCKET_INPUT")
 input_bucket_overview = os.environ.get("BUCKET_INPUT_OVERVIEW")
 
-from adresses import receiver_monitoring_email, sender, sender_monitoring_email
 
 ses_client = boto3.client("ses", region_name="eu-west-1")
 s3_client = boto3.client('s3')
+
 
 def monitor_sending(sending_list, success_list, failed_list):
     """
@@ -33,7 +34,7 @@ def monitor_sending(sending_list, success_list, failed_list):
         print("Failed email for following projects")
         for item in failed_list:
             item_key = get_item_key_name(item['delivery'])
-            
+
             print(f" {item['delivery'][item_key]}")
         status = 0
     else:
@@ -44,6 +45,7 @@ def monitor_sending(sending_list, success_list, failed_list):
     # to triggering function
     return {'status': status, 'failed_list': failed_list}
 
+
 def match_file(file_list, item):
     """
     matches item_key with file_list
@@ -52,11 +54,15 @@ def match_file(file_list, item):
     """
 
     item_key = get_item_key_name(item)
-
-    if (item['email'] == 0):
-        return 'MAILNOTFOUND'
-    if 'test' in item:
-        return 'TEST'
+    # except statement makes it reusable over several Lambdas
+    try:
+        if (item['CostCenter'] == '-'):
+            return 'COSTCENTERMISSING'
+    except KeyError:
+        if (item['email'] == 0):
+            return 'MAILNOTFOUND'
+        if 'test' in item:
+            return 'TEST'
     try:
         file_name = [
             report for report in file_list if item[item_key] in report][0]
@@ -69,6 +75,7 @@ def match_file(file_list, item):
     except ClientError as e:
         print(e)
         return 'FILENOTFOUND'
+
 
 def process_sending_list(event):
     """
@@ -91,7 +98,6 @@ def list_bucket_files_with_date(s3, bucket, event):
     """
     files = []
     response = s3.list_objects_v2(Bucket=bucket, Prefix=event['month'])
-
     for content in response.get('Contents', []):
         files.append(content.get('Key'))
     return files
@@ -149,7 +155,6 @@ def send_monitoring_email(success_list, failed_list):
 
 
 def get_item_key_name(item):
-
     """
         decides the key to be used dependend on the report type
     """
@@ -157,5 +162,5 @@ def get_item_key_name(item):
     item_key = 'project_name'
     if 'CostCenter' in item:
         item_key = 'CostCenter'
-    
+
     return item_key

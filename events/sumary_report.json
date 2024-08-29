@@ -5,25 +5,10 @@
             "email": "cast.ses.1@efs.at",
             "CostCenter": "1203"
         },
+
         {
             "email": "cast.ses.1@efs.at",
-            "CostCenter": "6083"
-        },
-        {
-            "email": "cast.ses.1@efs.at",
-            "CostCenter": "6281"
-        },
-        {
-            "email": "cast.ses.1@efs.at",
-            "CostCenter": "6161"
-        },
-        {
-            "email": "cast.ses.1@efs.at",
-            "CostCenter": "1700"
-        },
-        {
-            "email": "cast.ses.1@efs.at",
-            "CostCenter": "2100"
+            "CostCenter": "-"
         }
     ]
 }

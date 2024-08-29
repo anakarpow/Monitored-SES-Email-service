@@ -60,7 +60,7 @@ def send_summary_email_with_attachment(item):
     supports attachments but no fine tuning in multiple recipients
     accoridng to testing : all adresses are set as Bcc
     """
-    if (item['attachment'] == 'FILENOTFOUND') or (item['attachment'] == 'NOMATCHINGFILE') or (item['attachment'] == 'MAILNOTFOUND'):
+    if (item['attachment'] == 'FILENOTFOUND') or (item['attachment'] == 'NOMATCHINGFILE') or (item['attachment'] == 'MAILNOTFOUND') or (item['attachment'] == 'COSTCENTERMISSING'):
         item.pop('timestamp')
         return item
 
@@ -104,5 +104,3 @@ def send_summary_email_with_attachment(item):
     except Exception as e:
         print(e)
         return {}
-
-
