@@ -60,7 +60,7 @@ Resources:
       FunctionName: !Sub ${Prefix}CRS-Sender
       Description: CRS -- Distributes emails according to Sending list from CRC
       Role: !GetAtt SESRole.Arn
-      CodeUri: CostReportFunction/
+      CodeUri: SenderFunction/
       Handler: app.lambda_handler
       Runtime: python3.11
       Architectures:
