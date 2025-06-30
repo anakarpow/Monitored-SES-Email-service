@@ -7,7 +7,7 @@ from utils import (
     process_sending_list,
 )
 
-from utils_CostReport import (
+from SenderFunction.utils import (
     get_email_template,
     sending_loop,
 )
@@ -30,7 +30,7 @@ def lambda_handler(event, context):
 
     email_template = get_email_template(s3_client, input_bucket)
 
-    # get all CR for selected month > returns existing CR in S3
+    # get all files in S3 for selected month
     file_list = list_bucket_files_with_date(
         s3_client, bucket=input_bucket, event=event)
 
@@ -40,7 +40,6 @@ def lambda_handler(event, context):
     # iterate sending list and send emails, activates monitoring process
     sending_report = sending_loop(sending_list, file_list, email_template)
 
-    print('Finished')
     return sending_report
 
 

@@ -57,8 +57,8 @@ Resources:
     Properties:
       Timeout: 240
       MemorySize: 400
-      FunctionName: !Sub ${Prefix}CRS-Sender
-      Description: CRS -- Distributes emails according to Sending list from CRC
+      FunctionName: !Sub ${Prefix}Sender
+      Description: Distributes emails according to received sending list 
       Role: !GetAtt SESRole.Arn
       CodeUri: SenderFunction/
       Handler: app.lambda_handler
@@ -78,7 +78,7 @@ Resources:
     DeletionPolicy: Delete
     Properties:
       VpcId: !Ref VPCId
-      GroupDescription: DPP-CAST security group for Lambda actions
+      GroupDescription: security group for Lambda actions
       SecurityGroupEgress:
         - IpProtocol: -1
           CidrIp: 0.0.0.0/0
@@ -103,14 +103,14 @@ Resources:
   InvokingPolicy:
     Type: AWS::IAM::Policy
     Properties:
-      PolicyName: CASTTriggerPolicy
+      PolicyName: TriggerPolicy
       PolicyDocument:
         Statement:
           - Effect: Allow
             Action:
               - lambda:invokeFunction
             Resource:
-              - !GetAtt CostReportFunction.Arn
+              - !GetAtt Function.Arn
 
           - Effect: Allow
             Action:
@@ -152,11 +152,7 @@ Resources:
               ForAnyValue:StringEquals:
                 ses:FromAddress:
                   [
-                    ###############################################
-                    "dpp.clearing.office.vwag.r.wob@volkswagen.de",
-                    "cast.ses.2@efs.at",
-                    "cast.ses.1@efs.at",
-                    "extern.gregor.zopf@volkswagen.de",
+                  "test.ses.1@gmail.at"   
                   ]
       Roles:
         - Ref: SESRole
@@ -177,8 +173,7 @@ Resources:
             Resource:
               - !Sub arn:aws:s3:::${PrefixLowercase}*
               - !Sub arn:aws:s3:::${PrefixLowercase}*/*
-              - !Sub arn:aws:s3:::${Prefix}*
-              - !Sub arn:aws:s3:::${Prefix}*/*
+
       Roles:
         - Ref: SESRole
 
@@ -192,33 +187,3 @@ Resources:
         - python3.11
 
       RetentionPolicy: Delete
-
-  ScheduledRule: 
-    Type: AWS::Events::Rule
-    Properties: 
-      Name: "TriggerMissingValuesCheck"
-      Description: "Scheduled Rule To Invoke Lambda Function"
-      ScheduleExpression: cron(0 12 ? * 6L *)
-      State: "ENABLED"
-      #########################################
-      Targets: 
-        - 
-          Arn: "arn:aws:lambda:eu-west-1:471685057907:function:CAST-CDB-Updater"
-          Id: "TargetFunctionCDBUpdater"
-          Input: |- 
-            {
-              "send_email": "False"
-            }
-
-
-####################################################
-  PermissionForEventsToInvokeLambda: 
-    Type: AWS::Lambda::Permission
-    Properties: 
-      FunctionName: "CAST-CDB-Updater"
-      Action: "lambda:InvokeFunction"
-      Principal: "events.amazonaws.com"
-      SourceArn: 
-        Fn::GetAtt: 
-          - "ScheduledRule"
-          - "Arn"

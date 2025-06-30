@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 from pytest import mark
-from utils_CostReport import send_email_with_attachment, sending_loop
+from SenderFunction.utils import send_email_with_attachment, sending_loop
 
 attachement = '../data/sample.html'
 

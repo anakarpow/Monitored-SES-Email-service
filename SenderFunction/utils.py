@@ -24,7 +24,7 @@ s3_client = boto3.client('s3')
 
 def sending_loop(sending_list, file_list, email_template):
     """
-    iterates sending_list, matching CR by project name
+    iterates sending_list, matching file by project name
     sends email
     adds metadata on sending process 
     calls monitoring function
@@ -53,8 +53,7 @@ def sending_loop(sending_list, file_list, email_template):
 
 def send_email_with_attachment(item, email_template):
     """
-    supports attachments but no fine tuning in multiple recipients
-    accoridng to testing : all adresses are set as Bcc
+    compose and send email
     """
     if (item['attachment'] == 'FILE-NOT-FOUND') or (item['attachment'] == 'GET-ERROR') or (item['attachment'] == 'MAIL-NOT-FOUND'):
         item.pop('timestamp')

@@ -2,19 +2,20 @@
 
 ## Overview
 
-This project implements an AWS Lambda-based service for automated email distribution using Amazon SES. It is designed to process cost reports and send them to a list of recipients, with monitoring and reporting features for internal auditing. The solution is built for CAST and integrates with other Lambda functions for event-driven workflows.
-
+- This project aims to automate the distribution of files via email using AWS Lambda and Amazon SES. 
+- The solution integrates with other Lambda functions via event-driven workflows. It was designed to be activated by another Lambda function to complete a regular workflow.
+- The service processes a list of recipients, retrieves relevant cost report files from S3, and sends emails with attachments while monitoring the sending status for internal auditing purposes.
 ---
 
 ## Architecture
 
-- **Trigger:** The Lambda function is triggered by another Lambda (CRC) or scheduled events.
+- **Trigger:** The Lambda function is triggered by another Lambda or scheduled events.
 - **Input:** Receives an event containing a list of recipient addresses and metadata (see example below).
 - **Processing:**
-  - Finds matching cost report files in S3 for each recipient.
+  - Finds matching files in S3 for each recipient.
   - Sends emails with attachments via SES.
-  - Sends a monitoring email to the internal office with sending statistics and a report.
-- **Monitoring:** Generates and attaches an HTML report summarizing the sending status.
+- **Error Handling:** Handles bounces, complaints, and invalid addresses.
+- **Monitoring:** Generates and sends an HTML file containing sending statistics and a report for internal auditing.
 
 ---
 
@@ -46,7 +47,8 @@ The Lambda expects an event in the following format:
 
 ## Shared Code Between Lambdas
 
-Reusable code is provided in the python directory and packaged as a Lambda Layer (`SharedLayer`). This includes:
+Originally this project included several Lambda sending email for different purposes. They were removed in this showcase version. 
+To avoid duplication, common code was provided in the python directory and packaged as a Lambda Layer (`SharedLayer`). This includes:
 
 - **Email utilities:** Functions for formatting emails, generating monitoring reports, and sending emails with attachments.
 - **Monitoring:** HTML report generation for monitoring email status.
@@ -59,6 +61,11 @@ To use the shared code in your Lambda, ensure the layer is attached and set the 
 
 ## Testing
 
+
+### Testing Site
+
+- The project uses pytest to build a local testing setup with sample events and attachments.
+- Use the provided test scripts and sample data to simulate Lambda invocations and verify email delivery and error handling.
 ### Local Testing
 
 - Test files are located in the SenderFunction directory, e.g.:
@@ -72,16 +79,12 @@ source env.sh
 pytest SenderFunction/
 ```
 
-### Testing Site
-
-- The project includes a local testing setup with sample events and attachments.
-- Use the provided test scripts and sample data to simulate Lambda invocations and verify email delivery and error handling.
 
 ---
 
 ## Deployment
 
-- Deployment scripts are in scripts.
+- Deployment scripts are in `scripts`.
 - The CloudFormation/SAM template is template.yaml.
 - Build and deploy using AWS SAM CLI:
 
@@ -98,14 +101,3 @@ sam deploy --config-file deployment/samconfig.toml --config-env dev
 - Static code analysis and security scanning are integrated into the build pipeline (see `deployment/scripts`).
 
 ---
-
-## Goals
-
-- Read incoming event (see `summary_report.json` for example).
-- Find matching file in S3.
-- Send email with attachment to address.
-- Send monitoring email to internal office with sending stats.
-
----
-
-For more details, see the code and comments in each module.
