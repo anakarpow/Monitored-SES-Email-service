@@ -1,8 +1,7 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
-Description: CAST Email-sending application
+Description: Automatic Email-sending application
 
-# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
     Timeout: 120
@@ -37,36 +36,29 @@ Parameters:
   Prefix:
     Description: project prefix
     Type: String
-    Default: CAST-
+    Default: EMAIL-
 
   PrefixLowercase:
     Description: project prefix
     Type: String
-    Default: cast-
+    Default: email-
 
   Env:
     Description: stage
     Type: String
 
-  ApiRole:
-    Type: String
-    Description: api role for updater function
-
-  ProxyId:
-    Type: String
-    Description: default proxy id
 
 Conditions:
   ProdResources: !Equals [!Ref Env, prod]
 
 Resources:
-  CostReportFunction:
+  SenderFunction:
     Type: AWS::Serverless::Function
     Properties:
       Timeout: 240
       MemorySize: 400
       FunctionName: !Sub ${Prefix}CRS-Sender
-      Description: CRS -- Distributes Cost Reports according to Sending list from CRC
+      Description: CRS -- Distributes emails according to Sending list from CRC
       Role: !GetAtt SESRole.Arn
       CodeUri: CostReportFunction/
       Handler: app.lambda_handler
@@ -80,71 +72,6 @@ Resources:
           BUCKET_INPUT: !Ref BucketInput
           BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
 
-  SendingSummaryFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      Timeout: 240
-      MemorySize: 400
-      FunctionName: !Sub ${Prefix}SR-Sender
-      Description: SR -- Distributes Summary Reports according to Sending list from CRC
-      Role: !GetAtt SESRole.Arn
-      CodeUri: SummaryReportFunction/
-      Handler: app.lambda_handler
-      Runtime: python3.11
-      Architectures:
-        - x86_64
-      Layers:
-        - !Ref SharedLayer
-      Environment:
-        Variables:
-          BUCKET_INPUT: !Ref BucketInput
-          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
-
-  MissingFieldsReportFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      Timeout: 240
-      FunctionName: !Sub ${Prefix}MFR-Sender
-      Description: MFR -- Distributes Missing Field Reports according to Sending list from CRC
-      Role: !GetAtt SESRole.Arn
-      CodeUri: MissingFieldsReportFunction/
-      Handler: app.lambda_handler
-      Runtime: python3.11
-      Architectures:
-        - x86_64
-      Layers:
-        - !Ref SharedLayer
-      Environment:
-        Variables:
-          BUCKET_INPUT: !Ref BucketInput
-          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
-
-  UpdatingFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      FunctionName: !Sub ${Prefix}CDB-Updater
-      Description: CRS -- Finds the missing data
-      Role:
-        !If [
-          ProdResources,
-          arn:aws:iam::936022423514:role/CAST-billing,
-          arn:aws:iam::471685057907:role/vw-lambda-reporting-CostReportingFunctionRole-AXA0WJOBOLIW,
-        ]
-      CodeUri: UpdaterFunction/
-      Handler: app.lambda_handler
-      Runtime: python3.11
-      VpcConfig:
-        SecurityGroupIds:
-          - !GetAtt CASTLambdasSG.GroupId
-        SubnetIds:
-          - !Ref Subnet1
-          - !Ref Subnet2
-      Environment:
-        Variables:
-          API_ROLE: !Ref ApiRole
-          BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
-          ProxyId: !Ref ProxyId
-          BUCKET_INPUT: !Ref BucketInput
 
   CASTLambdasSG:
     Type: AWS::EC2::SecurityGroup
@@ -225,6 +152,7 @@ Resources:
               ForAnyValue:StringEquals:
                 ses:FromAddress:
                   [
+                    ###############################################
                     "dpp.clearing.office.vwag.r.wob@volkswagen.de",
                     "cast.ses.2@efs.at",
                     "cast.ses.1@efs.at",
@@ -251,8 +179,6 @@ Resources:
               - !Sub arn:aws:s3:::${PrefixLowercase}*/*
               - !Sub arn:aws:s3:::${Prefix}*
               - !Sub arn:aws:s3:::${Prefix}*/*
-              - !Sub arn:aws:s3:::vw-lambda-*
-              - !Sub arn:aws:s3:::vw-lambda-*/*
       Roles:
         - Ref: SESRole
 
@@ -274,6 +200,7 @@ Resources:
       Description: "Scheduled Rule To Invoke Lambda Function"
       ScheduleExpression: cron(0 12 ? * 6L *)
       State: "ENABLED"
+      #########################################
       Targets: 
         - 
           Arn: "arn:aws:lambda:eu-west-1:471685057907:function:CAST-CDB-Updater"
@@ -283,6 +210,8 @@ Resources:
               "send_email": "False"
             }
 
+
+####################################################
   PermissionForEventsToInvokeLambda: 
     Type: AWS::Lambda::Permission
     Properties: 

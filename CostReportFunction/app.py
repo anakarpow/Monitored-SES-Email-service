@@ -8,7 +8,6 @@ from utils import (
 )
 
 from utils_CostReport import (
-    check_if_test,
     get_email_template,
     sending_loop,
 )
@@ -30,12 +29,6 @@ def lambda_handler(event, context):
         with open(event, 'r') as file:
             event = json.load(file)
 
-    # if test event add marker to event
-    # one email sent to specified adress, without attachement
-    event = check_if_test(event)
-
-    # look in bucket for emailtext archive
-    # add logic to select the right one
     email_template = get_email_template(s3_client, input_bucket)
 
     # get all CR for selected month > returns existing CR in S3

@@ -33,7 +33,7 @@ def monitor_sending(sending_list, success_list, failed_list):
         print(f'Not all {len(sending_list)} email have been sent !')
         print("Failed email for following projects")
         for item in failed_list:
-            item_key = get_item_key_name(item['delivery'])
+            item_key = item['project_name']
 
             print(f" {item['delivery'][item_key]}")
         status = 0
@@ -53,34 +53,25 @@ def match_file(file_list, item):
     attachment key in event no longer needed
     """
 
-    item_key = get_item_key_name(item)
-    # except statement makes it reusable over several Lambdas
-    try:
-        if (item['CostCenter'] == '-'):
-            return 'COSTCENTERMISSING'
-    except KeyError:
-        if (item['email'] == 0):
-            return 'MAILNOTFOUND'
-        if 'test' in item:
-            return 'TEST'
+    # key to match file with adress
+    item_key = item['project_name']
     try:
         file_name = [
             report for report in file_list if item[item_key] in report][0]
     except IndexError:
         print(f"Could not find CR for {item[item_key]}.")
-        return 'NOMATCHINGFILE'
+        return 'NO-MATCHING-FILE'
     try:
         file = s3_client.get_object(Key=file_name, Bucket=input_bucket)
         return file
     except ClientError as e:
         print(e)
-        return 'FILENOTFOUND'
+        return 'GET-ERROR'
 
 
 def process_sending_list(event):
     """
     retrieves email list and adds timestamp
-    future potential data to b added here
     """
     # retrieve sending data from event and add timestamp
     sending_list = event['adresses']
@@ -109,22 +100,11 @@ def send_monitoring_email(success_list, failed_list):
     attaches list of failed emails
     """
 
-    remove_keys = ['project', 'forecast', 'cost_limit',
-                   'timestamp', 'project_name', 'email', 'CostCenter']
-    # remove info, return report dict
-    for failed_email, success_email in zip(failed_list, success_list):
-        for key in remove_keys:
-            try:
-                failed_email.pop(key)
-                success_email.pop(key)
-            except KeyError:
-                pass
-
     # sendig coordinates
     SENDER = sender_monitoring_email
     RECIPIENT = receiver_monitoring_email
     msg = MIMEMultipart()
-    msg["Subject"] = "This is CAST monitoring service: news about SES "
+    msg["Subject"] = "This is the email monitoring service"
     msg["From"] = SENDER
     msg["To"] = RECIPIENT
 
@@ -153,14 +133,3 @@ def send_monitoring_email(success_list, failed_list):
     print('Monitoring email sent')
     return
 
-
-def get_item_key_name(item):
-    """
-        decides the key to be used dependend on the report type
-    """
-
-    item_key = 'project_name'
-    if 'CostCenter' in item:
-        item_key = 'CostCenter'
-
-    return item_key
