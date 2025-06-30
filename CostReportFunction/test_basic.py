@@ -4,7 +4,7 @@ from datetime import datetime
 from pytest import mark
 from utils_CostReport import send_email_with_attachment
 
-attachement = '../data/sample_CR.html'
+attachement = '../data/sample.html'
 
 
 with open('events/test_event.json', 'r') as file:

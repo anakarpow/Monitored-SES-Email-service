@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -x
 
-ROLE_ARN=arn:aws:iam::471685057907:role/CAST-DeployerRole-dev
+ROLE_ARN=arn:aws:iam::21111111111111112:role/test-role
 OUTPUT_PROFILE=PIPE
 
 echo "Assuming role $ROLE_ARN"

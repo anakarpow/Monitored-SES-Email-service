@@ -1,19 +1,19 @@
 {
-    "month": "2024/01/Cost reports",
+    "month": "2024/01/",
     "adresses": [
         {
             "cost_limit": 10000.0,
             "email": 
-                "cast.ses.1@efs.at",
+                "test.ses.1@gmail.at",
             "forecast": 1747.06,
-            "project_name": "0800-Wolfsburg"
+            "project_name": "TestProject"
         },
         {
             "cost_limit": 10000.0,
             "email": 
-                "cast.ses.2@efs.at",
+                "test.ses.2@gmail.at",
             "forecast": 1747.06,
-            "project_name": "0800-Wolfsburg"
+            "project_name": "TestProject"
         }
 
     ]

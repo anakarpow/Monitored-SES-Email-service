@@ -1,39 +1,21 @@
 [
     {
         "email_adresses": [
-            "cast.ses.1@efs.at"
+            "test.ses.1@gmail.at"
         ],
-        "project_name": "Demo181201",
-        "missing_fields": [
-            "plant",
-            "sk",
-            "costcenterplant"
-        ]
+        "project_name": "TestProject"
     },
     {
         "email_adresses": [
-            "cast.ses.1@efs.at",
-            "cast.ses.2@efs.at"
+            "test.ses.1@gmail.at",
+            "test.ses.2@gmail.at"
         ],
-        "project_name": "Demo181201",
-        "missing_fields": [
-            "summaryreportcontact"
-        ]
+        "project_name": "TestProject"
     },
     {
         "email_adresses": [
-            "cast.ses.1@efs.at"
+            "test.ses.1@gmail.at"
         ],
-        "project_name": "Demo181201",
-        "missing_fields": [
-            "plant",
-            "sk",
-            "wanumber",
-            "businessserviceid",
-            "billingmethod",
-            "dppcentral",
-            "servicecenter",
-            "summaryreportcontact"
-        ]
+        "project_name": "TestProject"
     }
 ]

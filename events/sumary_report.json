@@ -1,13 +1,13 @@
 {
-    "month": "2024/01/Cost reports/SummaryReports/",
+    "month": "2024/01/",
     "adresses": [
         {
-            "email": "cast.ses.1@efs.at",
+            "email": "test.ses.1@gmail.at",
             "CostCenter": "1203"
         },
 
         {
-            "email": "cast.ses.1@efs.at",
+            "email": "test.ses.1@gmail.at",
             "CostCenter": "-"
         }
     ]

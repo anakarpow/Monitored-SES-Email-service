@@ -1,24 +1,15 @@
 
-# for test
-sender = 'extern.gregor.zopf@volkswagen.de'
-# for PROD
-# sender = 'dpp.clearing.office.vwag.r.wob@volkswagen.de'
-
 # for testing
-adress_list = ['cast.ses.2@efs.at', 'cast.ses.1@efs.at']
+sender = "sender_email@gmail.com"
+adress_list = ['email.ses.1@gmail.at', 'email.ses.2@gmail.at']
 
-# for testing
-wrong_adress_list = ['cat.ses.2@efs.at', 'cat.ses.1@efs.at']
+# wrong email list for testing
+adress_list = ['email.ses.1@gil.at', 'emails.2@gmail.at']
 
 bounce_adress = 'bounce@simulator.amazonses.com'
 
 complaint_adress = 'complaint@simulator.amazonses.com'
 
-# should be CAST.ses
-sender_monitoring_email = 'extern.gregor.zopf@volkswagen.de'
-
-# should be gregor Citrix
-# receiver_monitoring_email = 'dpp.clearing.office.vwag.r.wob@volkswagen.de'
-receiver_monitoring_email = 'cast.ses.1@efs.at'
-# 'extern.gregor.zopf@volkswagen.de'
-# 'dpp.clearing.office.vwag.r.wob@volkswagen.de'
+# for testing monitoring emails
+sender_monitoring_email = 'sender_monitoring_office@gmail.com'
+receiver_monitoring_email = 'sender_monitoring_office@gmail.com'
