@@ -73,7 +73,7 @@ Resources:
           BUCKET_INPUT_OVERVIEW: !Ref BucketInputOverview
 
 
-  CASTLambdasSG:
+  LambdasSG:
     Type: AWS::EC2::SecurityGroup
     DeletionPolicy: Delete
     Properties:
@@ -139,7 +139,7 @@ Resources:
   SESPolicy:
     Type: AWS::IAM::Policy
     Properties:
-      PolicyName: CASTSendPolicy
+      PolicyName: SendPolicy
       PolicyDocument:
         Statement:
           - Effect: Allow

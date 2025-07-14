@@ -2,9 +2,14 @@
 
 ## Overview
 
-- This project aims to automate the distribution of files via email using AWS Lambda and Amazon SES. 
-- The solution integrates with other Lambda functions via event-driven workflows. It was designed to be activated by another Lambda function to complete a regular workflow.
-- The service processes a list of recipients, retrieves relevant cost report files from S3, and sends emails with attachments while monitoring the sending status for internal auditing purposes.
+This project automates the distribution of files via email using AWS Lambda and Amazon SES.  
+The solution integrates with other Lambda functions via event-driven workflows. It was designed to be activated by another Lambda function to complete a regular workflow.
+
+The service processes a list of recipients, retrieves relevant cost report files from S3, and sends emails with attachments while monitoring the sending status for internal auditing purposes.
+It is designed to be used in a production environment, with features for error handling, monitoring, and compliance.
+
+Now, stripped of its original business logic, it serves as a showcase for how to build a robust email distribution service using AWS Lambda and SES.
+
 ---
 
 ## Architecture
